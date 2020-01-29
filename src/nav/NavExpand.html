@@ -1,0 +1,13 @@
+<md-toolbar class="iqs-nav-admin" ng-if="nav.expandedButton">
+	<md-list class="sidenav-list p0" pip-focused pip-focused-tabindex="10" pip-with-hidden="true">
+		<md-list-item class="no-border pip-sticky-nav-menu-item p0 pip-sticky-nav-expanded-button iqs-sticky-nav-expanded-button"
+		 ng-click="nav.onExpand()" ng-disabled="!nav.isCollapsed" tabindex="-1">
+
+			<md-icon class="pip-sticky-nav-menu-icon" md-svg-icon="icons:chevron-left" ng-if="nav.expanded">
+			</md-icon>
+			<md-icon class="pip-sticky-nav-menu-icon" md-svg-icon="icons:chevron-right" ng-if="!nav.expanded">
+			</md-icon>
+
+		</md-list-item>
+	</md-list>
+</md-toolbar>

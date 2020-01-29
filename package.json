@@ -1,0 +1,26 @@
+{
+    "name": "iqs-libs-clientshell-angular",
+    "version": "2.0.0",
+    "author": "iQuipsys Inc. <www.iquipsys.com>",
+    "description": "Shell for iQuipsys client microapplications in Angular",
+    "contributors": [
+        {
+            "name": "Sergey Seroukhov",
+            "email": "seroukhov@gmail.com"
+        },
+        {
+            "name": "Katerina Negrienko",
+            "email": "katya@negrienko.com"
+        }
+    ],
+    "keywords": [
+        "iquipsys",
+        "positron",
+        "shell"
+    ],
+    "noAnalyze": true,
+    "license": "MIT",
+    "private": false,
+    "dependencies": {},
+    "devDependencies": {}
+}
