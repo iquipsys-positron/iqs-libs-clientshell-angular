@@ -1,11 +1,11 @@
 function configStatisticsResources(pipRestProvider: pip.rest.IRestProvider) {
-    // resource, url, path, defaultParams, actions
-    pipRestProvider.registerOperation('statistics_counters', '/api/v1/statistics/counters');
-    pipRestProvider.registerOperation('statistics_section', '/api/v1/statistics/groups');
-    pipRestProvider.registerOperation('statistics', '/api/v1/statistics/:section/:name');
-    
+    pipRestProvider.registerOperation('statistics', '/api/v1/organizations/:org_id/statistics/:name', { org_id: '@org_id'});
 }
 
 angular
-    .module('pipStatisticsResources', [])
+    .module('iqsStatistics.Resource', ['pipCommonRest'])
     .config(configStatisticsResources);
+
+
+
+

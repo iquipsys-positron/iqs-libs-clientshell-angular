@@ -4,5 +4,5 @@ function configCountersResources(pipRestProvider: pip.rest.IRestProvider) {
 }
 
 angular
-    .module('pipCountersResources', [])
+    .module('iqsCounters.Resource', ['pipCommonRest'])
     .config(configCountersResources);

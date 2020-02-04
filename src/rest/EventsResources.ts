@@ -4,5 +4,5 @@ function configEventsResources(pipRestProvider: pip.rest.IRestProvider) {
 }
 
 angular
-    .module('pipEventsResources', [])
+    .module('pipEventsResources', ['pipCommonRest'])
     .config(configEventsResources);

@@ -1,42 +1,40 @@
-	<div class="layout-column flex layout-align-center-center" style="width: 100%; height: 100%; background-color: #eeeeee;" ng-if="shell.$loading">
-		<!-- <div class="loader"></div>
-		<img src="images/iqs-logo-color.svg" height="70" width="70" style="position: absolute; z-index: 1000"> -->
+<div
+	class="layout-column flex layout-align-center-center"
+	style="width: 100%; height: 100%; background-color: #eeeeee;"
+ 	ng-if="$ctrl.$loading">
 		<div style="padding: 16px; text-align: center;">
 			Application is loading. <br>Depending on your connection speed it might take a few minutes.
 		</div>
 	</div>
 
-<div class="layout-row h-stretch w-stretch" ng-if="!shell.$reset" ng-hide="shell.$loading">
-
+<div class="layout-row h-stretch w-stretch" ng-if="!$ctrl.$reset" ng-hide="$ctrl.$loading">
+	<!-- Toolbar and left menu -->
 	<div class="flex layout-column">
-		<pip-appbar ng-if="shell.showBar()">
+		<!-- Main toolbar -->
+		<pip-sidenav ng-if="$ctrl.showNav() && $ctrl.pipMedia('xs')">
+			<iqs-side-nav iqs-add="$ctrl.add"></iqs-side-nav>
+		</pip-sidenav>		
+		<pip-appbar ng-if="$ctrl.showBar()">
 			<pip-nav-icon pip-appbar-part="icon"></pip-nav-icon>
-			<img pip-appbar-part="logo" src="images/iqs-logo.svg" width="30" />
 			<pip-breadcrumb xxxclass="flex" pip-appbar-part="title:breadcrumb" pip-breakpoint="'gt-sm'"></pip-breadcrumb>
 
 			<div class="flex"></div>
-			<pip-search-bar pip-appbar-part="search"></pip-search-bar>
+			<iqs-appbar-organizations pip-appbar-part="organizations" iqs-add="$ctrl.add"></iqs-appbar-organizations>
 			<pip-primary-actions class="flex-fixed" pip-appbar-part="actions:primary"></pip-primary-actions>
-			<pip-language-picker class="flex-fixed" value="shell.language" pip-appbar-part="actions:language"></pip-language-picker>
+			<pip-language-picker class="flex-fixed" value="$ctrl.language" pip-appbar-part="actions:language"></pip-language-picker>
 			<pip-secondary-actions class="flex-fixed" pip-appbar-part="menu"></pip-secondary-actions>
 		</pip-appbar>
 		<div class="flex-fixed animated-tabs" ui-view="tabs"></div>
 
+		<!-- Left navbar and main -->
 		<div class="layout-row flex iqs-main-element">
-
-			<pip-sidenav ng-if="shell.showNav()">
-				<pip-nav-header pip-sidenav-part="user"></pip-nav-header>
-				<iqs-nav-admin-organization pip-sidenav-part="admin" iqs-add="shell.add"></iqs-nav-admin-organization>
-
-				<pip-nav-menu pip-sidenav-part="links" >
-				</pip-nav-menu> 
-
-				<!-- <iqs-nav-header-organization class="pip-nav-header" pip-sidenav-part="organization"></iqs-nav-header-organization>
-				
-				<iqs-nav-organizations class="pip-nav-menu" pip-sidenav-part="organizations"></iqs-nav-organizations>-->
-
+			<md-progress-linear class="populating-bar" ng-class="[$ctrl.iqsLoading.status === 'error' ? 'color-error-bg' : 'color-accent-bg' ]" md-mode="determinate" value="{{$ctrl.iqsLoading.progress}}" ng-if="$ctrl.iqsLoading.isLoading || $ctrl.iqsLoading.status === 'error'"></md-progress-linear>
+			<!-- Left navbar -->
+			<pip-sidenav ng-if="$ctrl.showNav() && $ctrl.pipMedia('gt-xs')">
+				<iqs-side-nav-menu></iqs-side-nav-menu>
 			</pip-sidenav>
 
+			<!-- Main content -->
 			<md-content id="content" class="flex">
 				<pip-main pip-container=".iqs-main-element">
 					<pip-main-body ui-view class="animated-view"></pip-main-body>
@@ -44,10 +42,10 @@
 			</md-content>
 		</div>
 	</div>
-	<pip-aux-panel ng-if="shell.showAux()">
-		<iqs-help-panel ng-if="shell.isOpenAux() && shell.panel == 'help'"></iqs-help-panel>
-		<iqs-global-help-panel ng-if="shell.isOpenAux() && shell.panel == 'global_help'"></iqs-global-help-panel>
-		<iqs-incidents-panel ng-if="shell.isOpenAux() && shell.panel == 'incident'"></iqs-incidents-panel>
-		<iqs-emergency-plans-panel ng-if="shell.isOpenAux() && shell.panel == 'emergency'"></iqs-emergency-plans-panel>
+	<pip-aux-panel ng-if="$ctrl.showAux()">
+		<iqs-help-panel ng-if="$ctrl.isOpenAux() && $ctrl.panel == 'help'"></iqs-help-panel>
+		<iqs-global-help-panel ng-if="$ctrl.isOpenAux() && $ctrl.panel == 'global_help'"></iqs-global-help-panel>
+		<iqs-incidents-panel ng-if="$ctrl.isOpenAux() && $ctrl.panel == 'incident'"></iqs-incidents-panel>
+		<iqs-emergency-plans-panel ng-if="$ctrl.isOpenAux() && $ctrl.panel == 'emergency'"></iqs-emergency-plans-panel>
 	</pip-aux-panel>
 </div>

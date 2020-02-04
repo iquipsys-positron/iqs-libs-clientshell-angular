@@ -20,6 +20,10 @@ function configOrganizationResources(pipRestProvider: pip.rest.IRestProvider) {
 
     pipRestProvider.registerOperation('demo_connect', '/api/v1/organizations/demo/roles', { user_id: '@user_id' });
     pipRestProvider.registerOperation('organizations_remove', '/api/v1/organizations/:org_id/remove', { org_id: '@org_id' });
+    pipRestProvider.registerResource('organizations_add_to_cluster', '/api/v1/clusters/add_organization/:org_id',
+        { org_id: '@org_id' },
+        { save: { method: 'POST' } }
+    );
 
     // this.registerRouteWithAuth('get', '/organizations', auth.signed(), organizations.getAuthorizedOrganizationsOperation());
     // this.registerRouteWithAuth('get', '/organizations/all', auth.admin(), organizations.getOrganizationsOperation());
@@ -35,5 +39,5 @@ function configOrganizationResources(pipRestProvider: pip.rest.IRestProvider) {
 }
 
 angular
-    .module('iqsShellOrganizations', [])
+    .module('iqsOrganizations.Resource', ['pipCommonRest'])
     .config(configOrganizationResources);

@@ -5,6 +5,12 @@ module.exports = {
         export: 'iqs.shell',
         standalone: 'iqs.shell'
     },
+    browserify: {
+        entries: [
+            // './temp/iqs-client-shell-html.min.js',
+            './src/index.ts',
+        ]
+    },
     build: {
         js: false,
         ts: false,
@@ -18,7 +24,7 @@ module.exports = {
     },
     file: {
         lib: [
-             '../node_modules/pip-admin-system/dist/**/*',
+            '../node_modules/pip-admin-system/dist/**/*',
             '../node_modules/pip-webui-all/dist/**/*',
             '../node_modules/pip-suite-all/dist/**/*'
         ]

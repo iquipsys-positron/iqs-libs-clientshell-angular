@@ -5,5 +5,5 @@ function configLoggingResources(pipRestProvider: pip.rest.IRestProvider) {
 }
 
 angular
-    .module('pipLoggingResources', [])
+    .module('pipLoggingResources', ['pipCommonRest'])
     .config(configLoggingResources);
