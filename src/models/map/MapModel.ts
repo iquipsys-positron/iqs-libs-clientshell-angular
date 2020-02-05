@@ -83,9 +83,9 @@ export class MapModel {
             (configs) => {
                 this._configs = configs;
                 this._configs.control = {};
-                if (!_.isEmpty(this.configs.center) && this.configs.zoom) {
+                if (!_.isEmpty(this._configs.center) && this._configs.zoom) {
                     if (successCallback) {
-                        successCallback(this.configs);
+                        successCallback(this._configs);
                     }
                 } else {
                     if (errorCallback) {

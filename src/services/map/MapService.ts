@@ -78,6 +78,7 @@ class MapService implements IMapService {
         private $rootScope: ng.IRootScopeService,
         private pipPictureData: pip.pictures.IPictureDataService
     ) {
+        "ngInject";
 
         this.getConfigsFromOrganization();
 

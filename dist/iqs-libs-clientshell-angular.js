@@ -13497,9 +13497,9 @@ var MapModel = (function () {
         this.iqsMapConfig.get(function (configs) {
             _this._configs = configs;
             _this._configs.control = {};
-            if (!_.isEmpty(_this.configs.center) && _this.configs.zoom) {
+            if (!_.isEmpty(_this._configs.center) && _this._configs.zoom) {
                 if (successCallback) {
-                    successCallback(_this.configs);
+                    successCallback(_this._configs);
                 }
             }
             else {
@@ -26849,6 +26849,7 @@ exports.GET_SITE_MAP_CONFIGS = 'iqsGetOrganizationMapConfigurations';
 var MapService = (function () {
     MapService.$inject = ['iqsOrganizationsData', 'iqsSmartZoom', 'iqsOrganization', 'pipIdentity', '$rootScope', 'pipPictureData'];
     function MapService(iqsOrganizationsData, iqsSmartZoom, iqsOrganization, pipIdentity, $rootScope, pipPictureData) {
+        "ngInject";
         var _this = this;
         this.iqsOrganizationsData = iqsOrganizationsData;
         this.iqsSmartZoom = iqsSmartZoom;
