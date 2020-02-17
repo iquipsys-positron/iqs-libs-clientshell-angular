@@ -21,6 +21,10 @@
             'Change avatar': 'Change avatar',
             'User settings': 'User settings',
             'Sign out': 'Sign out',
+            DEVICE_UDI_PHONE: 'Phone number',
+            DEVICE_UDI_PHONE_REQUIRED_ERROR: 'Phone number is required',
+            'CONFIG_PERSON_NAME': 'First and last name',
+            'SETTINGS_BASIC_INFO_DESCRIPTION': 'Position',
             MAP_STATUS_OBJECT_DANGER: 'in danger',
             MAP_STATUS_OBJECT_IMMOBILITY: 'immobility',
             MAP_STATUS_OBJECT_FREEZED: 'freezed',
@@ -49,6 +53,10 @@
             'Change avatar': "Изменить аватар",
             'User settings': 'Настройки пользователя',
             'Sign out': 'Выйти',
+            DEVICE_UDI_PHONE: 'Номер телефона',
+            DEVICE_UDI_PHONE_REQUIRED_ERROR: 'Необходимо указать номер телефона',
+            'CONFIG_PERSON_NAME': 'Имя и фамилия',
+            'SETTINGS_BASIC_INFO_DESCRIPTION': 'Должность',
             MAP_STATUS_OBJECT_DANGER: 'в опасности',
             MAP_STATUS_OBJECT_IMMOBILITY: 'неподвижный',
             MAP_STATUS_OBJECT_FREEZED: 'полностью неподвижный',
@@ -3619,12 +3627,6 @@ exports.ClientConfiguration = {
 };
 (function () {
     iqsShellConfig.$inject = ['$mdDateLocaleProvider', '$mdIconProvider', '$stateProvider', '$urlRouterProvider', 'pipActionsProvider', 'pipAnalyticsProvider', 'pipAuthStateProvider', 'pipAvatarDataProvider', 'pipEntryProvider', 'pipErrorPageConfigServiceProvider', 'pipPictureDataProvider', 'pipRestProvider'];
-    var serverUrls = {
-        production: 'https://facade.positron.iquipsys.net',
-        stage: 'http://api.positron.stage.iquipsys.net:30018',
-        local: 'http://localhost:8080',
-        localDocker: 'http://192.168.99.100:8080'
-    };
     function iqsShellConfig($mdDateLocaleProvider, $mdIconProvider, $stateProvider, $urlRouterProvider, pipActionsProvider, pipAnalyticsProvider, pipAuthStateProvider, pipAvatarDataProvider, pipEntryProvider, pipErrorPageConfigServiceProvider, pipPictureDataProvider, pipRestProvider) {
         $mdIconProvider.iconSet('icons', 'images/icons.svg', 512);
         $mdIconProvider.iconSet('iqs', 'images/iqs.svg', 512);
@@ -3650,7 +3652,6 @@ exports.ClientConfiguration = {
         };
         pipEntryProvider.fixedServerUrl = false;
         pipRestProvider.lockServerUrl = true;
-        pipRestProvider.serverUrl = serverUrls.localDocker;
         $urlRouterProvider.otherwise('/');
         $stateProvider
             .state(exports.ShellStateName, {

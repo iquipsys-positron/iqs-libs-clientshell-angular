@@ -13,12 +13,12 @@ export const ClientConfiguration = {
 };
 
 (() => {
-    const serverUrls: any = {
-        production: 'https://facade.positron.iquipsys.net',
-        stage: 'http://api.positron.stage.iquipsys.net:30018',
-        local: 'http://localhost:8080',
-        localDocker: 'http://192.168.99.100:8080'
-    };
+    // const serverUrls: any = {
+    //     production: 'https://facade.positron.iquipsys.net',
+    //     stage: 'http://api.positron.stage.iquipsys.net:30018',
+    //     local: 'http://localhost:8080',
+    //     localDocker: 'http://192.168.99.100:8080'
+    // };
 
     function iqsShellConfig(
         $mdDateLocaleProvider: angular.material.IDateLocaleProvider,
@@ -65,7 +65,7 @@ export const ClientConfiguration = {
 
         // Configure REST
         pipRestProvider.lockServerUrl = true;
-        pipRestProvider.serverUrl = serverUrls.localDocker;
+        // pipRestProvider.serverUrl = serverUrls.localDocker;
         $urlRouterProvider.otherwise('/');
         $stateProvider
             .state(ShellStateName, {

@@ -21,6 +21,10 @@
             'Change avatar': 'Change avatar',
             'User settings': 'User settings',
             'Sign out': 'Sign out',
+            DEVICE_UDI_PHONE: 'Phone number',
+            DEVICE_UDI_PHONE_REQUIRED_ERROR: 'Phone number is required',
+            'CONFIG_PERSON_NAME': 'First and last name',
+            'SETTINGS_BASIC_INFO_DESCRIPTION': 'Position',
 
             MAP_STATUS_OBJECT_DANGER: 'in danger',
             MAP_STATUS_OBJECT_IMMOBILITY: 'immobility',
@@ -52,6 +56,10 @@
             'Change avatar': "Изменить аватар",
             'User settings': 'Настройки пользователя',
             'Sign out': 'Выйти',
+            DEVICE_UDI_PHONE: 'Номер телефона',
+            DEVICE_UDI_PHONE_REQUIRED_ERROR: 'Необходимо указать номер телефона',
+            'CONFIG_PERSON_NAME': 'Имя и фамилия',
+            'SETTINGS_BASIC_INFO_DESCRIPTION': 'Должность',
 
             MAP_STATUS_OBJECT_DANGER: 'в опасности',
             MAP_STATUS_OBJECT_IMMOBILITY: 'неподвижный',

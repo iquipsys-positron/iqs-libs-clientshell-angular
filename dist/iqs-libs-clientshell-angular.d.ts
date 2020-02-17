@@ -259,14 +259,14 @@ export interface IObjectFormatService {
 
 
 
+
+
+
 export const UnauthorizedStateName: string;
 
 export {};
 
 function setUnauthorizedErrorPageResources($injector: angular.auto.IInjectorService): void;
-
-
-
 
 
 
@@ -307,6 +307,31 @@ export interface IAccountsDataProvider {
 }
 
 
+export {};
+
+export class Activity {
+    id: string;
+    time: Date;
+    type: string;
+    party: any;
+    ref_item: any;
+    ref_parents: any;
+    ref_party: any;
+    details: string;
+}
+
+export interface IActivitiesDataService {
+    readActivities(id: string, params: any, successCallback?: (data: any) => void, errorCallback?: (error: any) => void): angular.IPromise<any>;
+    createActivity(data: Activity, successCallback?: (data: Activity) => void, errorCallback?: (error: any) => void): void;
+    readActivity(id: string, successCallback?: (data: Activity) => void, errorCallback?: (error: any) => void): angular.IPromise<any>;
+    updateActivity(id: string, data: Activity, successCallback?: (data: Activity) => void, errorCallback?: (error: any) => void): void;
+    deleteActivity(id: string, successCallback?: () => void, errorCallback?: (error: any) => void): void;
+    removeActivity(params: any, successCallback?: any, errorCallback?: any): any;
+}
+export interface IActivitiesDataProvider {
+}
+
+
 export class Agreement {
     id?: string;
     number: string;
@@ -335,31 +360,6 @@ export interface IAgreementsDataService {
     verifyAgreement(number: string, successCallback?: (data: DataPage<Agreement>) => void, errorCallback?: (error: any) => void): void;
 }
 export interface IAgreementsDataProvider {
-}
-
-
-export {};
-
-export class Activity {
-    id: string;
-    time: Date;
-    type: string;
-    party: any;
-    ref_item: any;
-    ref_parents: any;
-    ref_party: any;
-    details: string;
-}
-
-export interface IActivitiesDataService {
-    readActivities(id: string, params: any, successCallback?: (data: any) => void, errorCallback?: (error: any) => void): angular.IPromise<any>;
-    createActivity(data: Activity, successCallback?: (data: Activity) => void, errorCallback?: (error: any) => void): void;
-    readActivity(id: string, successCallback?: (data: Activity) => void, errorCallback?: (error: any) => void): angular.IPromise<any>;
-    updateActivity(id: string, data: Activity, successCallback?: (data: Activity) => void, errorCallback?: (error: any) => void): void;
-    deleteActivity(id: string, successCallback?: () => void, errorCallback?: (error: any) => void): void;
-    removeActivity(params: any, successCallback?: any, errorCallback?: any): any;
-}
-export interface IActivitiesDataProvider {
 }
 
 
@@ -842,6 +842,55 @@ export interface IDevicesDataProvider {
 }
 
 
+export class EmergencyAction {
+    type: string;
+    params: any;
+}
+
+export const enum EmergencyActionParam {
+    Text = "text",
+    Name = "name",
+    Phone = "phone",
+    Page = "page",
+    Location = "locaton",
+    Position = "pos",
+    Uri = "uri"
+}
+
+export const enum EmergencyActionType {
+    Note = "note",
+    CallPhone = "call phone",
+    LocalLink = "local link",
+    GlobalLink = "global link"
+}
+
+export class EmergencyPlan {
+    id: string;
+    org_id: string;
+    name: string;
+    steps?: EmergencyStep[];
+}
+
+export {};
+
+export class EmergencyStep {
+    index: number;
+    name: string;
+    actions: EmergencyAction[];
+    checked?: boolean;
+}
+
+export interface IEmergencyPlansDataService {
+    readEmergencyPlan(id: string, successCallback?: (data: EmergencyPlan) => void, errorCallback?: (error: any) => void): angular.IPromise<any>;
+    readEmergencyPlans(params: any, successCallback?: (data: DataPage<EmergencyPlan>) => void, errorCallback?: (error: any) => void): angular.IPromise<any>;
+    createEmergencyPlan(data: EmergencyPlan, successCallback?: (data: EmergencyPlan) => void, errorCallback?: (error: any) => void): void;
+    updateEmergencyPlan(id: string, data: EmergencyPlan, successCallback?: (data: EmergencyPlan) => void, errorCallback?: (error: any) => void): void;
+    deleteEmergencyPlan(id: string, successCallback?: () => void, errorCallback?: (error: any) => void): void;
+}
+export interface IEmergencyPlansDataProvider extends ng.IServiceProvider {
+}
+
+
 export class EventRuleCondition {
     "max value"?: number;
     "min value"?: number;
@@ -928,55 +977,6 @@ export interface IEventRulesDataService {
     deleteEventRule(id: string, successCallback?: () => void, errorCallback?: (error: any) => void): void;
 }
 export interface IEventRulesDataProvider {
-}
-
-
-export class EmergencyAction {
-    type: string;
-    params: any;
-}
-
-export const enum EmergencyActionParam {
-    Text = "text",
-    Name = "name",
-    Phone = "phone",
-    Page = "page",
-    Location = "locaton",
-    Position = "pos",
-    Uri = "uri"
-}
-
-export const enum EmergencyActionType {
-    Note = "note",
-    CallPhone = "call phone",
-    LocalLink = "local link",
-    GlobalLink = "global link"
-}
-
-export class EmergencyPlan {
-    id: string;
-    org_id: string;
-    name: string;
-    steps?: EmergencyStep[];
-}
-
-export {};
-
-export class EmergencyStep {
-    index: number;
-    name: string;
-    actions: EmergencyAction[];
-    checked?: boolean;
-}
-
-export interface IEmergencyPlansDataService {
-    readEmergencyPlan(id: string, successCallback?: (data: EmergencyPlan) => void, errorCallback?: (error: any) => void): angular.IPromise<any>;
-    readEmergencyPlans(params: any, successCallback?: (data: DataPage<EmergencyPlan>) => void, errorCallback?: (error: any) => void): angular.IPromise<any>;
-    createEmergencyPlan(data: EmergencyPlan, successCallback?: (data: EmergencyPlan) => void, errorCallback?: (error: any) => void): void;
-    updateEmergencyPlan(id: string, data: EmergencyPlan, successCallback?: (data: EmergencyPlan) => void, errorCallback?: (error: any) => void): void;
-    deleteEmergencyPlan(id: string, successCallback?: () => void, errorCallback?: (error: any) => void): void;
-}
-export interface IEmergencyPlansDataProvider extends ng.IServiceProvider {
 }
 
 
@@ -1575,6 +1575,19 @@ export class Resolution {
 export {};
 
 
+export interface IRolesDataService {
+    readRoles(params: any, successCallback?: (data: string[]) => void, errorCallback?: (error: any) => void): angular.IPromise<any>;
+    deleteRole(params: any, successCallback?: (data: string[]) => void, errorCallback?: (error: any) => void): void;
+    createRole(params: any, data: any, successCallback?: (data: string[]) => void, errorCallback?: (error: any) => void): void;
+    grantRoles(id: string, body: string[], successCallback?: (data: string[]) => void, errorCallback?: (error: any) => void): angular.IPromise<any>;
+    revokeRoles(id: string, body: string[], successCallback?: (data: string[]) => void, errorCallback?: (error: any) => void): angular.IPromise<any>;
+}
+export interface IRolesDataProvider {
+}
+
+export {};
+
+
 export interface IRostersDataService {
     readRosters(params: any, successCallback?: (data: DataPage<Roster>) => void, errorCallback?: (error: any) => void): any;
     readRoster(id: string, successCallback?: (data: Roster) => void, errorCallback?: (error: any) => void): any;
@@ -1626,19 +1639,6 @@ export class Session {
     client: string;
     user: any;
     data: any;
-}
-
-export {};
-
-
-export interface IRolesDataService {
-    readRoles(params: any, successCallback?: (data: string[]) => void, errorCallback?: (error: any) => void): angular.IPromise<any>;
-    deleteRole(params: any, successCallback?: (data: string[]) => void, errorCallback?: (error: any) => void): void;
-    createRole(params: any, data: any, successCallback?: (data: string[]) => void, errorCallback?: (error: any) => void): void;
-    grantRoles(id: string, body: string[], successCallback?: (data: string[]) => void, errorCallback?: (error: any) => void): angular.IPromise<any>;
-    revokeRoles(id: string, body: string[], successCallback?: (data: string[]) => void, errorCallback?: (error: any) => void): angular.IPromise<any>;
-}
-export interface IRolesDataProvider {
 }
 
 export {};
@@ -2263,74 +2263,6 @@ export interface IEmergencyPlansViewModel {
 }
 
 
-
-export interface IOperationalEventTemplatesViewModel {
-    state: string;
-    isSort: boolean;
-    filter: any;
-    selectedIndex: number;
-    searchedCollection: string[];
-    read(successCallback?: (data: EventTemplate[]) => void, errorCallback?: (error: any) => void): any;
-    reload(successCallback?: (data: EventTemplate[]) => void, errorCallback?: (error: any) => void): void;
-    getCollection(localSearch?: string): EventTemplate[];
-    getTransaction(): pip.services.Transaction;
-    selectItem(index?: number): void;
-    getSelectedItem(): EventTemplate;
-    removeItem(id: string): void;
-    create(eventTemplate: EventTemplate, successCallback?: (data: EventTemplate) => void, errorCallback?: (error: any) => void): void;
-    deleteEventTemplateById(id: string, successCallback?: () => void, errorCallback?: (error: any) => void): void;
-    updateEventTemplateById(id: string, eventTemplate: EventTemplate, successCallback?: (data: EventTemplate) => void, errorCallback?: (error: any) => void): void;
-    clean(): void;
-}
-
-export class OperationalEventTemplatesModel {
-    private $log;
-    private $location;
-    private $timeout;
-    private pipTransaction;
-    private iqsOrganization;
-    private iqsEventTemplatesData;
-    private _state;
-    private _isSort;
-    private _filter;
-    private eventTemplate;
-    private eventTemplateFiltered;
-    private searchedCollection;
-    private selectIndex;
-    private selectedItem;
-    private transaction;
-    private start;
-    private take;
-    private localSearch;
-    constructor($log: ng.ILogService, $location: ng.ILocationService, $timeout: ng.ITimeoutService, pipTransaction: pip.services.ITransactionService, iqsOrganization: IOrganizationService, iqsEventTemplatesData: IEventTemplatesDataService);
-    private updateItemInCollection;
-    private collectionChanged;
-    private setState;
-    private prepareSearchedCollection;
-    private sortCollection;
-    private onRead;
-    private getFiltered;
-    private getFilter;
-    read(successCallback?: (data: EventTemplate[]) => void, errorCallback?: (error: any) => void): angular.IPromise<any>;
-    create(eventTemplate: EventTemplate, successCallback?: (data: EventTemplate) => void, errorCallback?: (error: any) => void): void;
-    delete(id: string, successCallback?: () => void, errorCallback?: (error: any) => void): void;
-    update(id: string, eventTemplate: EventTemplate, successCallback?: (data: EventTemplate) => void, errorCallback?: (error: any) => void): void;
-    filter: any;
-    isSort: boolean;
-    state: string;
-    get(localSearch?: string): EventTemplate[];
-    getSearchedCollection(): string[];
-    getSelectedIndex(): number;
-    getSelectedItem(): EventTemplate;
-    getTransaction(): pip.services.Transaction;
-    remove(id: string): void;
-    reload(successCallback?: (data: EventTemplate[]) => void, errorCallback?: (error: any) => void): void;
-    selectItem(index?: number): void;
-    clean(): void;
-}
-
-export {};
-
 export class EventRuleCalculator {
     private getLabelEntryEventRule;
     private getLabelExitEventRule;
@@ -2432,6 +2364,74 @@ export interface IEventRulesViewModel {
     clean(): void;
 }
 
+
+
+export interface IOperationalEventTemplatesViewModel {
+    state: string;
+    isSort: boolean;
+    filter: any;
+    selectedIndex: number;
+    searchedCollection: string[];
+    read(successCallback?: (data: EventTemplate[]) => void, errorCallback?: (error: any) => void): any;
+    reload(successCallback?: (data: EventTemplate[]) => void, errorCallback?: (error: any) => void): void;
+    getCollection(localSearch?: string): EventTemplate[];
+    getTransaction(): pip.services.Transaction;
+    selectItem(index?: number): void;
+    getSelectedItem(): EventTemplate;
+    removeItem(id: string): void;
+    create(eventTemplate: EventTemplate, successCallback?: (data: EventTemplate) => void, errorCallback?: (error: any) => void): void;
+    deleteEventTemplateById(id: string, successCallback?: () => void, errorCallback?: (error: any) => void): void;
+    updateEventTemplateById(id: string, eventTemplate: EventTemplate, successCallback?: (data: EventTemplate) => void, errorCallback?: (error: any) => void): void;
+    clean(): void;
+}
+
+export class OperationalEventTemplatesModel {
+    private $log;
+    private $location;
+    private $timeout;
+    private pipTransaction;
+    private iqsOrganization;
+    private iqsEventTemplatesData;
+    private _state;
+    private _isSort;
+    private _filter;
+    private eventTemplate;
+    private eventTemplateFiltered;
+    private searchedCollection;
+    private selectIndex;
+    private selectedItem;
+    private transaction;
+    private start;
+    private take;
+    private localSearch;
+    constructor($log: ng.ILogService, $location: ng.ILocationService, $timeout: ng.ITimeoutService, pipTransaction: pip.services.ITransactionService, iqsOrganization: IOrganizationService, iqsEventTemplatesData: IEventTemplatesDataService);
+    private updateItemInCollection;
+    private collectionChanged;
+    private setState;
+    private prepareSearchedCollection;
+    private sortCollection;
+    private onRead;
+    private getFiltered;
+    private getFilter;
+    read(successCallback?: (data: EventTemplate[]) => void, errorCallback?: (error: any) => void): angular.IPromise<any>;
+    create(eventTemplate: EventTemplate, successCallback?: (data: EventTemplate) => void, errorCallback?: (error: any) => void): void;
+    delete(id: string, successCallback?: () => void, errorCallback?: (error: any) => void): void;
+    update(id: string, eventTemplate: EventTemplate, successCallback?: (data: EventTemplate) => void, errorCallback?: (error: any) => void): void;
+    filter: any;
+    isSort: boolean;
+    state: string;
+    get(localSearch?: string): EventTemplate[];
+    getSearchedCollection(): string[];
+    getSelectedIndex(): number;
+    getSelectedItem(): EventTemplate;
+    getTransaction(): pip.services.Transaction;
+    remove(id: string): void;
+    reload(successCallback?: (data: EventTemplate[]) => void, errorCallback?: (error: any) => void): void;
+    selectItem(index?: number): void;
+    clean(): void;
+}
+
+export {};
 
 export class GuidesModel {
     private $location;
@@ -3931,6 +3931,24 @@ export interface IAccessConfigProvider {
 }
 
 
+export class GlobalHelpConfigSection {
+    title: string;
+    src: any;
+    text: string;
+    state?: string;
+    url?: string;
+    stateParams?: any;
+    stateName?: string;
+}
+export class GlobalHelpConfig {
+    sections: GlobalHelpConfigSection[];
+}
+export const GLOBAL_HELP: GlobalHelpConfig;
+
+
+
+
+
 export class ActionPageParams {
     title: string;
     state: string;
@@ -3959,24 +3977,6 @@ export interface IEmergencyPlanActionPageManager {
     getPageTitle(action: EmergencyAction): string;
     onPageClick(page: string): void;
 }
-
-
-export class GlobalHelpConfigSection {
-    title: string;
-    src: any;
-    text: string;
-    state?: string;
-    url?: string;
-    stateParams?: any;
-    stateName?: string;
-}
-export class GlobalHelpConfig {
-    sections: GlobalHelpConfigSection[];
-}
-export const GLOBAL_HELP: GlobalHelpConfig;
-
-
-
 
 
 
@@ -4232,6 +4232,18 @@ export interface ISmartZoomService {
 export {};
 
 
+export interface ITabStateService {
+    set(key: string, value: string): any;
+    get(key: string): any;
+}
+
+export class TabRecord {
+    [key: string]: string;
+}
+
+export {};
+
+
 export interface IStatisticsDateService {
     getStartDate(argName?: string, asString?: boolean): Date | string;
     getEndDate(argName?: string, asString?: boolean, t?: string): Date | string;
@@ -4267,18 +4279,6 @@ export class StatisticsFormatXTick {
     static shift(x: any): string;
     static range(x: any): string;
 }
-
-
-export interface ITabStateService {
-    set(key: string, value: string): any;
-    get(key: string): any;
-}
-
-export class TabRecord {
-    [key: string]: string;
-}
-
-export {};
 
 
 export interface ITypeCollectionsService {
@@ -4592,15 +4592,6 @@ export {};
 
 
 
-export class EmergencyPlanPanelState {
-    static List: string;
-    static Details: string;
-}
-
-
-export {};
-
-
 export {};
 
 export {};
@@ -4613,14 +4604,23 @@ export class GlobalHelpPanelState {
     static Details: string;
 }
 
+export class EmergencyPlanPanelState {
+    static List: string;
+    static Details: string;
+}
+
+
+export {};
+
+
 export const OrganizationsCreateStateName: string;
 
-
-export const OrganizationsConnectionStateName: string;
 
 export const OrganizationsStateName: string;
 export const OrganizationsHomeStateName: string;
 
+
+export const OrganizationsConnectionStateName: string;
 
 export const OrganizationInvitationStateName: string;
 
