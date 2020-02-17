@@ -3658,8 +3658,8 @@ exports.ClientConfiguration = {
             url: '/',
             abstract: true
         });
-        pipAuthStateProvider.unauthorizedState = 'landing';
-        pipAuthStateProvider.authorizedState = 'app';
+        pipAuthStateProvider.unauthorizedState = pipAuthStateProvider.unauthorizedState || 'landing';
+        pipAuthStateProvider.authorizedState = pipAuthStateProvider.authorizedState || 'app';
         pipAvatarDataProvider.DefaultInitial = '?';
         pipAvatarDataProvider.AvatarRoute = '/api/v1/blobs';
         pipPictureDataProvider.PictureRoute = '/api/v1/blobs';

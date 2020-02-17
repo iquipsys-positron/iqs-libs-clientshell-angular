@@ -238,6 +238,9 @@ export class SearchResultChecked extends SearchResult {
 }
 
 
+
+
+
 export {};
 
 export interface IEventRuleFormatService {
@@ -259,16 +262,11 @@ export interface IObjectFormatService {
 
 
 
-
-
-
 export const UnauthorizedStateName: string;
 
 export {};
 
 function setUnauthorizedErrorPageResources($injector: angular.auto.IInjectorService): void;
-
-
 
 
 export class AccessRole {
@@ -307,31 +305,6 @@ export interface IAccountsDataProvider {
 }
 
 
-export {};
-
-export class Activity {
-    id: string;
-    time: Date;
-    type: string;
-    party: any;
-    ref_item: any;
-    ref_parents: any;
-    ref_party: any;
-    details: string;
-}
-
-export interface IActivitiesDataService {
-    readActivities(id: string, params: any, successCallback?: (data: any) => void, errorCallback?: (error: any) => void): angular.IPromise<any>;
-    createActivity(data: Activity, successCallback?: (data: Activity) => void, errorCallback?: (error: any) => void): void;
-    readActivity(id: string, successCallback?: (data: Activity) => void, errorCallback?: (error: any) => void): angular.IPromise<any>;
-    updateActivity(id: string, data: Activity, successCallback?: (data: Activity) => void, errorCallback?: (error: any) => void): void;
-    deleteActivity(id: string, successCallback?: () => void, errorCallback?: (error: any) => void): void;
-    removeActivity(params: any, successCallback?: any, errorCallback?: any): any;
-}
-export interface IActivitiesDataProvider {
-}
-
-
 export class Agreement {
     id?: string;
     number: string;
@@ -363,6 +336,31 @@ export interface IAgreementsDataProvider {
 }
 
 
+export {};
+
+export class Activity {
+    id: string;
+    time: Date;
+    type: string;
+    party: any;
+    ref_item: any;
+    ref_parents: any;
+    ref_party: any;
+    details: string;
+}
+
+export interface IActivitiesDataService {
+    readActivities(id: string, params: any, successCallback?: (data: any) => void, errorCallback?: (error: any) => void): angular.IPromise<any>;
+    createActivity(data: Activity, successCallback?: (data: Activity) => void, errorCallback?: (error: any) => void): void;
+    readActivity(id: string, successCallback?: (data: Activity) => void, errorCallback?: (error: any) => void): angular.IPromise<any>;
+    updateActivity(id: string, data: Activity, successCallback?: (data: Activity) => void, errorCallback?: (error: any) => void): void;
+    deleteActivity(id: string, successCallback?: () => void, errorCallback?: (error: any) => void): void;
+    removeActivity(params: any, successCallback?: any, errorCallback?: any): any;
+}
+export interface IActivitiesDataProvider {
+}
+
+
 export class Application {
     id: string;
     name: MultiString;
@@ -390,6 +388,39 @@ export interface IApplicationsDataService {
     deleteApplication(id: string, successCallback?: (data: any) => void, errorCallback?: (error: any) => void): any;
 }
 export interface IApplicationsDataProvider {
+}
+
+
+export class Beacon {
+    id: string;
+    shortUDI?: string;
+    org_id: string;
+    udi: string;
+    type?: string;
+    label?: string;
+    center?: any;
+    radius?: number;
+}
+
+export {};
+
+export const enum BeaconType {
+    Unknown = "unknown",
+    AltBeacon = "altbeacon",
+    iBeacon = "ibeacon",
+    EddyStoneUdi = "eddystone-udi"
+}
+
+export interface IBeaconsDataService {
+    readBeacon(params: any, successCallback?: (data: Beacon) => void, errorCallback?: (error: any) => void): angular.IPromise<any>;
+    readBeacons(params: any, successCallback?: (data: DataPage<Beacon>) => void, errorCallback?: (error: any) => void): angular.IPromise<any>;
+    createBeacon(data: Beacon, successCallback?: (data: Beacon) => void, errorCallback?: (error: any) => void): void;
+    updateBeacon(id: string, data: Beacon, successCallback?: (data: Beacon) => void, errorCallback?: (error: any) => void): void;
+    deleteBeacon(id: string, successCallback?: () => void, errorCallback?: (error: any) => void): void;
+    verifyBeaconUdi(params: any, successCallback?: (data: any) => void, errorCallback?: (error: any) => void): void;
+    calculatePosition(params: any, successCallback?: (data?: any) => void, errorCallback?: (error?: any) => void): void;
+}
+export interface IBeaconsDataProvider extends ng.IServiceProvider {
 }
 
 
@@ -427,39 +458,6 @@ export class ObjectAttendance {
     start_time: string;
     end_time: string;
 }
-
-export class Beacon {
-    id: string;
-    shortUDI?: string;
-    org_id: string;
-    udi: string;
-    type?: string;
-    label?: string;
-    center?: any;
-    radius?: number;
-}
-
-export {};
-
-export const enum BeaconType {
-    Unknown = "unknown",
-    AltBeacon = "altbeacon",
-    iBeacon = "ibeacon",
-    EddyStoneUdi = "eddystone-udi"
-}
-
-export interface IBeaconsDataService {
-    readBeacon(params: any, successCallback?: (data: Beacon) => void, errorCallback?: (error: any) => void): angular.IPromise<any>;
-    readBeacons(params: any, successCallback?: (data: DataPage<Beacon>) => void, errorCallback?: (error: any) => void): angular.IPromise<any>;
-    createBeacon(data: Beacon, successCallback?: (data: Beacon) => void, errorCallback?: (error: any) => void): void;
-    updateBeacon(id: string, data: Beacon, successCallback?: (data: Beacon) => void, errorCallback?: (error: any) => void): void;
-    deleteBeacon(id: string, successCallback?: () => void, errorCallback?: (error: any) => void): void;
-    verifyBeaconUdi(params: any, successCallback?: (data: any) => void, errorCallback?: (error: any) => void): void;
-    calculatePosition(params: any, successCallback?: (data?: any) => void, errorCallback?: (error?: any) => void): void;
-}
-export interface IBeaconsDataProvider extends ng.IServiceProvider {
-}
-
 
 export class ControlObject {
     id: string;
@@ -1575,6 +1573,8 @@ export class Resolution {
 export {};
 
 
+
+
 export interface IRolesDataService {
     readRoles(params: any, successCallback?: (data: string[]) => void, errorCallback?: (error: any) => void): angular.IPromise<any>;
     deleteRole(params: any, successCallback?: (data: string[]) => void, errorCallback?: (error: any) => void): void;
@@ -1643,6 +1643,30 @@ export class Session {
 
 export {};
 
+
+export interface IShiftsDataService {
+    readShifts(params: any, successCallback?: (data: DataPage<Shift>) => void, errorCallback?: (error: any) => void): any;
+    readShift(id: string, successCallback?: (data: Shift) => void, errorCallback?: (error: any) => void): any;
+    saveShift(data: Shift, successCallback?: (data: Shift) => void, errorCallback?: (error: any) => void): any;
+    updateShift(id: string, data: Shift, successCallback?: (data: Shift) => void, errorCallback?: (error: any) => void): any;
+    deleteShift(id: string, successCallback?: (data: any) => void, errorCallback?: (error: any) => void): any;
+}
+export interface IShiftsDataProvider {
+}
+
+export class Shift {
+    id: string;
+    org_id: string;
+    name: string;
+    deleted?: boolean;
+    start: number;
+    duration: number;
+    startDate?: Date;
+    endDate?: Date;
+}
+
+export {};
+
 export class EmailSettings {
     id?: string;
     name?: string;
@@ -1691,30 +1715,6 @@ export class SmsSettings {
     ver_expire_time?: Date;
     custom_hdr: any;
     custom_dat: any;
-}
-
-export {};
-
-
-export interface IShiftsDataService {
-    readShifts(params: any, successCallback?: (data: DataPage<Shift>) => void, errorCallback?: (error: any) => void): any;
-    readShift(id: string, successCallback?: (data: Shift) => void, errorCallback?: (error: any) => void): any;
-    saveShift(data: Shift, successCallback?: (data: Shift) => void, errorCallback?: (error: any) => void): any;
-    updateShift(id: string, data: Shift, successCallback?: (data: Shift) => void, errorCallback?: (error: any) => void): any;
-    deleteShift(id: string, successCallback?: (data: any) => void, errorCallback?: (error: any) => void): any;
-}
-export interface IShiftsDataProvider {
-}
-
-export class Shift {
-    id: string;
-    org_id: string;
-    name: string;
-    deleted?: boolean;
-    start: number;
-    duration: number;
-    startDate?: Date;
-    endDate?: Date;
 }
 
 export {};
@@ -3184,6 +3184,49 @@ export class ObjectStatesModel extends ObjectStatesAbstractModel {
 export {};
 
 
+export interface IOrganizationsViewModel {
+    initOrganizations(successCallback?: (data: any[]) => void, errorCallback?: (error: any) => void): any;
+    organizations: Organization[];
+    state: string;
+    getOrganizationById(id: string): any;
+    updateOrganization(organization: Organization, successCallback: (Organization: any) => void, errorCallback: (error: any) => void): void;
+    generateCode(id: string, successCallback?: (data: any) => void, errorCallback?: (error: any) => void): any;
+    deleteOrganization(data: Organization, successCallback?: (data: Organization) => void, errorCallback?: (error: any) => void): any;
+    createOrganization(data: Organization, successCallback?: (data: Organization) => void, errorCallback?: (error: any) => void): any;
+    clean(): void;
+    demoConnect(params: any, successCallback?: (data: any) => void, errorCallback?: (error: any) => void): any;
+    removeOrganization(id: string, successCallback?: (data: Organization) => void, errorCallback?: (error: any) => void): any;
+    getUserOrganizations(): Organization[];
+    getTransaction(): pip.services.Transaction;
+}
+
+export class OrganizationsModel {
+    private $location;
+    private iqsOrganizationsData;
+    private pipRest;
+    private pipIdentity;
+    state: string;
+    private _transaction;
+    allOrganizations: Organization[];
+    constructor(pipTransaction: pip.services.ITransactionService, $location: ng.ILocationService, iqsOrganizationsData: IOrganizationsDataService, pipRest: pip.rest.IRestService, pipIdentity: pip.services.IIdentityService);
+    private updateIdentity;
+    private setState;
+    getOrganizations(successCallback?: (data: Organization[]) => void, errorCallback?: (error: any) => void): void;
+    getOrganizationById(id: string): Organization;
+    private getOrganizationCallback;
+    updateOrganization(data: Organization, successCallback?: (data: Organization) => void, errorCallback?: (error: any) => void): void;
+    createOrganization(data: Organization, successCallback?: (data: Organization) => void, errorCallback?: (error: any) => void): void;
+    deleteOrganization(data: Organization, successCallback?: (data: Organization) => void, errorCallback?: (error: any) => void): void;
+    demoConnect(params: any, successCallback?: (data: any) => void, errorCallback?: (error: any) => void): void;
+    removeOrganization(id: string, successCallback?: (data: any) => void, errorCallback?: (error: any) => void): void;
+    readonly transaction: pip.services.Transaction;
+    clean(): void;
+    getUserOrganizations(): Organization[];
+}
+
+export {};
+
+
 export interface IOperationalEventsViewModel {
     state: string;
     isSort: boolean;
@@ -3298,49 +3341,6 @@ export {};
 export {};
 
 
-export interface IOrganizationsViewModel {
-    initOrganizations(successCallback?: (data: any[]) => void, errorCallback?: (error: any) => void): any;
-    organizations: Organization[];
-    state: string;
-    getOrganizationById(id: string): any;
-    updateOrganization(organization: Organization, successCallback: (Organization: any) => void, errorCallback: (error: any) => void): void;
-    generateCode(id: string, successCallback?: (data: any) => void, errorCallback?: (error: any) => void): any;
-    deleteOrganization(data: Organization, successCallback?: (data: Organization) => void, errorCallback?: (error: any) => void): any;
-    createOrganization(data: Organization, successCallback?: (data: Organization) => void, errorCallback?: (error: any) => void): any;
-    clean(): void;
-    demoConnect(params: any, successCallback?: (data: any) => void, errorCallback?: (error: any) => void): any;
-    removeOrganization(id: string, successCallback?: (data: Organization) => void, errorCallback?: (error: any) => void): any;
-    getUserOrganizations(): Organization[];
-    getTransaction(): pip.services.Transaction;
-}
-
-export class OrganizationsModel {
-    private $location;
-    private iqsOrganizationsData;
-    private pipRest;
-    private pipIdentity;
-    state: string;
-    private _transaction;
-    allOrganizations: Organization[];
-    constructor(pipTransaction: pip.services.ITransactionService, $location: ng.ILocationService, iqsOrganizationsData: IOrganizationsDataService, pipRest: pip.rest.IRestService, pipIdentity: pip.services.IIdentityService);
-    private updateIdentity;
-    private setState;
-    getOrganizations(successCallback?: (data: Organization[]) => void, errorCallback?: (error: any) => void): void;
-    getOrganizationById(id: string): Organization;
-    private getOrganizationCallback;
-    updateOrganization(data: Organization, successCallback?: (data: Organization) => void, errorCallback?: (error: any) => void): void;
-    createOrganization(data: Organization, successCallback?: (data: Organization) => void, errorCallback?: (error: any) => void): void;
-    deleteOrganization(data: Organization, successCallback?: (data: Organization) => void, errorCallback?: (error: any) => void): void;
-    demoConnect(params: any, successCallback?: (data: any) => void, errorCallback?: (error: any) => void): void;
-    removeOrganization(id: string, successCallback?: (data: any) => void, errorCallback?: (error: any) => void): void;
-    readonly transaction: pip.services.Transaction;
-    clean(): void;
-    getUserOrganizations(): Organization[];
-}
-
-export {};
-
-
 export interface IResolutionsViewModel {
     state: string;
     isSort: boolean;
@@ -3412,53 +3412,6 @@ export class ResolutionsModel {
 export {};
 
 
-export interface ISettingsViewModel {
-    isPopulated: boolean;
-    settings: any;
-    read(successCallback?: (data: any) => void, errorCallback?: (error: any) => void): void;
-    reload(successCallback?: (data: any) => void, errorCallback?: (error: any) => void): void;
-    create(settings: any, successCallback?: (settings: any) => void, errorCallback?: (error: any) => void): void;
-    update(settings: any, successCallback?: (settings: any) => void, errorCallback?: (error: any) => void): void;
-    getTransaction(): pip.services.Transaction;
-    saveKey(key: string, value: any, successCallback?: (data: any) => void, errorCallback?: (error: any) => void): void;
-    getSettingsBy(prefix: string): SettingsUncover[];
-    deleteSettingsBy(settings: any, prefix: string): any;
-    clean(): void;
-}
-
-export class SettingsModel {
-    private $log;
-    private $rootScope;
-    private pipTransaction;
-    private pipSettingsData;
-    private pipIdentity;
-    private _settings;
-    private _isPopulated;
-    private transaction;
-    constructor($log: ng.ILogService, $rootScope: ng.IRootScopeService, pipTransaction: pip.services.ITransactionService, pipSettingsData: pip.system.ISettingsDataService, pipIdentity: pip.services.IIdentityService);
-    private settingsChanged;
-    private onRead;
-    update(settings: any, successCallback?: (settings: any) => void, errorCallback?: (error: any) => void): void;
-    create(settings: any, successCallback?: (settings: any) => void, errorCallback?: (error: any) => void): void;
-    read(successCallback?: (data: any) => void, errorCallback?: (error: any) => void): angular.IPromise<any>;
-    saveKey(key: string, value: any, successCallback?: (data: any) => void, errorCallback?: (error: any) => void): void;
-    readonly settings: any;
-    getTransaction(): pip.services.Transaction;
-    reload(successCallback?: (data: any) => void, errorCallback?: (error: any) => void): void;
-    getSettingsBy(prefix: string): SettingsUncover[];
-    deleteSettingsBy(settings: any, prefix: string): any;
-    readonly isPopulated: boolean;
-    clean(): void;
-}
-
-export class SettingsUncover {
-    key: string;
-    value: string;
-}
-
-export {};
-
-
 export interface IShiftsViewModel {
     initShifts(filter?: string, successCallback?: (data: Shift[]) => void, errorCallback?: (error: any) => void): any;
     filterShifts(filter: string): any;
@@ -3509,6 +3462,53 @@ export class ShiftsModel {
     updateShift(data: Shift, callback?: (item: any) => void, errorCallback?: (err: any) => void): void;
     selectItem(index?: number): void;
     clean(): void;
+}
+
+export {};
+
+
+export interface ISettingsViewModel {
+    isPopulated: boolean;
+    settings: any;
+    read(successCallback?: (data: any) => void, errorCallback?: (error: any) => void): void;
+    reload(successCallback?: (data: any) => void, errorCallback?: (error: any) => void): void;
+    create(settings: any, successCallback?: (settings: any) => void, errorCallback?: (error: any) => void): void;
+    update(settings: any, successCallback?: (settings: any) => void, errorCallback?: (error: any) => void): void;
+    getTransaction(): pip.services.Transaction;
+    saveKey(key: string, value: any, successCallback?: (data: any) => void, errorCallback?: (error: any) => void): void;
+    getSettingsBy(prefix: string): SettingsUncover[];
+    deleteSettingsBy(settings: any, prefix: string): any;
+    clean(): void;
+}
+
+export class SettingsModel {
+    private $log;
+    private $rootScope;
+    private pipTransaction;
+    private pipSettingsData;
+    private pipIdentity;
+    private _settings;
+    private _isPopulated;
+    private transaction;
+    constructor($log: ng.ILogService, $rootScope: ng.IRootScopeService, pipTransaction: pip.services.ITransactionService, pipSettingsData: pip.system.ISettingsDataService, pipIdentity: pip.services.IIdentityService);
+    private settingsChanged;
+    private onRead;
+    update(settings: any, successCallback?: (settings: any) => void, errorCallback?: (error: any) => void): void;
+    create(settings: any, successCallback?: (settings: any) => void, errorCallback?: (error: any) => void): void;
+    read(successCallback?: (data: any) => void, errorCallback?: (error: any) => void): angular.IPromise<any>;
+    saveKey(key: string, value: any, successCallback?: (data: any) => void, errorCallback?: (error: any) => void): void;
+    readonly settings: any;
+    getTransaction(): pip.services.Transaction;
+    reload(successCallback?: (data: any) => void, errorCallback?: (error: any) => void): void;
+    getSettingsBy(prefix: string): SettingsUncover[];
+    deleteSettingsBy(settings: any, prefix: string): any;
+    readonly isPopulated: boolean;
+    clean(): void;
+}
+
+export class SettingsUncover {
+    key: string;
+    value: string;
 }
 
 export {};
@@ -3931,24 +3931,6 @@ export interface IAccessConfigProvider {
 }
 
 
-export class GlobalHelpConfigSection {
-    title: string;
-    src: any;
-    text: string;
-    state?: string;
-    url?: string;
-    stateParams?: any;
-    stateName?: string;
-}
-export class GlobalHelpConfig {
-    sections: GlobalHelpConfigSection[];
-}
-export const GLOBAL_HELP: GlobalHelpConfig;
-
-
-
-
-
 export class ActionPageParams {
     title: string;
     state: string;
@@ -3977,6 +3959,24 @@ export interface IEmergencyPlanActionPageManager {
     getPageTitle(action: EmergencyAction): string;
     onPageClick(page: string): void;
 }
+
+
+export class GlobalHelpConfigSection {
+    title: string;
+    src: any;
+    text: string;
+    state?: string;
+    url?: string;
+    stateParams?: any;
+    stateName?: string;
+}
+export class GlobalHelpConfig {
+    sections: GlobalHelpConfigSection[];
+}
+export const GLOBAL_HELP: GlobalHelpConfig;
+
+
+
 
 
 
@@ -4070,46 +4070,6 @@ export enum LoadingStatus {
 }
 
 
-export class MapConfigs {
-    map?: any;
-    zoom: number;
-    center: any;
-    events: any;
-    draggable?: boolean;
-    control?: any;
-    embededMap?: EmbededMap;
-    mapId?: string;
-}
-export class EmbededMap {
-    embededData?: any;
-    embededSrc?: any;
-    map_north?: number;
-    map_south?: number;
-    map_west?: number;
-    map_east?: number;
-}
-export interface IMapService {
-    zoom: number;
-    center: any;
-    polylineOptions: any;
-    organizationConfigs: MapConfigs;
-    organizationCenter: any;
-    orgId: string;
-    get(callback?: (configs?: MapConfigs) => void): any;
-    getConfigsFromOrganization(callback?: (configs?: MapConfigs) => void, zoom?: number): void;
-    addEvent(eventName: string, eventCallback: any): void;
-    removeEvent(eventName: string): void;
-    watchDragAndZoom(): void;
-    unwatchDragAndZoom(): void;
-    addCenterChangeCallback(callback: Function): void;
-    addZoomChangeCallback(callback: Function): void;
-    radiusToZoom(radius: number): number;
-    clean(): any;
-}
-
-
-export let GET_SITE_MAP_CONFIGS: string;
-
 export class formattedMapIcon {
     url: string;
     scaledSize: any;
@@ -4175,6 +4135,46 @@ export class ObjectConfigs {
 
 export {};
 
+export class MapConfigs {
+    map?: any;
+    zoom: number;
+    center: any;
+    events: any;
+    draggable?: boolean;
+    control?: any;
+    embededMap?: EmbededMap;
+    mapId?: string;
+}
+export class EmbededMap {
+    embededData?: any;
+    embededSrc?: any;
+    map_north?: number;
+    map_south?: number;
+    map_west?: number;
+    map_east?: number;
+}
+export interface IMapService {
+    zoom: number;
+    center: any;
+    polylineOptions: any;
+    organizationConfigs: MapConfigs;
+    organizationCenter: any;
+    orgId: string;
+    get(callback?: (configs?: MapConfigs) => void): any;
+    getConfigsFromOrganization(callback?: (configs?: MapConfigs) => void, zoom?: number): void;
+    addEvent(eventName: string, eventCallback: any): void;
+    removeEvent(eventName: string): void;
+    watchDragAndZoom(): void;
+    unwatchDragAndZoom(): void;
+    addCenterChangeCallback(callback: Function): void;
+    addZoomChangeCallback(callback: Function): void;
+    radiusToZoom(radius: number): number;
+    clean(): any;
+}
+
+
+export let GET_SITE_MAP_CONFIGS: string;
+
 
 export let OrganizationRootVar: string;
 export let OrganizationChangedEvent: string;
@@ -4232,18 +4232,6 @@ export interface ISmartZoomService {
 export {};
 
 
-export interface ITabStateService {
-    set(key: string, value: string): any;
-    get(key: string): any;
-}
-
-export class TabRecord {
-    [key: string]: string;
-}
-
-export {};
-
-
 export interface IStatisticsDateService {
     getStartDate(argName?: string, asString?: boolean): Date | string;
     getEndDate(argName?: string, asString?: boolean, t?: string): Date | string;
@@ -4279,6 +4267,18 @@ export class StatisticsFormatXTick {
     static shift(x: any): string;
     static range(x: any): string;
 }
+
+
+export interface ITabStateService {
+    set(key: string, value: string): any;
+    get(key: string): any;
+}
+
+export class TabRecord {
+    [key: string]: string;
+}
+
+export {};
 
 
 export interface ITypeCollectionsService {
@@ -4592,6 +4592,15 @@ export {};
 
 
 
+export class EmergencyPlanPanelState {
+    static List: string;
+    static Details: string;
+}
+
+
+export {};
+
+
 export {};
 
 export {};
@@ -4604,23 +4613,14 @@ export class GlobalHelpPanelState {
     static Details: string;
 }
 
-export class EmergencyPlanPanelState {
-    static List: string;
-    static Details: string;
-}
-
-
-export {};
-
-
 export const OrganizationsCreateStateName: string;
 
+
+export const OrganizationsConnectionStateName: string;
 
 export const OrganizationsStateName: string;
 export const OrganizationsHomeStateName: string;
 
-
-export const OrganizationsConnectionStateName: string;
 
 export const OrganizationInvitationStateName: string;
 

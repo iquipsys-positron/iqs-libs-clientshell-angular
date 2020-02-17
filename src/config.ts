@@ -74,8 +74,8 @@ export const ClientConfiguration = {
             });
 
         // Configure auth states
-        pipAuthStateProvider.unauthorizedState = 'landing';
-        pipAuthStateProvider.authorizedState = 'app';
+        pipAuthStateProvider.unauthorizedState = pipAuthStateProvider.unauthorizedState || 'landing';
+        pipAuthStateProvider.authorizedState = pipAuthStateProvider.authorizedState || 'app';
 
         // Configure BLOB paths
         pipAvatarDataProvider.DefaultInitial = '?';
