@@ -3625,6 +3625,45 @@ exports.ClientConfiguration = {
     RemoveOrganizationNav: true,
     AddToDemo: true
 };
+var ApplicationConfig = (function () {
+    function ApplicationConfig() {
+    }
+    return ApplicationConfig;
+}());
+exports.ApplicationConfig = ApplicationConfig;
+exports.applicationConfigDefault = {
+    id: 'unknown',
+    productName: 'iQuipsys Positron',
+    favoritesGroupName: 'favourites',
+    defaultFavoritesIds: [
+        'iqs_positron_monitoring',
+        'iqs_positron_retrospective',
+        'iqs_positron_schedule',
+        'iqs_positron_incidents'
+    ]
+};
+var SessionConfig = (function () {
+    function SessionConfig() {
+    }
+    return SessionConfig;
+}());
+exports.SessionConfig = SessionConfig;
+exports.defaultSessionConfig = {
+    authorizedState: 'app',
+    unautorizedState: 'landing',
+    serverUrl: '/',
+};
+var ShellModuleConfig = (function () {
+    function ShellModuleConfig() {
+    }
+    return ShellModuleConfig;
+}());
+exports.ShellModuleConfig = ShellModuleConfig;
+exports.defaultShellModuleConfig = {
+    application: exports.applicationConfigDefault,
+    mock: false,
+    session: exports.defaultSessionConfig
+};
 (function () {
     iqsShellConfig.$inject = ['$mdDateLocaleProvider', '$mdIconProvider', '$stateProvider', '$urlRouterProvider', 'pipActionsProvider', 'pipAnalyticsProvider', 'pipAuthStateProvider', 'pipAvatarDataProvider', 'pipEntryProvider', 'pipErrorPageConfigServiceProvider', 'pipPictureDataProvider', 'pipRestProvider'];
     function iqsShellConfig($mdDateLocaleProvider, $mdIconProvider, $stateProvider, $urlRouterProvider, pipActionsProvider, pipAnalyticsProvider, pipAuthStateProvider, pipAvatarDataProvider, pipEntryProvider, pipErrorPageConfigServiceProvider, pipPictureDataProvider, pipRestProvider) {
@@ -3672,9 +3711,31 @@ exports.ClientConfiguration = {
             return m.isValid() ? m.format('L') : '';
         };
     }
+    var cfgm;
+    var requires = ['pipCommonRest', 'pipErrors', 'pipErrors.Unauthorized'];
+    try {
+        cfgm = angular.module('iqsConfig');
+        requires.forEach(function (r) {
+            if (!cfgm.requires.includes(r)) {
+                cfgm.requires.push(r);
+            }
+        });
+    }
+    catch (err) {
+        cfgm = angular.module('iqsConfig', requires).constant('SHELL_RUNTIME_CONFIG', exports.defaultShellModuleConfig);
+    }
+    cfgm.config(['$injector', 'pipErrorPageConfigServiceProvider', 'pipAuthStateProvider', 'pipRestProvider', function ($injector, pipErrorPageConfigServiceProvider, pipAuthStateProvider, pipRestProvider) {
+        var SHELL_RUNTIME_CONFIG = $injector.has('SHELL_RUNTIME_CONFIG') ? $injector.get('SHELL_RUNTIME_CONFIG') : exports.defaultShellModuleConfig;
+        var config = _.defaultsDeep(SHELL_RUNTIME_CONFIG, exports.defaultShellModuleConfig);
+        pipRestProvider.serverUrl = config.session.serverUrl;
+        pipAuthStateProvider.unauthorizedState = config.session.unautorizedState;
+        pipAuthStateProvider.authorizedState = config.session.authorizedState;
+        pipErrorPageConfigServiceProvider.configs.NoConnection.RedirectSateDefault = pipAuthStateProvider.authorizedState;
+    }]);
     angular
         .module('iqsShell.Config', [
         'ngCookies',
+        'iqsConfig',
         'pipEntry', 'pipCommonRest', 'pipPictures', 'pipDocuments', 'pipMaps',
         'iqsTheme', 'pipTheme',
         'pipLayout', 'pipNav', 'pipDialogs', 'pipBehaviors', 'pipControls',

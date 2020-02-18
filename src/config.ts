@@ -12,6 +12,50 @@ export const ClientConfiguration = {
     AddToDemo: true
 };
 
+export class ApplicationConfig {
+    public id: string;
+    public productName?: string;
+    public favoritesGroupName: string;
+    public defaultFavoritesIds: string[];
+}
+
+export const applicationConfigDefault: ApplicationConfig = {
+    id: 'unknown',
+    productName: 'iQuipsys Positron',
+    favoritesGroupName: 'favourites',
+    defaultFavoritesIds: [
+        'iqs_positron_monitoring',
+        'iqs_positron_retrospective',
+        'iqs_positron_schedule',
+        'iqs_positron_incidents'
+    ]
+};
+
+export class SessionConfig {
+    authorizedState?: string;
+    unautorizedState?: string;
+    serverUrl?: string;
+}
+
+export const defaultSessionConfig: SessionConfig = {
+    authorizedState: 'app',
+    unautorizedState: 'landing',
+    serverUrl: '/',
+};
+
+export class ShellModuleConfig {
+    application?: ApplicationConfig;
+    mock?: boolean;
+    session?: SessionConfig;
+    [key: string]: any;
+}
+
+export const defaultShellModuleConfig = {
+    application: applicationConfigDefault,
+    mock: false,
+    session: defaultSessionConfig
+};
+
 (() => {
     // const serverUrls: any = {
     //     production: 'https://facade.positron.iquipsys.net',
@@ -103,10 +147,40 @@ export const ClientConfiguration = {
         };
     }
 
+    let cfgm: ng.IModule;
+    const requires = ['pipCommonRest', 'pipErrors', 'pipErrors.Unauthorized'];
+
+    try {
+        cfgm = angular.module('iqsConfig');
+        requires.forEach(r => {
+            if (!cfgm.requires.includes(r)) { cfgm.requires.push(r); }
+        });
+    } catch (err) {
+        cfgm = angular.module('iqsConfig', requires).constant('SHELL_RUNTIME_CONFIG', defaultShellModuleConfig);
+    }
+
+    cfgm.config(
+        function (
+            $injector: ng.auto.IInjectorService,
+            pipErrorPageConfigServiceProvider: pip.errors.IErrorPageConfigProvider,
+            pipAuthStateProvider: pip.rest.IAuthStateProvider,
+            pipRestProvider: pip.rest.IRestProvider
+        ) {
+            const SHELL_RUNTIME_CONFIG = $injector.has('SHELL_RUNTIME_CONFIG') ? $injector.get('SHELL_RUNTIME_CONFIG') : defaultShellModuleConfig;
+            const config: ShellModuleConfig = _.defaultsDeep(SHELL_RUNTIME_CONFIG, defaultShellModuleConfig);
+            pipRestProvider.serverUrl = config.session.serverUrl;
+            pipAuthStateProvider.unauthorizedState = config.session.unautorizedState;
+            pipAuthStateProvider.authorizedState = config.session.authorizedState;
+            pipErrorPageConfigServiceProvider.configs.NoConnection.RedirectSateDefault = pipAuthStateProvider.authorizedState;
+        }
+    );
+
     angular
         .module('iqsShell.Config', [
             // lib
             'ngCookies',
+            // main config
+            'iqsConfig',
 
             // suite
             'pipEntry', 'pipCommonRest', 'pipPictures', 'pipDocuments', 'pipMaps',
