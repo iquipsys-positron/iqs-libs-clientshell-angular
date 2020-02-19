@@ -1,4 +1,4 @@
-import { Organization } from '../../data';
+import { Organization, UserRole } from '../../data';
 
 export let OrganizationRootVar = "$organization";
 export let OrganizationChangedEvent = "iqsOrganizationEventChanged";
@@ -7,6 +7,7 @@ export let regestryOrgIdKey = "org_id";
 export interface IOrganizationService {
     organization: Organization;
     orgId: string;
+    role: UserRole;
     canAddOrganization: boolean;
     canRemoveOrganization: boolean;
     isDemo: boolean;

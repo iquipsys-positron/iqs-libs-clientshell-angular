@@ -1,10 +1,12 @@
 import { MultiString } from '../../common/MultiString';
+import { UserRole } from '../sessions/UserRole';
 
 export class Application {
     public id: string;
     public name: MultiString;
     public description?: MultiString;
     public product: string;
+    public role?: UserRole;
     public group?: string;
     public copyrights?: string;
     public url?: string;

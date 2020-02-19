@@ -625,7 +625,7 @@ var SearchResultChecked = (function (_super) {
     return SearchResultChecked;
 }(services_1.SearchResult));
 exports.SearchResultChecked = SearchResultChecked;
-},{"../../services":455}],7:[function(require,module,exports){
+},{"../../services":456}],7:[function(require,module,exports){
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 var IncidentsResolutionDialogParams = (function () {
@@ -876,7 +876,7 @@ angular
     .controller('iqsMultiSelectDialogController', MultiSelectDialogController);
 require("./MultiSelectDialogService");
 require("./MultiSelectDialogStrings");
-},{"../../../services":455,"./IMultiSelectDialogService":12,"./MultiSelectDialogService":14,"./MultiSelectDialogStrings":15}],14:[function(require,module,exports){
+},{"../../../services":456,"./IMultiSelectDialogService":12,"./MultiSelectDialogService":14,"./MultiSelectDialogStrings":15}],14:[function(require,module,exports){
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 var MultiSelectDialogService = (function () {
@@ -1119,7 +1119,7 @@ angular
     .controller('iqsSendSignalDialogController', SendSignalDialogController);
 require("./SendSignalDialogService");
 require("./SendSignalDialogStrings");
-},{"../../../data":176,"../../../services":455,"./SendSignalDialogService":18,"./SendSignalDialogStrings":19}],18:[function(require,module,exports){
+},{"../../../data":176,"../../../services":456,"./SendSignalDialogService":18,"./SendSignalDialogStrings":19}],18:[function(require,module,exports){
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 var SendSignalDialogService = (function () {
@@ -1291,7 +1291,7 @@ require("../../services/type_collections/TypeCollectionsService");
         .module('iqsFormats.Object', ['iqsTypeCollections.Service'])
         .service('iqsObjectFormat', ObjectFormatService);
 })();
-},{"../../services/type_collections/TypeCollectionsService":490}],24:[function(require,module,exports){
+},{"../../services/type_collections/TypeCollectionsService":491}],24:[function(require,module,exports){
 "use strict";
 formatObjectSubtitleFilter.$inject = ['iqsObjectFormat'];
 Object.defineProperty(exports, "__esModule", { value: true });
@@ -1760,7 +1760,7 @@ var StatisticsCollectionsService = (function () {
     angular.module('iqsStatistics.CollectionsService', [])
         .service('iqsStatisticsCollectionsService', StatisticsCollectionsService);
 }
-},{"../../../services/global_search/SearchObjectTypes":443}],37:[function(require,module,exports){
+},{"../../../services/global_search/SearchObjectTypes":444}],37:[function(require,module,exports){
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 var StatisticsDataCollectionItem = (function () {
@@ -2331,7 +2331,7 @@ angular.module('iqsStatisticsFilterPanel', [
     template: "\n        <div class=\"iqs-filter-panel-container layout-row divider-bottom lp24-flex rp24-flex\">\n            <div class=\"flex\" ng-if=\"$ctrl.pipMedia('gt-sm')\">\n                <!-- params -->\n                <div class=\"text-caption rm4 param-block\" ng-if=\"$ctrl.isParamsFilter\">\n                    <md-input-container class=\"md-block iqs-medium-select hide-md-errors-spacer m0\">\n                        <md-select class=\"flex\" aria-label=\"RULES\" ng-change=\"$ctrl.refreshStatistics()\" ng-disabled=\"$ctrl.ngDisabled\" ng-model=\"$ctrl.paramsFilter\">\n                            <md-option ng-value=\"opt.id\" ng-repeat=\"opt in $ctrl.paramsCollection track by opt.id\">\n                                {{ ::opt.name | translate }}\n                            </md-option>\n                        </md-select>\n                    </md-input-container>\n                </div>\n\n                <div class=\"text-caption rm4 param-block\" ng-if=\"$ctrl.isEventRuleFilter\">\n                    <md-input-container class=\"md-block iqs-medium-select hide-md-errors-spacer m0\">\n                        <md-select class=\"flex\" aria-label=\"RULES\" ng-change=\"$ctrl.refreshStatistics()\" ng-disabled=\"$ctrl.ngDisabled\" ng-model=\"$ctrl.ruleFilter\">\n                            <md-option ng-value=\"rule.id\" ng-repeat=\"rule in $ctrl.rulesCollection track by rule.id\">\n                                {{ ::rule.name }}\n                            </md-option>\n                        </md-select>\n                    </md-input-container>\n                </div>\n                <!--rule action-->\n                <div class=\"text-caption rm4 param-block\" ng-if=\"$ctrl.isActionFilter\">\n                    <md-input-container class=\"md-block iqs-medium-select hide-md-errors-spacer m0\">\n                        <md-select class=\"flex\" aria-label=\"RULES_ACTION\" ng-change=\"$ctrl.refreshStatistics()\" ng-disabled=\"$ctrl.ngDisabled\" ng-model=\"$ctrl.ruleAction\">\n                            <md-option ng-value=\"action.id\" ng-repeat=\"action in $ctrl.ruleActionsCollection track by action.id\">\n                                {{ ::action.name }}\n                            </md-option>\n                        </md-select>\n                    </md-input-container>\n                </div>\n                <!--zones-->\n                <div class=\"text-caption rm4 param-block\" ng-if=\"$ctrl.isZoneFilter\">\n                    <md-input-container class=\"md-block iqs-medium-select hide-md-errors-spacer m0\">\n                        <md-select class=\"flex\" aria-label=\"ZONES\" ng-change=\"$ctrl.refreshStatistics()\" ng-disabled=\"$ctrl.ngDisabled\" ng-model=\"$ctrl.zoneFilter\">\n                            <md-option ng-value=\"zone.id\" ng-repeat=\"zone in $ctrl.zonesCollection track by zone.id\">\n                                {{ ::zone.name }}\n                            </md-option>\n                        </md-select>\n                    </md-input-container>\n                </div>\n                <!--objects-->\n                <div class=\"text-caption rm4 param-block\" ng-if=\"$ctrl.isObjectFilter\">\n                    <md-input-container class=\"md-block iqs-medium-select hide-md-errors-spacer m0\">\n                        <md-select class=\"flex\" aria-label=\"OBJECTS\" ng-change=\"$ctrl.refreshStatistics()\" ng-disabled=\"$ctrl.ngDisabled\" ng-model=\"$ctrl.objectFilter\">\n                            <md-option ng-value=\"object.id\" ng-repeat=\"object in $ctrl.objectsCollection track by object.id\">\n                                {{ ::object.name }}\n                            </md-option>\n                        </md-select>\n                    </md-input-container>\n                </div>\n                <!--devices-->\n                <div class=\"text-caption rm4 param-block\" ng-if=\"$ctrl.isDeviceFilter\">\n                    <md-input-container class=\"md-block iqs-medium-select hide-md-errors-spacer m0\">\n                        <md-select class=\"flex\" aria-label=\"DEVICE\" ng-change=\"$ctrl.refreshStatistics()\" ng-disabled=\"$ctrl.ngDisabled\" ng-model=\"$ctrl.deviceFilter\">\n                            <md-option ng-value=\"device.id\" ng-repeat=\"device in $ctrl.devicesCollection track by device.id\">\n                                {{ ::device.name }}\n                            </md-option>\n                        </md-select>\n                    </md-input-container>\n                </div>\n\n                <!--date periods-->\n                <div class=\"text-caption rm4 param-block\" ng-if=\"$ctrl.isDatePeriod\">\n                    <md-input-container class=\"md-block iqs-small-select hide-md-errors-spacer  m0\">\n                        <md-select class=\"flex\" aria-label=\"Status\" ng-model=\"$ctrl.datePeriod\" ng-disabled=\"$ctrl.ngDisabled\" ng-change=\"$ctrl.changeDatePeriod()\">\n                            <md-option ng-value=\"opt.id\" ng-repeat=\"opt in $ctrl.dateFilters track by opt.id\">\n                                {{ ::opt.name | translate }}\n                            </md-option>\n                        </md-select>\n                    </md-input-container>\n                </div>\n\n                <div class=\"text-caption rm4 param-block\" ng-if=\"$ctrl.datePeriod != 'range'\">\n                    <md-input-container class=\"md-block flex tm0 bm0 iqs-stats-datepicker\">\n                        <md-datepicker md-hide-icons=\"calendar\" class=\"text-caption rm0 tm4 {{ $ctrl.datePeriod == 'Weekly' ? 'iqs-week' : '' }} {{ $ctrl.openDatePicker ? '' : 'iqs-active-date color-accent' }}\"\n                            ng-model=\"$ctrl.startDate\" aria-label=\"START_DATE\" ng-change=\"$ctrl.onCalendarDateChange()\">\n                        </md-datepicker>\n                    </md-input-container>\n                </div>\n\n                <div class=\"text-caption\" ng-if=\"$ctrl.datePeriod == 'range'\">\n                    <div class=\"text-caption rm4 param-block\">\n                        <md-input-container  class=\"md-block flex tm0 bm0 iqs-stats-datepicker\">\n                            <md-datepicker class=\"w-stretch \" md-hide-icons=\"calendar\" aria-label=\"TIME\" ng-change=\"$ctrl.startDateTimeChanged($ctrl.startDate)\"\n                                ng-model=\"$ctrl.startDate\" ng-disabled=\"$ctrl.ngDisabled\">\n                            </md-datepicker>\n                        </md-input-container>\n                    </div>\n                    <div class=\"param-block rm4 time-block\">\n                        <pip-time-autocomplete pip-time-label=\"false\" pip-change-callback=\"$ctrl.startDateTimeChanged\" ng-disabled=\"$ctrl.ngDisabled\"\n                            pip-date-time=\"$ctrl.startDate\" pip-time-step=\"60\" pip-select-font-size=\"12\">\n                        </pip-time-autocomplete>\n                    </div>\n                    <div class=\"text-caption rm4 param-block\">\n                        <md-input-container class=\"md-block flex tm0 bm0 iqs-stats-datepicker\">\n                            <md-datepicker class=\"w-stretch \" md-hide-icons=\"calendar\" aria-label=\"TIME\" ng-change=\"$ctrl.endDateTimeChanged($ctrl.endDate)\"\n                                ng-model=\"$ctrl.endDate\" ng-disabled=\"$ctrl.ngDisabled\">\n                            </md-datepicker>\n                        </md-input-container>\n                    </div>\n                    <div class=\"param-block rm4 time-block\">\n                        <pip-time-autocomplete pip-time-label=\"false\" pip-change-callback=\"$ctrl.endTimeChanged\" ng-disabled=\"$ctrl.ngDisabled\"\n                            pip-date-time=\"$ctrl.endDate\" pip-time-step=\"60\" pip-select-font-size=\"12\">\n                        </pip-time-autocomplete>\n                    </div>\n                </div>\n\n                <!-- shifts -->\n\n                <div class=\"text-caption rm4 param-block\" ng-if=\"$ctrl.isDatePeriod && $ctrl.datePeriod == 'shift'\">\n                    <md-input-container class=\"md-block iqs-medium-select hide-md-errors-spacer m0\">\n                        <md-select class=\"flex\" aria-label=\"DEVICE\" ng-change=\"$ctrl.refreshStatistics()\" ng-disabled=\"$ctrl.ngDisabled\" ng-model=\"$ctrl.shiftFilter\">\n                            <md-option ng-value=\"shift.id\" ng-repeat=\"shift in $ctrl.shiftsCollection track by shift.id\">\n                                {{ ::shift.name }}\n                            </md-option>\n                        </md-select>\n                    </md-input-container>\n                </div>\n            </div>\n\n            <div class=\"flex layout-row layout-align-start-center\" ng-if=\"!$ctrl.pipMedia('gt-sm')\">\n                <md-button class=\"md-icon-button m0\" ng-click=\"$ctrl.openFilterDialog()\" aria-label=\"filter button\" tabindex=\"-1\">\n                    <md-icon md-svg-icon=\"icons:filter\"></md-icon>\n                </md-button>\n            </div>\n\n            <!--datetime interval-->\n            <div class=\"layout-row layout-align-center-center flex-fixed\">\n                <!--date range-->\n                <div class=\"layout-row layout-align-center-center iqs-statistics-date-buttons\">\n                    <md-button class=\"md-icon-button m0\" ng-click=\"$ctrl.prevDate()\" aria-label=\"current user\" tabindex=\"-1\">\n                        <md-tooltip md-visible=\"showTooltip\" md-direction=\"bottom\">\n                            {{ ::'STATISTICS_FILTER_DATE_PREV' | translate }}\n                        </md-tooltip>\n                        <md-icon md-svg-icon=\"icons:chevron-big-left\"></md-icon>\n                    </md-button>\n                    <md-button class=\"md-icon-button flex-fixed m0\" aria-label=\"current user\" tabindex=\"-1\" ng-click=\"$ctrl.currentDate()\">\n                        <md-tooltip md-visible=\"showTooltip\" md-direction=\"bottom\">\n                            {{ ::'STATISTICS_FILTER_DATE_CURRENT' | translate }}\n                        </md-tooltip>                \n                        <md-icon md-svg-icon=\"icons:date\"></md-icon>\n                    </md-button>\n                    <md-button class=\"md-icon-button flex-fixed m0\" aria-label=\"current user\" tabindex=\"-1\" ng-click=\"$ctrl.nextDate()\">\n                        <md-tooltip md-visible=\"showTooltip\" md-direction=\"bottom\">\n                            {{ ::'STATISTICS_FILTER_DATE_NEXT' | translate }}\n                        </md-tooltip>                \n                        <md-icon md-svg-icon=\"icons:chevron-big-right\"></md-icon>\n                    </md-button>\n                </div>\n            </div>\n        </div>\n        "
 });
 require("./StatisticsFilterPanelResource");
-},{"../../../services/global_search/SearchObjectTypes":443,"../../../services/loading":461,"./DatePeriodValues":34,"./StatisticsFilterPanelResource":39,"./StatisticsFilterResult":40,"./StatisticsParams":43}],39:[function(require,module,exports){
+},{"../../../services/global_search/SearchObjectTypes":444,"../../../services/loading":462,"./DatePeriodValues":34,"./StatisticsFilterPanelResource":39,"./StatisticsFilterResult":40,"./StatisticsParams":43}],39:[function(require,module,exports){
 declareStatisticsFilterStringResources.$inject = ['pipTranslateProvider'];
 function declareStatisticsFilterStringResources(pipTranslateProvider) {
     pipTranslateProvider.translations('en', {
@@ -2486,7 +2486,7 @@ angular
     .controller('iqsFilterDialogController', FilterDialogController);
 require("./FilterDialogService");
 require("./FilterDialogStrings");
-},{"../../../../services/global_search/GlobalSearchService":441,"./FilterDialogService":45,"./FilterDialogStrings":46,"./IFilterDialogService":47}],45:[function(require,module,exports){
+},{"../../../../services/global_search/GlobalSearchService":442,"./FilterDialogService":45,"./FilterDialogStrings":46,"./IFilterDialogService":47}],45:[function(require,module,exports){
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 var FilterDialogService = (function () {
@@ -3120,7 +3120,7 @@ angular
     .module('pipErrors.Unauthorized', ['iqsAccessConfig.Service'])
     .config(configureUnauthorizedErrorPageRoute);
 require("./UnauthorizedStrings");
-},{"../../data":176,"../../services/access_config/AccessConfig":420,"./UnauthorizedStrings":57}],57:[function(require,module,exports){
+},{"../../data":176,"../../services/access_config/AccessConfig":421,"./UnauthorizedStrings":57}],57:[function(require,module,exports){
 setUnauthorizedErrorPageResources.$inject = ['$injector'];
 function setUnauthorizedErrorPageResources($injector) {
     var pipTranslate = $injector.has('pipTranslate') ? $injector.get('pipTranslate') : null;
@@ -3255,7 +3255,7 @@ angular
     template: "<md-menu md-position-mode=\"target bottom\" ng-if=\"$ctrl.currentOrganization\" ng-disabled=\"$ctrl.busy\">\n            <md-button aria-label=\"Organizations menu\" ng-click=\"$mdMenu.open()\">\n                <div class=\"flex layout-row\">\n                    <md-icon md-menu-origin md-svg-icon=\"iqs:organization\"></md-icon>\n                    <div class=\"flex lp8\">{{ $ctrl.currentOrganization.name }}</div>\n                    <md-icon ng-if=\"!$mdMenuIsOpen\" md-menu-origin md-svg-icon=\"webui-icons:triangle-down\"></md-icon>\n                    <md-icon ng-if=\"$mdMenuIsOpen\" md-menu-origin md-svg-icon=\"webui-icons:triangle-up\"></md-icon>\n                </div>\n            </md-button>\n            <md-menu-content width=\"4\" class=\"iqs-appbar-organizations\">\n                <md-menu-item ng-repeat=\"organization in $ctrl.organizations track by $index\">\n                    <md-button ng-click=\"$ctrl.onOrganizationClick(organization.id)\" ng-class=\"{'active': organization.id === $ctrl.currentOrganization.id}\">\n                        {{ ::organization.name | translate }}\n                    </md-button>\n                </md-menu-item>\n                <md-divider></md-divider>\n                <md-menu-item ng-if=\"$ctrl.canAddOrganization\">\n                    <md-button ng-click=\"$ctrl.onAddClick()\">\n                        {{ ::'NEW_SITE' | translate }}\n                    </md-button>\n                </md-menu-item>\n                <md-menu-item>\n                    <md-button ng-click=\"$ctrl.onSettingsClick()\">\n                        {{ ::'SITES_SETTINGS' | translate }}\n                    </md-button>\n                </md-menu-item>\n            </md-menu-content>\n        </md-menu>"
 });
 require("./AppbarOrganizationsStrings");
-},{"../../common":29,"../../services":455,"./AppbarOrganizationsStrings":60}],60:[function(require,module,exports){
+},{"../../common":29,"../../services":456,"./AppbarOrganizationsStrings":60}],60:[function(require,module,exports){
 (function () {
     var translateConfig = function (pipTranslateProvider) {
         pipTranslateProvider.translations('en', {
@@ -3754,7 +3754,7 @@ exports.defaultShellModuleConfig = {
     ])
         .config(iqsShellConfig);
 })();
-},{"./common":29,"./modules":355,"./rest/index":419,"./states":501}],68:[function(require,module,exports){
+},{"./common":29,"./modules":356,"./rest/index":420,"./states":502}],68:[function(require,module,exports){
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 var DataPage = (function () {
@@ -6041,7 +6041,7 @@ __export(require("./guides"));
 __export(require("./DataPage"));
 __export(require("./GridTypes"));
 __export(require("./Severity"));
-},{"./DataPage":68,"./GridTypes":69,"./Severity":70,"./access_config":72,"./accounts":75,"./activities":78,"./agreements":82,"./applications":86,"./attendances":91,"./beacons":95,"./control_objects":100,"./corrections":106,"./credit_cards":112,"./current_device_states":115,"./current_object_routes":124,"./current_object_states":126,"./data_profiles":129,"./devices":134,"./emergency_plans":141,"./event_rules":149,"./event_templates":152,"./gateways":157,"./guides":160,"./help":169,"./incidents":175,"./invitations":180,"./locations":183,"./object_groups":186,"./object_positions":189,"./object_routes":194,"./object_states":197,"./operational_events":201,"./organizations":204,"./resolutions":207,"./roles":209,"./rosters":212,"./sessions":215,"./settings":221,"./shifts":224,"./signals":229,"./statistics":234,"./zones":239}],177:[function(require,module,exports){
+},{"./DataPage":68,"./GridTypes":69,"./Severity":70,"./access_config":72,"./accounts":75,"./activities":78,"./agreements":82,"./applications":86,"./attendances":91,"./beacons":95,"./control_objects":100,"./corrections":106,"./credit_cards":112,"./current_device_states":115,"./current_object_routes":124,"./current_object_states":126,"./data_profiles":129,"./devices":134,"./emergency_plans":141,"./event_rules":149,"./event_templates":152,"./gateways":157,"./guides":160,"./help":169,"./incidents":175,"./invitations":180,"./locations":183,"./object_groups":186,"./object_positions":189,"./object_routes":194,"./object_states":197,"./operational_events":201,"./organizations":204,"./resolutions":207,"./roles":209,"./rosters":212,"./sessions":216,"./settings":222,"./shifts":225,"./signals":230,"./statistics":235,"./zones":240}],177:[function(require,module,exports){
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 var Invitation = (function () {
@@ -7229,12 +7229,32 @@ angular
     .provider('iqsSessionsData', SessionsDataProvider);
 },{}],215:[function(require,module,exports){
 "use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+var _a;
+var UserRole;
+(function (UserRole) {
+    UserRole["user"] = "user";
+    UserRole["manager"] = "manager";
+    UserRole["admin"] = "admin";
+    UserRole["org_admin"] = "org_admin";
+    UserRole["unknown"] = "unknown";
+})(UserRole = exports.UserRole || (exports.UserRole = {}));
+exports.userRoleValue = (_a = {},
+    _a[UserRole.user] = 1,
+    _a[UserRole.manager] = 2,
+    _a[UserRole.org_admin] = 3,
+    _a[UserRole.admin] = 4,
+    _a[UserRole.unknown] = 0,
+    _a);
+},{}],216:[function(require,module,exports){
+"use strict";
 function __export(m) {
     for (var p in m) if (!exports.hasOwnProperty(p)) exports[p] = m[p];
 }
 Object.defineProperty(exports, "__esModule", { value: true });
 __export(require("./Session"));
-},{"./Session":213}],216:[function(require,module,exports){
+__export(require("./UserRole"));
+},{"./Session":213,"./UserRole":215}],217:[function(require,module,exports){
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 var EmailSettings = (function () {
@@ -7243,7 +7263,7 @@ var EmailSettings = (function () {
     return EmailSettings;
 }());
 exports.EmailSettings = EmailSettings;
-},{}],217:[function(require,module,exports){
+},{}],218:[function(require,module,exports){
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 var EmailSettingsDataService = (function () {
@@ -7295,7 +7315,7 @@ var EmailSettingsDataService = (function () {
 angular
     .module('iqsEmailSettings.Data', ['pipRest', 'pipServices', 'iqsSettings.Resource'])
     .service('iqsEmailSettingsData', EmailSettingsDataService);
-},{}],218:[function(require,module,exports){
+},{}],219:[function(require,module,exports){
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 var SmsRecipient = (function () {
@@ -7304,7 +7324,7 @@ var SmsRecipient = (function () {
     return SmsRecipient;
 }());
 exports.SmsRecipient = SmsRecipient;
-},{}],219:[function(require,module,exports){
+},{}],220:[function(require,module,exports){
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 var SmsSettings = (function () {
@@ -7313,7 +7333,7 @@ var SmsSettings = (function () {
     return SmsSettings;
 }());
 exports.SmsSettings = SmsSettings;
-},{}],220:[function(require,module,exports){
+},{}],221:[function(require,module,exports){
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 var SmsSettingsDataService = (function () {
@@ -7360,7 +7380,7 @@ var SmsSettingsDataService = (function () {
 angular
     .module('iqsSmsSettings.Data', ['pipRest', 'pipServices', 'iqsSettings.Resource'])
     .service('iqsSmsSettingsData', SmsSettingsDataService);
-},{}],221:[function(require,module,exports){
+},{}],222:[function(require,module,exports){
 "use strict";
 function __export(m) {
     for (var p in m) if (!exports.hasOwnProperty(p)) exports[p] = m[p];
@@ -7370,7 +7390,7 @@ angular.module('iqsSettings.Data', ['iqsEmailSettings.Data', 'iqsSmsSettings.Dat
 __export(require("./EmailSettings"));
 __export(require("./SmsRecipient"));
 __export(require("./SmsSettings"));
-},{"./EmailSettings":216,"./SmsRecipient":218,"./SmsSettings":219}],222:[function(require,module,exports){
+},{"./EmailSettings":217,"./SmsRecipient":219,"./SmsSettings":220}],223:[function(require,module,exports){
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 var Shift = (function () {
@@ -7379,7 +7399,7 @@ var Shift = (function () {
     return Shift;
 }());
 exports.Shift = Shift;
-},{}],223:[function(require,module,exports){
+},{}],224:[function(require,module,exports){
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 var ShiftsDataService = (function () {
@@ -7453,14 +7473,14 @@ var ShiftsDataProvider = (function () {
 angular
     .module('iqsShifts.Data', ['pipRest', 'pipServices', 'iqsShifts.Resource'])
     .provider('iqsShiftsData', ShiftsDataProvider);
-},{}],224:[function(require,module,exports){
+},{}],225:[function(require,module,exports){
 "use strict";
 function __export(m) {
     for (var p in m) if (!exports.hasOwnProperty(p)) exports[p] = m[p];
 }
 Object.defineProperty(exports, "__esModule", { value: true });
 __export(require("./Shift"));
-},{"./Shift":222}],225:[function(require,module,exports){
+},{"./Shift":223}],226:[function(require,module,exports){
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 var SendSignalData = (function () {
@@ -7469,7 +7489,7 @@ var SendSignalData = (function () {
     return SendSignalData;
 }());
 exports.SendSignalData = SendSignalData;
-},{}],226:[function(require,module,exports){
+},{}],227:[function(require,module,exports){
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 var Signal = (function () {
@@ -7478,10 +7498,10 @@ var Signal = (function () {
     return Signal;
 }());
 exports.Signal = Signal;
-},{}],227:[function(require,module,exports){
+},{}],228:[function(require,module,exports){
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-},{}],228:[function(require,module,exports){
+},{}],229:[function(require,module,exports){
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 var SignalsDataService = (function () {
@@ -7586,7 +7606,7 @@ var SignalsDataProvider = (function () {
 angular
     .module('iqsSignals.Data', ['pipRest', 'pipServices'])
     .provider('iqsSignalsData', SignalsDataProvider);
-},{}],229:[function(require,module,exports){
+},{}],230:[function(require,module,exports){
 "use strict";
 function __export(m) {
     for (var p in m) if (!exports.hasOwnProperty(p)) exports[p] = m[p];
@@ -7595,7 +7615,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 __export(require("./Signal"));
 __export(require("./SignalType"));
 __export(require("./SendSignalData"));
-},{"./SendSignalData":225,"./Signal":226,"./SignalType":227}],230:[function(require,module,exports){
+},{"./SendSignalData":226,"./Signal":227,"./SignalType":228}],231:[function(require,module,exports){
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 var StatisticsValue = (function () {
@@ -7610,7 +7630,7 @@ var Statistics = (function () {
     return Statistics;
 }());
 exports.Statistics = Statistics;
-},{}],231:[function(require,module,exports){
+},{}],232:[function(require,module,exports){
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 var StatisticsDataService = (function () {
@@ -7672,13 +7692,13 @@ var StatisticsDataProvider = (function () {
 angular
     .module('iqsStatistics.Data', ['pipRest', 'pipServices', 'iqsStatistics.Resource'])
     .provider('iqsStatisticsData', StatisticsDataProvider);
-},{}],232:[function(require,module,exports){
-"use strict";
-Object.defineProperty(exports, "__esModule", { value: true });
 },{}],233:[function(require,module,exports){
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 },{}],234:[function(require,module,exports){
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+},{}],235:[function(require,module,exports){
 "use strict";
 function __export(m) {
     for (var p in m) if (!exports.hasOwnProperty(p)) exports[p] = m[p];
@@ -7687,7 +7707,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 __export(require("./Statistics"));
 __export(require("./StatisticsFilter"));
 __export(require("./StatisticsView"));
-},{"./Statistics":230,"./StatisticsFilter":232,"./StatisticsView":233}],235:[function(require,module,exports){
+},{"./Statistics":231,"./StatisticsFilter":233,"./StatisticsView":234}],236:[function(require,module,exports){
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 var Zone = (function () {
@@ -7696,7 +7716,7 @@ var Zone = (function () {
     return Zone;
 }());
 exports.Zone = Zone;
-},{}],236:[function(require,module,exports){
+},{}],237:[function(require,module,exports){
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 var ZonePresence = (function () {
@@ -7705,10 +7725,10 @@ var ZonePresence = (function () {
     return ZonePresence;
 }());
 exports.ZonePresence = ZonePresence;
-},{}],237:[function(require,module,exports){
+},{}],238:[function(require,module,exports){
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-},{}],238:[function(require,module,exports){
+},{}],239:[function(require,module,exports){
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 var ZonesDataService = (function () {
@@ -7777,7 +7797,7 @@ var ZonesDataProvider = (function () {
 angular
     .module('iqsZones.Data', ['pipRest', 'pipServices', 'iqsZones.Resource'])
     .provider('iqsZonesData', ZonesDataProvider);
-},{}],239:[function(require,module,exports){
+},{}],240:[function(require,module,exports){
 "use strict";
 function __export(m) {
     for (var p in m) if (!exports.hasOwnProperty(p)) exports[p] = m[p];
@@ -7786,7 +7806,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 __export(require("./Zone"));
 __export(require("./ZonePresence"));
 __export(require("./ZoneType"));
-},{"./Zone":235,"./ZonePresence":236,"./ZoneType":237}],240:[function(require,module,exports){
+},{"./Zone":236,"./ZonePresence":237,"./ZoneType":238}],241:[function(require,module,exports){
 "use strict";
 function __export(m) {
     for (var p in m) if (!exports.hasOwnProperty(p)) exports[p] = m[p];
@@ -7845,7 +7865,7 @@ __export(require("./data"));
 __export(require("./models"));
 __export(require("./services"));
 __export(require("./states"));
-},{"./IquipsysStrings":1,"./common":29,"./config":67,"./data":176,"./models":277,"./modules":355,"./services":455,"./shell/Shell":493,"./states":501,"./validators":533}],241:[function(require,module,exports){
+},{"./IquipsysStrings":1,"./common":29,"./config":67,"./data":176,"./models":278,"./modules":356,"./services":456,"./shell/Shell":494,"./states":502,"./validators":534}],242:[function(require,module,exports){
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 var common_1 = require("../../common");
@@ -8054,7 +8074,7 @@ var AccountsModel = (function () {
     return AccountsModel;
 }());
 exports.AccountsModel = AccountsModel;
-},{"../../common":29}],242:[function(require,module,exports){
+},{"../../common":29}],243:[function(require,module,exports){
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 var AccountsModel_1 = require("./AccountsModel");
@@ -8135,7 +8155,7 @@ var AccountsViewModel = (function () {
 }());
 angular.module('iqsAccounts.ViewModel', ['iqsAccounts.Data'])
     .service('iqsAccountsViewModel', AccountsViewModel);
-},{"./AccountsModel":241}],243:[function(require,module,exports){
+},{"./AccountsModel":242}],244:[function(require,module,exports){
 "use strict";
 function __export(m) {
     for (var p in m) if (!exports.hasOwnProperty(p)) exports[p] = m[p];
@@ -8143,7 +8163,7 @@ function __export(m) {
 Object.defineProperty(exports, "__esModule", { value: true });
 require("./AccountsViewModel");
 __export(require("./AccountsModel"));
-},{"./AccountsModel":241,"./AccountsViewModel":242}],244:[function(require,module,exports){
+},{"./AccountsModel":242,"./AccountsViewModel":243}],245:[function(require,module,exports){
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 var _1 = require("./");
@@ -8223,7 +8243,7 @@ var ApplicationViewModel = (function () {
 exports.ApplicationViewModel = ApplicationViewModel;
 angular.module('iqsApplications.ViewModel', ['iqsApplications.Data', 'iqsOrganizations.Service'])
     .service('iqsApplicationsViewModel', ApplicationViewModel);
-},{"./":246}],245:[function(require,module,exports){
+},{"./":247}],246:[function(require,module,exports){
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 var lodash_1 = require("lodash");
@@ -8305,6 +8325,10 @@ var ApplicationsModel = (function () {
             this.saveFavourites(successCallback, errorCallback);
         }
     };
+    ApplicationsModel.prototype.filterByRole = function (applications) {
+        var urv = data_1.userRoleValue[this.iqsOrganization.role];
+        return applications.filter(function (app) { return data_1.userRoleValue[app.role || data_1.UserRole.unknown] <= urv; });
+    };
     Object.defineProperty(ApplicationsModel.prototype, "transaction", {
         get: function () {
             return this.iqsSettingsViewModel.getTransaction();
@@ -8326,7 +8350,7 @@ var ApplicationsModel = (function () {
             function (callback) {
                 _this.iqsApplicationsData.readApplications(null, function (data) {
                     var _a;
-                    _this.applications = data.data;
+                    _this.applications = _this.filterByRole(data.data);
                     _this.categories = [{
                             key: _this.favouritesKey,
                             tiles: []
@@ -8439,7 +8463,7 @@ var ApplicationsModel = (function () {
     return ApplicationsModel;
 }());
 exports.ApplicationsModel = ApplicationsModel;
-},{"../../common/States":5,"../../data":176,"lodash":534}],246:[function(require,module,exports){
+},{"../../common/States":5,"../../data":176,"lodash":535}],247:[function(require,module,exports){
 "use strict";
 function __export(m) {
     for (var p in m) if (!exports.hasOwnProperty(p)) exports[p] = m[p];
@@ -8448,7 +8472,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 require("./ApplicationViewModel");
 __export(require("./ApplicationsModel"));
 __export(require("./ApplicationViewModel"));
-},{"./ApplicationViewModel":244,"./ApplicationsModel":245}],247:[function(require,module,exports){
+},{"./ApplicationViewModel":245,"./ApplicationsModel":246}],248:[function(require,module,exports){
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 var CreditCardsModel_1 = require("./CreditCardsModel");
@@ -8571,7 +8595,7 @@ var CreditCardViewModel = (function () {
         .module('iqsCreditCards.ViewModel', ['iqsCreditCards.Data'])
         .service('iqsCreditCardsViewModel', CreditCardViewModel);
 }
-},{"./CreditCardsModel":248}],248:[function(require,module,exports){
+},{"./CreditCardsModel":249}],249:[function(require,module,exports){
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 var common_1 = require("../../common");
@@ -8954,7 +8978,7 @@ var CreditCardsModel = (function () {
     return CreditCardsModel;
 }());
 exports.CreditCardsModel = CreditCardsModel;
-},{"../../common":29}],249:[function(require,module,exports){
+},{"../../common":29}],250:[function(require,module,exports){
 "use strict";
 function __export(m) {
     for (var p in m) if (!exports.hasOwnProperty(p)) exports[p] = m[p];
@@ -8962,7 +8986,7 @@ function __export(m) {
 Object.defineProperty(exports, "__esModule", { value: true });
 require("./CreditCardViewModel");
 __export(require("./CreditCardsModel"));
-},{"./CreditCardViewModel":247,"./CreditCardsModel":248}],250:[function(require,module,exports){
+},{"./CreditCardViewModel":248,"./CreditCardsModel":249}],251:[function(require,module,exports){
 "use strict";
 var __extends = (this && this.__extends) || (function () {
     var extendStatics = Object.setPrototypeOf ||
@@ -9155,7 +9179,7 @@ var CurrentObjectStatesModel = (function (_super) {
     return CurrentObjectStatesModel;
 }(models_1.ObjectStatesAbstractModel));
 exports.CurrentObjectStatesModel = CurrentObjectStatesModel;
-},{"../../common":29,"../../models":277,"../../models/map/MapModel":284,"../../models/states/ObjectStatesAbstractModel":323}],251:[function(require,module,exports){
+},{"../../common":29,"../../models":278,"../../models/map/MapModel":285,"../../models/states/ObjectStatesAbstractModel":324}],252:[function(require,module,exports){
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 var CurrentObjectStatesModel_1 = require("./CurrentObjectStatesModel");
@@ -9317,7 +9341,7 @@ angular.module('iqsCurrentObjectStates.ViewModel', [
     'iqsMapIcon'
 ])
     .service('iqsCurrentObjectStatesViewModel', CurrentObjectStatesViewModel);
-},{"./CurrentObjectStatesModel":250}],252:[function(require,module,exports){
+},{"./CurrentObjectStatesModel":251}],253:[function(require,module,exports){
 "use strict";
 function __export(m) {
     for (var p in m) if (!exports.hasOwnProperty(p)) exports[p] = m[p];
@@ -9325,7 +9349,7 @@ function __export(m) {
 Object.defineProperty(exports, "__esModule", { value: true });
 require("./CurrentObjectStatesViewModel");
 __export(require("./CurrentObjectStatesModel"));
-},{"./CurrentObjectStatesModel":250,"./CurrentObjectStatesViewModel":251}],253:[function(require,module,exports){
+},{"./CurrentObjectStatesModel":251,"./CurrentObjectStatesViewModel":252}],254:[function(require,module,exports){
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 var States_1 = require("../../common/States");
@@ -9374,7 +9398,7 @@ var DataProfilesModel = (function () {
     return DataProfilesModel;
 }());
 exports.DataProfilesModel = DataProfilesModel;
-},{"../../common/States":5}],254:[function(require,module,exports){
+},{"../../common/States":5}],255:[function(require,module,exports){
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 var DataProfilesModel_1 = require("./DataProfilesModel");
@@ -9413,7 +9437,7 @@ var DataProfilesViewModel = (function () {
 }());
 angular.module('iqsDataProfiles.ViewModel', ['iqsDataProfiles.Data'])
     .service('iqsDataProfilesViewModel', DataProfilesViewModel);
-},{"./DataProfilesModel":253}],255:[function(require,module,exports){
+},{"./DataProfilesModel":254}],256:[function(require,module,exports){
 "use strict";
 function __export(m) {
     for (var p in m) if (!exports.hasOwnProperty(p)) exports[p] = m[p];
@@ -9421,7 +9445,7 @@ function __export(m) {
 Object.defineProperty(exports, "__esModule", { value: true });
 require("./DataProfilesModel");
 __export(require("./DataProfilesModel"));
-},{"./DataProfilesModel":253}],256:[function(require,module,exports){
+},{"./DataProfilesModel":254}],257:[function(require,module,exports){
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 var States_1 = require("../../common/States");
@@ -9690,7 +9714,7 @@ var DevicesModel = (function () {
     return DevicesModel;
 }());
 exports.DevicesModel = DevicesModel;
-},{"../../common/States":5}],257:[function(require,module,exports){
+},{"../../common/States":5}],258:[function(require,module,exports){
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 var DevicesModel_1 = require("./DevicesModel");
@@ -9780,7 +9804,7 @@ var DevicesViewModel = (function () {
 }());
 angular.module('iqsDevices.ViewModel', ['iqsDevices.Data', 'iqsObjects.ViewModel'])
     .service('iqsDevicesViewModel', DevicesViewModel);
-},{"./DevicesModel":256}],258:[function(require,module,exports){
+},{"./DevicesModel":257}],259:[function(require,module,exports){
 "use strict";
 function __export(m) {
     for (var p in m) if (!exports.hasOwnProperty(p)) exports[p] = m[p];
@@ -9788,7 +9812,7 @@ function __export(m) {
 Object.defineProperty(exports, "__esModule", { value: true });
 require("./DevicesViewModel");
 __export(require("./DevicesModel"));
-},{"./DevicesModel":256,"./DevicesViewModel":257}],259:[function(require,module,exports){
+},{"./DevicesModel":257,"./DevicesViewModel":258}],260:[function(require,module,exports){
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 var common_1 = require("../../common");
@@ -10120,7 +10144,7 @@ var EmergencyPlansModel = (function () {
     return EmergencyPlansModel;
 }());
 exports.EmergencyPlansModel = EmergencyPlansModel;
-},{"../../common":29}],260:[function(require,module,exports){
+},{"../../common":29}],261:[function(require,module,exports){
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 var EmergencyPlansModel_1 = require("./EmergencyPlansModel");
@@ -10240,12 +10264,12 @@ var EmergencyPlansViewModel = (function () {
 }());
 angular.module('iqsEmergencyPlans.ViewModel', ['iqsEmergencyPlans.Data'])
     .service('iqsEmergencyPlansViewModel', EmergencyPlansViewModel);
-},{"./EmergencyPlansModel":259}],261:[function(require,module,exports){
+},{"./EmergencyPlansModel":260}],262:[function(require,module,exports){
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 require("./EmergencyPlansModel");
 require("./EmergencyPlansViewModel");
-},{"./EmergencyPlansModel":259,"./EmergencyPlansViewModel":260}],262:[function(require,module,exports){
+},{"./EmergencyPlansModel":260,"./EmergencyPlansViewModel":261}],263:[function(require,module,exports){
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 var EventRuleCalculator = (function () {
@@ -10388,7 +10412,7 @@ var EventRuleCalculator = (function () {
     return EventRuleCalculator;
 }());
 exports.EventRuleCalculator = EventRuleCalculator;
-},{}],263:[function(require,module,exports){
+},{}],264:[function(require,module,exports){
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 var States_1 = require("../../common/States");
@@ -10790,7 +10814,7 @@ var EventRulesModel = (function () {
     return EventRulesModel;
 }());
 exports.EventRulesModel = EventRulesModel;
-},{"../../common/States":5,"./EventRuleCalculator":262}],264:[function(require,module,exports){
+},{"../../common/States":5,"./EventRuleCalculator":263}],265:[function(require,module,exports){
 {
     declareGlobalEventRulesTranslateResources.$inject = ['pipTranslateProvider'];
     function declareGlobalEventRulesTranslateResources(pipTranslateProvider) {
@@ -10814,7 +10838,7 @@ exports.EventRulesModel = EventRulesModel;
     angular.module('iqsEventRules.ViewModel')
         .config(declareGlobalEventRulesTranslateResources);
 }
-},{}],265:[function(require,module,exports){
+},{}],266:[function(require,module,exports){
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 var EventRulesModel_1 = require("./EventRulesModel");
@@ -10929,7 +10953,7 @@ var EventRulesViewModel = (function () {
 angular.module('iqsEventRules.ViewModel', ['iqsEventRules.Data', 'iqsAccounts.ViewModel', 'iqsObjects.ViewModel', 'iqsObjectGroups.ViewModel'])
     .service('iqsEventRulesViewModel', EventRulesViewModel);
 require("./EventRulesStrings");
-},{"./EventRulesModel":263,"./EventRulesStrings":264}],266:[function(require,module,exports){
+},{"./EventRulesModel":264,"./EventRulesStrings":265}],267:[function(require,module,exports){
 "use strict";
 function __export(m) {
     for (var p in m) if (!exports.hasOwnProperty(p)) exports[p] = m[p];
@@ -10938,7 +10962,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 require("./EventRulesViewModel");
 __export(require("./EventRulesModel"));
 __export(require("./EventRuleCalculator"));
-},{"./EventRuleCalculator":262,"./EventRulesModel":263,"./EventRulesViewModel":265}],267:[function(require,module,exports){
+},{"./EventRuleCalculator":263,"./EventRulesModel":264,"./EventRulesViewModel":266}],268:[function(require,module,exports){
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 var common_1 = require("../../common");
@@ -11248,7 +11272,7 @@ var OperationalEventTemplatesModel = (function () {
     return OperationalEventTemplatesModel;
 }());
 exports.OperationalEventTemplatesModel = OperationalEventTemplatesModel;
-},{"../../common":29}],268:[function(require,module,exports){
+},{"../../common":29}],269:[function(require,module,exports){
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 var OperationalEventTemplatesModel_1 = require("./OperationalEventTemplatesModel");
@@ -11350,12 +11374,12 @@ angular
     'iqsEventTemplates.Data'
 ])
     .service('iqsOperationalEventTemplatesViewModel', OperationalEventTemplatesViewModel);
-},{"./OperationalEventTemplatesModel":267}],269:[function(require,module,exports){
+},{"./OperationalEventTemplatesModel":268}],270:[function(require,module,exports){
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 require("./OperationalEventTemplatesModel");
 require("./OperationalEventTemplatesViewModel");
-},{"./OperationalEventTemplatesModel":267,"./OperationalEventTemplatesViewModel":268}],270:[function(require,module,exports){
+},{"./OperationalEventTemplatesModel":268,"./OperationalEventTemplatesViewModel":269}],271:[function(require,module,exports){
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 var States_1 = require("../../common/States");
@@ -11606,7 +11630,7 @@ var GuidesModel = (function () {
     return GuidesModel;
 }());
 exports.GuidesModel = GuidesModel;
-},{"../../common/States":5}],271:[function(require,module,exports){
+},{"../../common/States":5}],272:[function(require,module,exports){
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 var GuidesModel_1 = require("./GuidesModel");
@@ -11657,7 +11681,7 @@ var GuideViewModel = (function () {
 }());
 angular.module('iqsGuides.ViewModel', ['iqsSettings.ViewModel'])
     .service('iqsGuidesViewModel', GuideViewModel);
-},{"./GuidesModel":270}],272:[function(require,module,exports){
+},{"./GuidesModel":271}],273:[function(require,module,exports){
 "use strict";
 function __export(m) {
     for (var p in m) if (!exports.hasOwnProperty(p)) exports[p] = m[p];
@@ -11665,7 +11689,7 @@ function __export(m) {
 Object.defineProperty(exports, "__esModule", { value: true });
 require("./GuidesViewModel");
 __export(require("./GuidesModel"));
-},{"./GuidesModel":270,"./GuidesViewModel":271}],273:[function(require,module,exports){
+},{"./GuidesModel":271,"./GuidesViewModel":272}],274:[function(require,module,exports){
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 require("../../models/current_object_states/CurrentObjectStatesModel");
@@ -11710,7 +11734,7 @@ angular.module('iqsIncidentCurrentObjectStates.ViewModel', [
     'iqsIncidents.ViewModel'
 ])
     .service('iqsIncidentCurrentObjectStatesViewModel', IncidentCurrentObjectStateViewModel);
-},{"../../models/current_object_states/CurrentObjectStatesModel":250}],274:[function(require,module,exports){
+},{"../../models/current_object_states/CurrentObjectStatesModel":251}],275:[function(require,module,exports){
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 var common_1 = require("../../common");
@@ -12434,7 +12458,7 @@ var IncidentsModel = (function () {
     return IncidentsModel;
 }());
 exports.IncidentsModel = IncidentsModel;
-},{"../../common":29}],275:[function(require,module,exports){
+},{"../../common":29}],276:[function(require,module,exports){
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 require("../locations/LocationsViewModel");
@@ -12619,7 +12643,7 @@ angular.module('iqsIncidents.ViewModel', [
     'iqsSettings.ViewModel'
 ])
     .service('iqsIncidentsViewModel', IncidentsViewModel);
-},{"../locations/LocationsViewModel":282,"./IncidentsModel":274}],276:[function(require,module,exports){
+},{"../locations/LocationsViewModel":283,"./IncidentsModel":275}],277:[function(require,module,exports){
 "use strict";
 function __export(m) {
     for (var p in m) if (!exports.hasOwnProperty(p)) exports[p] = m[p];
@@ -12628,7 +12652,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 require("./IncidentsViewModel");
 require("./IncidentCurrentObjectStateViewModel");
 __export(require("./IncidentsModel"));
-},{"./IncidentCurrentObjectStateViewModel":273,"./IncidentsModel":274,"./IncidentsViewModel":275}],277:[function(require,module,exports){
+},{"./IncidentCurrentObjectStateViewModel":274,"./IncidentsModel":275,"./IncidentsViewModel":276}],278:[function(require,module,exports){
 "use strict";
 function __export(m) {
     for (var p in m) if (!exports.hasOwnProperty(p)) exports[p] = m[p];
@@ -12718,7 +12742,7 @@ __export(require("./organizations"));
 __export(require("./states"));
 __export(require("./statistics"));
 __export(require("./zones"));
-},{"./accounts":243,"./applications":246,"./credit_card":249,"./current_object_states":252,"./data_profiles":255,"./devices":258,"./emergency_plans":261,"./event_rules":266,"./event_templates":269,"./guides":272,"./incidents":276,"./invitations":280,"./locations":283,"./map":286,"./object_groups":289,"./object_routes":295,"./object_states":298,"./objects":301,"./operational_events":306,"./organizations":309,"./resolutions":312,"./settings":316,"./shifts":319,"./signals":322,"./states":325,"./statistics":328,"./zones":331}],278:[function(require,module,exports){
+},{"./accounts":244,"./applications":247,"./credit_card":250,"./current_object_states":253,"./data_profiles":256,"./devices":259,"./emergency_plans":262,"./event_rules":267,"./event_templates":270,"./guides":273,"./incidents":277,"./invitations":281,"./locations":284,"./map":287,"./object_groups":290,"./object_routes":296,"./object_states":299,"./objects":302,"./operational_events":307,"./organizations":310,"./resolutions":313,"./settings":317,"./shifts":320,"./signals":323,"./states":326,"./statistics":329,"./zones":332}],279:[function(require,module,exports){
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 var common_1 = require("../../common");
@@ -12959,7 +12983,7 @@ var InvitationsModel = (function () {
     return InvitationsModel;
 }());
 exports.InvitationsModel = InvitationsModel;
-},{"../../common":29}],279:[function(require,module,exports){
+},{"../../common":29}],280:[function(require,module,exports){
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 var InvitationsModel_1 = require("./InvitationsModel");
@@ -13049,7 +13073,7 @@ var InvitationsViewModel = (function () {
 }());
 angular.module('iqsInvitations.ViewModel', ['iqsInvitations.Data'])
     .service('iqsInvitationsViewModel', InvitationsViewModel);
-},{"./InvitationsModel":278}],280:[function(require,module,exports){
+},{"./InvitationsModel":279}],281:[function(require,module,exports){
 "use strict";
 function __export(m) {
     for (var p in m) if (!exports.hasOwnProperty(p)) exports[p] = m[p];
@@ -13057,7 +13081,7 @@ function __export(m) {
 Object.defineProperty(exports, "__esModule", { value: true });
 require("./InvitationsViewModel");
 __export(require("./InvitationsModel"));
-},{"./InvitationsModel":278,"./InvitationsViewModel":279}],281:[function(require,module,exports){
+},{"./InvitationsModel":279,"./InvitationsViewModel":280}],282:[function(require,module,exports){
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 var States_1 = require("../../common/States");
@@ -13368,7 +13392,7 @@ var LocationsModel = (function () {
     return LocationsModel;
 }());
 exports.LocationsModel = LocationsModel;
-},{"../../common/States":5}],282:[function(require,module,exports){
+},{"../../common/States":5}],283:[function(require,module,exports){
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 var LocationsModel_1 = require("./LocationsModel");
@@ -13470,7 +13494,7 @@ var LocationsViewModel = (function () {
 }());
 angular.module('iqsLocations.ViewModel', ['iqsLocations.Data'])
     .service('iqsLocationsViewModel', LocationsViewModel);
-},{"./LocationsModel":281}],283:[function(require,module,exports){
+},{"./LocationsModel":282}],284:[function(require,module,exports){
 "use strict";
 function __export(m) {
     for (var p in m) if (!exports.hasOwnProperty(p)) exports[p] = m[p];
@@ -13478,7 +13502,7 @@ function __export(m) {
 Object.defineProperty(exports, "__esModule", { value: true });
 require("./LocationsViewModel");
 __export(require("./LocationsModel"));
-},{"./LocationsModel":281,"./LocationsViewModel":282}],284:[function(require,module,exports){
+},{"./LocationsModel":282,"./LocationsViewModel":283}],285:[function(require,module,exports){
 "use strict";
 var __extends = (this && this.__extends) || (function () {
     var extendStatics = Object.setPrototypeOf ||
@@ -13623,7 +13647,7 @@ var MapModel = (function () {
     return MapModel;
 }());
 exports.MapModel = MapModel;
-},{"../../common/States":5}],285:[function(require,module,exports){
+},{"../../common/States":5}],286:[function(require,module,exports){
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 var MapModel_1 = require("./MapModel");
@@ -13766,7 +13790,7 @@ var MapViewModel = (function () {
 }());
 angular.module('iqsMap.ViewModel', ['iqsZones.ViewModel'])
     .service('iqsMapViewModel', MapViewModel);
-},{"./MapModel":284}],286:[function(require,module,exports){
+},{"./MapModel":285}],287:[function(require,module,exports){
 "use strict";
 function __export(m) {
     for (var p in m) if (!exports.hasOwnProperty(p)) exports[p] = m[p];
@@ -13774,7 +13798,7 @@ function __export(m) {
 Object.defineProperty(exports, "__esModule", { value: true });
 require("./MapViewModel");
 __export(require("./MapModel"));
-},{"./MapModel":284,"./MapViewModel":285}],287:[function(require,module,exports){
+},{"./MapModel":285,"./MapViewModel":286}],288:[function(require,module,exports){
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 var States_1 = require("../../common/States");
@@ -14123,7 +14147,7 @@ var ObjectGroupsModel = (function () {
     return ObjectGroupsModel;
 }());
 exports.ObjectGroupsModel = ObjectGroupsModel;
-},{"../../common/States":5}],288:[function(require,module,exports){
+},{"../../common/States":5}],289:[function(require,module,exports){
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 var ObjectGroupsModel_1 = require("./ObjectGroupsModel");
@@ -14224,7 +14248,7 @@ var ObjectGroupsViewModel = (function () {
 }());
 angular.module('iqsObjectGroups.ViewModel', ['iqsObjectGroups.Data'])
     .service('iqsObjectGroupsViewModel', ObjectGroupsViewModel);
-},{"./ObjectGroupsModel":287}],289:[function(require,module,exports){
+},{"./ObjectGroupsModel":288}],290:[function(require,module,exports){
 "use strict";
 function __export(m) {
     for (var p in m) if (!exports.hasOwnProperty(p)) exports[p] = m[p];
@@ -14232,7 +14256,7 @@ function __export(m) {
 Object.defineProperty(exports, "__esModule", { value: true });
 require("./ObjectGroupsViewModel");
 __export(require("./ObjectGroupsModel"));
-},{"./ObjectGroupsModel":287,"./ObjectGroupsViewModel":288}],290:[function(require,module,exports){
+},{"./ObjectGroupsModel":288,"./ObjectGroupsViewModel":289}],291:[function(require,module,exports){
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 var RouteVisualization_1 = require("./RouteVisualization");
@@ -14693,7 +14717,7 @@ var ObjectRoutesModel = (function () {
     return ObjectRoutesModel;
 }());
 exports.ObjectRoutesModel = ObjectRoutesModel;
-},{"./RouteVisualization":294}],291:[function(require,module,exports){
+},{"./RouteVisualization":295}],292:[function(require,module,exports){
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 var ObjectRoutesModel_1 = require("./ObjectRoutesModel");
@@ -14738,7 +14762,7 @@ var ObjectRoutesViewModel = (function () {
 }());
 angular.module('iqsObjectRoutes.ViewModel', ['iqsCurrentObjectRoutes.Data', 'iqsObjectRoutes.Data', 'iqsObjects.ViewModel'])
     .service('iqsObjectRoutesViewModel', ObjectRoutesViewModel);
-},{"./ObjectRoutesModel":290}],292:[function(require,module,exports){
+},{"./ObjectRoutesModel":291}],293:[function(require,module,exports){
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 var RouteVisualization_1 = require("./RouteVisualization");
@@ -15298,7 +15322,7 @@ var ObjectsRoutesModel = (function () {
     return ObjectsRoutesModel;
 }());
 exports.ObjectsRoutesModel = ObjectsRoutesModel;
-},{"../../common":29,"../../models":277,"../../services":455,"./RouteVisualization":294}],293:[function(require,module,exports){
+},{"../../common":29,"../../models":278,"../../services":456,"./RouteVisualization":295}],294:[function(require,module,exports){
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 var ObjectsRoutesModel_1 = require("./ObjectsRoutesModel");
@@ -15377,7 +15401,7 @@ var ObjectsRoutesViewModel = (function () {
 }());
 angular.module('iqsObjectsRoutes.ViewModel', ['iqsCurrentObjectRoutes.Data', 'iqsObjectRoutes.Data'])
     .service('iqsObjectsRoutesViewModel', ObjectsRoutesViewModel);
-},{"./ObjectsRoutesModel":292}],294:[function(require,module,exports){
+},{"./ObjectsRoutesModel":293}],295:[function(require,module,exports){
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 var RouteVisualization = (function () {
@@ -15790,7 +15814,7 @@ var RouteVisualization = (function () {
     return RouteVisualization;
 }());
 exports.RouteVisualization = RouteVisualization;
-},{}],295:[function(require,module,exports){
+},{}],296:[function(require,module,exports){
 "use strict";
 function __export(m) {
     for (var p in m) if (!exports.hasOwnProperty(p)) exports[p] = m[p];
@@ -15801,7 +15825,7 @@ require("./ObjectsRoutesViewModel");
 __export(require("./ObjectRoutesModel"));
 __export(require("./ObjectsRoutesModel"));
 __export(require("./RouteVisualization"));
-},{"./ObjectRoutesModel":290,"./ObjectRoutesViewModel":291,"./ObjectsRoutesModel":292,"./ObjectsRoutesViewModel":293,"./RouteVisualization":294}],296:[function(require,module,exports){
+},{"./ObjectRoutesModel":291,"./ObjectRoutesViewModel":292,"./ObjectsRoutesModel":293,"./ObjectsRoutesViewModel":294,"./RouteVisualization":295}],297:[function(require,module,exports){
 "use strict";
 var __extends = (this && this.__extends) || (function () {
     var extendStatics = Object.setPrototypeOf ||
@@ -16005,7 +16029,7 @@ var ObjectStatesModel = (function (_super) {
     return ObjectStatesModel;
 }(ObjectStatesAbstractModel_1.ObjectStatesAbstractModel));
 exports.ObjectStatesModel = ObjectStatesModel;
-},{"../../common":29,"../../models":277,"../states/ObjectStatesAbstractModel":323}],297:[function(require,module,exports){
+},{"../../common":29,"../../models":278,"../states/ObjectStatesAbstractModel":324}],298:[function(require,module,exports){
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 var ObjectStatesModel_1 = require("./ObjectStatesModel");
@@ -16166,7 +16190,7 @@ angular.module('iqsObjectStates.ViewModel', [
     'iqsOrganizations.Service'
 ])
     .service('iqsObjectStatesViewModel', ObjectStatesViewModel);
-},{"./ObjectStatesModel":296}],298:[function(require,module,exports){
+},{"./ObjectStatesModel":297}],299:[function(require,module,exports){
 "use strict";
 function __export(m) {
     for (var p in m) if (!exports.hasOwnProperty(p)) exports[p] = m[p];
@@ -16174,7 +16198,7 @@ function __export(m) {
 Object.defineProperty(exports, "__esModule", { value: true });
 require("./ObjectStatesViewModel");
 __export(require("./ObjectStatesModel"));
-},{"./ObjectStatesModel":296,"./ObjectStatesViewModel":297}],299:[function(require,module,exports){
+},{"./ObjectStatesModel":297,"./ObjectStatesViewModel":298}],300:[function(require,module,exports){
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 var States_1 = require("../../common/States");
@@ -16499,7 +16523,7 @@ var ObjectsModel = (function () {
     return ObjectsModel;
 }());
 exports.ObjectsModel = ObjectsModel;
-},{"../../common/States":5}],300:[function(require,module,exports){
+},{"../../common/States":5}],301:[function(require,module,exports){
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 require("../../services/object_configs/ObjectConfigsService");
@@ -16603,7 +16627,7 @@ var ObjectsViewModel = (function () {
 }());
 angular.module('iqsObjects.ViewModel', ['iqsControlObjects.Data', 'iqsCurrentObjectStates.Data', 'iqsObjectConfigs'])
     .service('iqsObjectsViewModel', ObjectsViewModel);
-},{"../../services/object_configs/ObjectConfigsService":470,"./ObjectsModel":299}],301:[function(require,module,exports){
+},{"../../services/object_configs/ObjectConfigsService":471,"./ObjectsModel":300}],302:[function(require,module,exports){
 "use strict";
 function __export(m) {
     for (var p in m) if (!exports.hasOwnProperty(p)) exports[p] = m[p];
@@ -16611,7 +16635,7 @@ function __export(m) {
 Object.defineProperty(exports, "__esModule", { value: true });
 require("./ObjectsViewModel");
 __export(require("./ObjectsModel"));
-},{"./ObjectsModel":299,"./ObjectsViewModel":300}],302:[function(require,module,exports){
+},{"./ObjectsModel":300,"./ObjectsViewModel":301}],303:[function(require,module,exports){
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 var OperationalEventFilter = (function () {
@@ -16620,7 +16644,7 @@ var OperationalEventFilter = (function () {
     return OperationalEventFilter;
 }());
 exports.OperationalEventFilter = OperationalEventFilter;
-},{}],303:[function(require,module,exports){
+},{}],304:[function(require,module,exports){
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 require("../zones/ZonesViewModel");
@@ -17253,7 +17277,7 @@ var OperationalEventsModel = (function () {
     return OperationalEventsModel;
 }());
 exports.OperationalEventsModel = OperationalEventsModel;
-},{"../../common":29,"../../services":455,"../zones/ZonesViewModel":330}],304:[function(require,module,exports){
+},{"../../common":29,"../../services":456,"../zones/ZonesViewModel":331}],305:[function(require,module,exports){
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 var OperationalEventsModel_1 = require("./OperationalEventsModel");
@@ -17409,7 +17433,7 @@ var OperationalEventViewModel = (function () {
     ])
         .service('iqsOperationalEventsViewModel', OperationalEventViewModel);
 }
-},{"./OperationalEventsModel":303}],305:[function(require,module,exports){
+},{"./OperationalEventsModel":304}],306:[function(require,module,exports){
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 var OperationalEventsModel_1 = require("./OperationalEventsModel");
@@ -17553,7 +17577,7 @@ var RetrospectiveOperationalEventsViewModel = (function () {
     ])
         .service('iqsRetrospectiveOperationalEventsViewModel', RetrospectiveOperationalEventsViewModel);
 }
-},{"./OperationalEventsModel":303}],306:[function(require,module,exports){
+},{"./OperationalEventsModel":304}],307:[function(require,module,exports){
 "use strict";
 function __export(m) {
     for (var p in m) if (!exports.hasOwnProperty(p)) exports[p] = m[p];
@@ -17563,7 +17587,7 @@ require("./OperationalEventsViewModel");
 require("./RetrospectiveOperationalEventsViewModel");
 __export(require("./OperationalEventFilter"));
 __export(require("./OperationalEventsModel"));
-},{"./OperationalEventFilter":302,"./OperationalEventsModel":303,"./OperationalEventsViewModel":304,"./RetrospectiveOperationalEventsViewModel":305}],307:[function(require,module,exports){
+},{"./OperationalEventFilter":303,"./OperationalEventsModel":304,"./OperationalEventsViewModel":305,"./RetrospectiveOperationalEventsViewModel":306}],308:[function(require,module,exports){
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 var common_1 = require("../../common");
@@ -17779,7 +17803,7 @@ var OrganizationsModel = (function () {
     return OrganizationsModel;
 }());
 exports.OrganizationsModel = OrganizationsModel;
-},{"../../common":29}],308:[function(require,module,exports){
+},{"../../common":29}],309:[function(require,module,exports){
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 var OrganizationsModel_1 = require("./OrganizationsModel");
@@ -17847,7 +17871,7 @@ var OrganizationsViewModel = (function () {
 }());
 angular.module('iqsOrganizations.ViewModel', ['iqsOrganizations.Data'])
     .service('iqsOrganizationsViewModel', OrganizationsViewModel);
-},{"./OrganizationsModel":307}],309:[function(require,module,exports){
+},{"./OrganizationsModel":308}],310:[function(require,module,exports){
 "use strict";
 function __export(m) {
     for (var p in m) if (!exports.hasOwnProperty(p)) exports[p] = m[p];
@@ -17855,7 +17879,7 @@ function __export(m) {
 Object.defineProperty(exports, "__esModule", { value: true });
 require("./OrganizationsViewModel");
 __export(require("./OrganizationsModel"));
-},{"./OrganizationsModel":307,"./OrganizationsViewModel":308}],310:[function(require,module,exports){
+},{"./OrganizationsModel":308,"./OrganizationsViewModel":309}],311:[function(require,module,exports){
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 var common_1 = require("../../common");
@@ -18171,7 +18195,7 @@ var ResolutionsModel = (function () {
     return ResolutionsModel;
 }());
 exports.ResolutionsModel = ResolutionsModel;
-},{"../../common":29}],311:[function(require,module,exports){
+},{"../../common":29}],312:[function(require,module,exports){
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 var ResolutionsModel_1 = require("./ResolutionsModel");
@@ -18282,7 +18306,7 @@ var ResolutionsViewModel = (function () {
 }());
 angular.module('iqsResolutions.ViewModel', ['iqsResolutions.Data'])
     .service('iqsResolutionsViewModel', ResolutionsViewModel);
-},{"./ResolutionsModel":310}],312:[function(require,module,exports){
+},{"./ResolutionsModel":311}],313:[function(require,module,exports){
 "use strict";
 function __export(m) {
     for (var p in m) if (!exports.hasOwnProperty(p)) exports[p] = m[p];
@@ -18290,7 +18314,7 @@ function __export(m) {
 Object.defineProperty(exports, "__esModule", { value: true });
 require("./ResolutionsViewModel");
 __export(require("./ResolutionsModel"));
-},{"./ResolutionsModel":310,"./ResolutionsViewModel":311}],313:[function(require,module,exports){
+},{"./ResolutionsModel":311,"./ResolutionsViewModel":312}],314:[function(require,module,exports){
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 var SettingsModel = (function () {
@@ -18437,7 +18461,7 @@ var SettingsModel = (function () {
     return SettingsModel;
 }());
 exports.SettingsModel = SettingsModel;
-},{}],314:[function(require,module,exports){
+},{}],315:[function(require,module,exports){
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 var SettingsUncover = (function () {
@@ -18446,7 +18470,7 @@ var SettingsUncover = (function () {
     return SettingsUncover;
 }());
 exports.SettingsUncover = SettingsUncover;
-},{}],315:[function(require,module,exports){
+},{}],316:[function(require,module,exports){
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 var SettingsModel_1 = require("./SettingsModel");
@@ -18502,7 +18526,7 @@ var SettingsViewModel = (function () {
 }());
 angular.module('iqsSettings.ViewModel', ['iqsSettings.Data'])
     .service('iqsSettingsViewModel', SettingsViewModel);
-},{"./SettingsModel":313}],316:[function(require,module,exports){
+},{"./SettingsModel":314}],317:[function(require,module,exports){
 "use strict";
 function __export(m) {
     for (var p in m) if (!exports.hasOwnProperty(p)) exports[p] = m[p];
@@ -18511,7 +18535,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 require("./SettingsViewModel");
 __export(require("./SettingsUncover"));
 __export(require("./SettingsModel"));
-},{"./SettingsModel":313,"./SettingsUncover":314,"./SettingsViewModel":315}],317:[function(require,module,exports){
+},{"./SettingsModel":314,"./SettingsUncover":315,"./SettingsViewModel":316}],318:[function(require,module,exports){
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 var States_1 = require("../../common/States");
@@ -18715,7 +18739,7 @@ var ShiftsModel = (function () {
     return ShiftsModel;
 }());
 exports.ShiftsModel = ShiftsModel;
-},{"../../common/States":5}],318:[function(require,module,exports){
+},{"../../common/States":5}],319:[function(require,module,exports){
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 var ShiftsModel_1 = require("./ShiftsModel");
@@ -18802,7 +18826,7 @@ var ShiftsViewModel = (function () {
 }());
 angular.module('iqsShifts.ViewModel', ['iqsShifts.Data'])
     .service('iqsShiftsViewModel', ShiftsViewModel);
-},{"./ShiftsModel":317}],319:[function(require,module,exports){
+},{"./ShiftsModel":318}],320:[function(require,module,exports){
 "use strict";
 function __export(m) {
     for (var p in m) if (!exports.hasOwnProperty(p)) exports[p] = m[p];
@@ -18810,7 +18834,7 @@ function __export(m) {
 Object.defineProperty(exports, "__esModule", { value: true });
 require("./ShiftsViewModel");
 __export(require("./ShiftsModel"));
-},{"./ShiftsModel":317,"./ShiftsViewModel":318}],320:[function(require,module,exports){
+},{"./ShiftsModel":318,"./ShiftsViewModel":319}],321:[function(require,module,exports){
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 var States_1 = require("../../common/States");
@@ -18918,7 +18942,7 @@ var SignalsModel = (function () {
     return SignalsModel;
 }());
 exports.SignalsModel = SignalsModel;
-},{"../../common/States":5}],321:[function(require,module,exports){
+},{"../../common/States":5}],322:[function(require,module,exports){
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 var SignalsModel_1 = require("./SignalsModel");
@@ -18969,7 +18993,7 @@ var SignalViewModel = (function () {
 }());
 angular.module('iqsSignals.ViewModel', [])
     .service('iqsSignalsViewModel', SignalViewModel);
-},{"./SignalsModel":320}],322:[function(require,module,exports){
+},{"./SignalsModel":321}],323:[function(require,module,exports){
 "use strict";
 function __export(m) {
     for (var p in m) if (!exports.hasOwnProperty(p)) exports[p] = m[p];
@@ -18977,7 +19001,7 @@ function __export(m) {
 Object.defineProperty(exports, "__esModule", { value: true });
 require("./SignalsViewModel");
 __export(require("./SignalsModel"));
-},{"./SignalsModel":320,"./SignalsViewModel":321}],323:[function(require,module,exports){
+},{"./SignalsModel":321,"./SignalsViewModel":322}],324:[function(require,module,exports){
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 var common_1 = require("../../common");
@@ -19669,7 +19693,7 @@ var ObjectStatesAbstractModel = (function () {
     return ObjectStatesAbstractModel;
 }());
 exports.ObjectStatesAbstractModel = ObjectStatesAbstractModel;
-},{"../../common":29,"../../services":455,"../map/MapModel":284}],324:[function(require,module,exports){
+},{"../../common":29,"../../services":456,"../map/MapModel":285}],325:[function(require,module,exports){
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 require("./ObjectStatesAbstractModel");
@@ -19926,7 +19950,7 @@ angular.module('iqsStates.ViewModel', [
     'iqsIncidents.ViewModel'
 ])
     .service('iqsStatesViewModel', StatesViewModel);
-},{"../../models":277,"../current_object_states/CurrentObjectStatesModel":250,"./ObjectStatesAbstractModel":323}],325:[function(require,module,exports){
+},{"../../models":278,"../current_object_states/CurrentObjectStatesModel":251,"./ObjectStatesAbstractModel":324}],326:[function(require,module,exports){
 "use strict";
 function __export(m) {
     for (var p in m) if (!exports.hasOwnProperty(p)) exports[p] = m[p];
@@ -19934,7 +19958,7 @@ function __export(m) {
 Object.defineProperty(exports, "__esModule", { value: true });
 require("./StatesViewModel");
 __export(require("./ObjectStatesAbstractModel"));
-},{"./ObjectStatesAbstractModel":323,"./StatesViewModel":324}],326:[function(require,module,exports){
+},{"./ObjectStatesAbstractModel":324,"./StatesViewModel":325}],327:[function(require,module,exports){
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 var States_1 = require("../../common/States");
@@ -20812,7 +20836,7 @@ var StatisticsModel = (function () {
     return StatisticsModel;
 }());
 exports.StatisticsModel = StatisticsModel;
-},{"../../common/States":5,"../../common/panels/statistics_filter/StatisticsParams":43}],327:[function(require,module,exports){
+},{"../../common/States":5,"../../common/panels/statistics_filter/StatisticsParams":43}],328:[function(require,module,exports){
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 var StatisticsModel_1 = require("./StatisticsModel");
@@ -20882,7 +20906,7 @@ var StatisticsViewModel = (function () {
 }());
 angular.module('iqsStatistics.ViewModel', ['iqsStatistics.Data'])
     .service('iqsStatisticsViewModel', StatisticsViewModel);
-},{"./StatisticsModel":326}],328:[function(require,module,exports){
+},{"./StatisticsModel":327}],329:[function(require,module,exports){
 "use strict";
 function __export(m) {
     for (var p in m) if (!exports.hasOwnProperty(p)) exports[p] = m[p];
@@ -20890,7 +20914,7 @@ function __export(m) {
 Object.defineProperty(exports, "__esModule", { value: true });
 require("./StatisticsViewModel");
 __export(require("./StatisticsModel"));
-},{"./StatisticsModel":326,"./StatisticsViewModel":327}],329:[function(require,module,exports){
+},{"./StatisticsModel":327,"./StatisticsViewModel":328}],330:[function(require,module,exports){
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 var States_1 = require("../../common/States");
@@ -21516,7 +21540,7 @@ var ZonesModel = (function () {
     return ZonesModel;
 }());
 exports.ZonesModel = ZonesModel;
-},{"../../common/States":5}],330:[function(require,module,exports){
+},{"../../common/States":5}],331:[function(require,module,exports){
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 require("../../services/smart_zoom/SmartZoomService");
@@ -21707,7 +21731,7 @@ var ZonesViewModel = (function () {
 }());
 angular.module('iqsZones.ViewModel', ['iqsZones.Data', 'iqsSmartZoom'])
     .service('iqsZonesViewModel', ZonesViewModel);
-},{"../../services/smart_zoom/SmartZoomService":478,"./ZonesModel":329}],331:[function(require,module,exports){
+},{"../../services/smart_zoom/SmartZoomService":479,"./ZonesModel":330}],332:[function(require,module,exports){
 "use strict";
 function __export(m) {
     for (var p in m) if (!exports.hasOwnProperty(p)) exports[p] = m[p];
@@ -21715,14 +21739,14 @@ function __export(m) {
 Object.defineProperty(exports, "__esModule", { value: true });
 require("./ZonesViewModel");
 __export(require("./ZonesModel"));
-},{"./ZonesModel":329,"./ZonesViewModel":330}],332:[function(require,module,exports){
+},{"./ZonesModel":330,"./ZonesViewModel":331}],333:[function(require,module,exports){
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 require("../services/access_config/AccessConfig");
 angular.module('iqsAccessConfig', [
     'iqsAccessConfig.Service'
 ]);
-},{"../services/access_config/AccessConfig":420}],333:[function(require,module,exports){
+},{"../services/access_config/AccessConfig":421}],334:[function(require,module,exports){
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 require("../data/accounts/AccountsDataService");
@@ -21733,7 +21757,7 @@ angular.module('iqsAccounts', [
     'iqsAccounts.Resource',
     'iqsAccounts.ViewModel'
 ]);
-},{"../data/accounts/AccountsDataService":74,"../models/accounts/AccountsViewModel":242,"../rest/AccountsResources":377}],334:[function(require,module,exports){
+},{"../data/accounts/AccountsDataService":74,"../models/accounts/AccountsViewModel":243,"../rest/AccountsResources":378}],335:[function(require,module,exports){
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 require("../data/activities/ActivitiesDataService");
@@ -21742,7 +21766,7 @@ angular.module('iqsActivities', [
     'iqsActivities.Data',
     'iqsActivities.Resource'
 ]);
-},{"../data/activities/ActivitiesDataService":76,"../rest/ActivitiesResources":378}],335:[function(require,module,exports){
+},{"../data/activities/ActivitiesDataService":76,"../rest/ActivitiesResources":379}],336:[function(require,module,exports){
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 require("../data/agreements/AgreementsDataService");
@@ -21751,7 +21775,7 @@ angular.module('iqsAgreements', [
     'iqsAgreements.Data',
     'iqsAgreements.Resource'
 ]);
-},{"../data/agreements/AgreementsDataService":81,"../rest/AgreementsResources":379}],336:[function(require,module,exports){
+},{"../data/agreements/AgreementsDataService":81,"../rest/AgreementsResources":380}],337:[function(require,module,exports){
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 require("../data/applications/ApplicationsDataService");
@@ -21762,7 +21786,7 @@ angular.module('iqsApplications', [
     'iqsApplications.Resource',
     'iqsApplications.ViewModel'
 ]);
-},{"../data/applications/ApplicationsDataService":85,"../models/applications/ApplicationViewModel":244,"../rest/ApplicationsResources":380}],337:[function(require,module,exports){
+},{"../data/applications/ApplicationsDataService":85,"../models/applications/ApplicationViewModel":245,"../rest/ApplicationsResources":381}],338:[function(require,module,exports){
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 require("../data/attendances/AttendancesDataService");
@@ -21771,7 +21795,7 @@ angular.module('iqsAttendances', [
     'iqsAttendances.Data',
     'iqsAttendances.Resource'
 ]);
-},{"../data/attendances/AttendancesDataService":89,"../rest/AttendancesResources":381}],338:[function(require,module,exports){
+},{"../data/attendances/AttendancesDataService":89,"../rest/AttendancesResources":382}],339:[function(require,module,exports){
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 require("../data/beacons/BeaconsDataService");
@@ -21780,7 +21804,7 @@ angular.module('iqsBeacons', [
     'iqsBeacons.Data',
     'iqsBeacons.Resource'
 ]);
-},{"../data/beacons/BeaconsDataService":94,"../rest/BeaconsResources":382}],339:[function(require,module,exports){
+},{"../data/beacons/BeaconsDataService":94,"../rest/BeaconsResources":383}],340:[function(require,module,exports){
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 require("../data/control_objects/ControlObjectsDataService");
@@ -21789,7 +21813,7 @@ angular.module('iqsControlObjects', [
     'iqsControlObjects.Data',
     'iqsControlObjects.Resource'
 ]);
-},{"../data/control_objects/ControlObjectsDataService":97,"../rest/ControlObjectsResources":383}],340:[function(require,module,exports){
+},{"../data/control_objects/ControlObjectsDataService":97,"../rest/ControlObjectsResources":384}],341:[function(require,module,exports){
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 require("../data/corrections/CorrectionsDataService");
@@ -21798,14 +21822,14 @@ angular.module('iqsCorrections', [
     'iqsCorrections.Data',
     'iqsCorrections.Resource',
 ]);
-},{"../data/corrections/CorrectionsDataService":104,"../rest/CorrectionsResources":384}],341:[function(require,module,exports){
+},{"../data/corrections/CorrectionsDataService":104,"../rest/CorrectionsResources":385}],342:[function(require,module,exports){
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 require("../rest/CountersResources");
 angular.module('iqsCounters', [
     'iqsCounters.Resource'
 ]);
-},{"../rest/CountersResources":385}],342:[function(require,module,exports){
+},{"../rest/CountersResources":386}],343:[function(require,module,exports){
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 require("../data/credit_cards/CreditCardDataService");
@@ -21816,7 +21840,7 @@ angular.module('iqsCreditCards', [
     'iqsCreditCards.Resource',
     'iqsCreditCards.ViewModel',
 ]);
-},{"../data/credit_cards/CreditCardDataService":109,"../models/credit_card/CreditCardViewModel":247,"../rest/CreditCardResources":386}],343:[function(require,module,exports){
+},{"../data/credit_cards/CreditCardDataService":109,"../models/credit_card/CreditCardViewModel":248,"../rest/CreditCardResources":387}],344:[function(require,module,exports){
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 require("../data/current_device_states/CurrentDeviceStateDataService");
@@ -21825,7 +21849,7 @@ angular.module('iqsCurrentDeviceStates', [
     'iqsCurrentDeviceStates.Data',
     'iqsCurrentDeviceStates.Resource'
 ]);
-},{"../data/current_device_states/CurrentDeviceStateDataService":114,"../rest/CurrentDeviceStateResources":387}],344:[function(require,module,exports){
+},{"../data/current_device_states/CurrentDeviceStateDataService":114,"../rest/CurrentDeviceStateResources":388}],345:[function(require,module,exports){
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 require("../data/current_object_routes/CurrentObjectRoutesDataService");
@@ -21834,7 +21858,7 @@ angular.module('iqsCurrentObjectRoutes', [
     'iqsCurrentObjectRoutes.Data',
     'iqsCurrentObjectRoutes.Resource'
 ]);
-},{"../data/current_object_routes/CurrentObjectRoutesDataService":117,"../rest/CurrentObjectRoutesResources":388}],345:[function(require,module,exports){
+},{"../data/current_object_routes/CurrentObjectRoutesDataService":117,"../rest/CurrentObjectRoutesResources":389}],346:[function(require,module,exports){
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 require("../data/current_object_states/CurrentObjectStatesDataService");
@@ -21845,7 +21869,7 @@ angular.module('iqsCurrentObjectStates', [
     'iqsCurrentObjectStates.Resource',
     'iqsCurrentObjectStates.ViewModel'
 ]);
-},{"../data/current_object_states/CurrentObjectStatesDataService":125,"../models/current_object_states/CurrentObjectStatesViewModel":251,"../rest/CurrentObjectStateResources":389}],346:[function(require,module,exports){
+},{"../data/current_object_states/CurrentObjectStatesDataService":125,"../models/current_object_states/CurrentObjectStatesViewModel":252,"../rest/CurrentObjectStateResources":390}],347:[function(require,module,exports){
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 require("../data/data_profiles/DataProfilesDataService");
@@ -21856,7 +21880,7 @@ angular.module('iqsDataProfiles', [
     'iqsDataProfiles.Resource',
     'iqsDataProfiles.ViewModel'
 ]);
-},{"../data/data_profiles/DataProfilesDataService":128,"../models/data_profiles/DataProfilesViewModel":254,"../rest/DataProfile":390}],347:[function(require,module,exports){
+},{"../data/data_profiles/DataProfilesDataService":128,"../models/data_profiles/DataProfilesViewModel":255,"../rest/DataProfile":391}],348:[function(require,module,exports){
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 require("../data/devices/DevicesDataService");
@@ -21865,7 +21889,7 @@ angular.module('iqsDevices', [
     'iqsDevices.Data',
     'iqsDevices.Resource'
 ]);
-},{"../data/devices/DevicesDataService":133,"../rest/DevicesResources":391}],348:[function(require,module,exports){
+},{"../data/devices/DevicesDataService":133,"../rest/DevicesResources":392}],349:[function(require,module,exports){
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 require("../data/emergency_plans/EmergencyPlansDataService");
@@ -21876,7 +21900,7 @@ angular.module('iqsEmergencyPlans', [
     'iqsEmergencyPlans.Resource',
     'iqsEmergencyPlans.ViewModel'
 ]);
-},{"../data/emergency_plans/EmergencyPlansDataService":139,"../models/emergency_plans/EmergencyPlansViewModel":260,"../rest/EmergencyPlansResources":392}],349:[function(require,module,exports){
+},{"../data/emergency_plans/EmergencyPlansDataService":139,"../models/emergency_plans/EmergencyPlansViewModel":261,"../rest/EmergencyPlansResources":393}],350:[function(require,module,exports){
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 require("../data/event_rules/EventRulesDataService");
@@ -21887,7 +21911,7 @@ angular.module('iqsEventRules', [
     'iqsEventRules.Resource',
     'iqsEventRules.ViewModel'
 ]);
-},{"../data/event_rules/EventRulesDataService":148,"../models/event_rules/EventRulesViewModel":265,"../rest/EventRulesResources":393}],350:[function(require,module,exports){
+},{"../data/event_rules/EventRulesDataService":148,"../models/event_rules/EventRulesViewModel":266,"../rest/EventRulesResources":394}],351:[function(require,module,exports){
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 require("../data/event_templates/EventTemplatesDataService");
@@ -21898,7 +21922,7 @@ angular.module('iqsEventTemplates', [
     'iqsEventTemplates.Resource',
     'iqsEventTemplates.ViewModel'
 ]);
-},{"../data/event_templates/EventTemplatesDataService":151,"../models/event_templates/OperationalEventTemplatesViewModel":268,"../rest/EventTemplateResources":394}],351:[function(require,module,exports){
+},{"../data/event_templates/EventTemplatesDataService":151,"../models/event_templates/OperationalEventTemplatesViewModel":269,"../rest/EventTemplateResources":395}],352:[function(require,module,exports){
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 require("../data/gateways/GatewaysDataService");
@@ -21907,14 +21931,14 @@ angular.module('iqsGateways', [
     'iqsGateways.Data',
     'iqsGateways.Resource'
 ]);
-},{"../data/gateways/GatewaysDataService":156,"../rest/GatewaysResources":396}],352:[function(require,module,exports){
+},{"../data/gateways/GatewaysDataService":156,"../rest/GatewaysResources":397}],353:[function(require,module,exports){
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 require("../models/guides/GuidesViewModel");
 angular.module('iqsGuides', [
     'iqsGuides.ViewModel'
 ]);
-},{"../models/guides/GuidesViewModel":271}],353:[function(require,module,exports){
+},{"../models/guides/GuidesViewModel":272}],354:[function(require,module,exports){
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 require("../data/help/HelpArticlesDataSevice");
@@ -21930,7 +21954,7 @@ angular.module('iqsHelpTopics', [
     'iqsHelpTopics.Resource'
 ]);
 angular.module('iqsHelp', ['iqsHelpArticles', 'iqsHelpTopics']);
-},{"../data/help/HelpArticlesDataSevice":164,"../data/help/HelpTopicsDataService":168,"../rest/HelpArticlesResources":397,"../rest/HelpTopicsResources":398}],354:[function(require,module,exports){
+},{"../data/help/HelpArticlesDataSevice":164,"../data/help/HelpTopicsDataService":168,"../rest/HelpArticlesResources":398,"../rest/HelpTopicsResources":399}],355:[function(require,module,exports){
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 require("../data/incidents/IncidentsDataService");
@@ -21943,7 +21967,7 @@ angular.module('iqsIncidents', [
     'iqsIncidents.ViewModel',
     'iqsIncidentCurrentObjectStates.ViewModel'
 ]);
-},{"../data/incidents/IncidentsDataService":174,"../models/incidents/IncidentCurrentObjectStateViewModel":273,"../models/incidents/IncidentsViewModel":275,"../rest/IncidentsResources":399}],355:[function(require,module,exports){
+},{"../data/incidents/IncidentsDataService":174,"../models/incidents/IncidentCurrentObjectStateViewModel":274,"../models/incidents/IncidentsViewModel":276,"../rest/IncidentsResources":400}],356:[function(require,module,exports){
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 require("./access_config");
@@ -22036,7 +22060,7 @@ angular.module('iqsModules', [
     'iqsTypeCollections',
     'iqsZones',
 ]);
-},{"./access_config":332,"./accounts":333,"./activities":334,"./agreements":335,"./applications":336,"./attendances":337,"./beacons":338,"./control_objects":339,"./corrections":340,"./counters":341,"./credit_cards":342,"./current_device_states":343,"./current_object_routes":344,"./current_object_states":345,"./data_profiles":346,"./devices":347,"./emergency_plans":348,"./event_rules":349,"./event_templates":350,"./gateways":351,"./guides":352,"./help":353,"./incidents":354,"./invitations":356,"./locations":357,"./map":358,"./object_groups":359,"./object_positions":360,"./object_routes":361,"./object_states":362,"./objects_routes":363,"./operational_events":364,"./organizations":365,"./resolutions":366,"./roles":367,"./rosters":368,"./sessions":369,"./settings":370,"./shifts":371,"./signals":372,"./states":373,"./statistics":374,"./type_collections":375,"./zones":376}],356:[function(require,module,exports){
+},{"./access_config":333,"./accounts":334,"./activities":335,"./agreements":336,"./applications":337,"./attendances":338,"./beacons":339,"./control_objects":340,"./corrections":341,"./counters":342,"./credit_cards":343,"./current_device_states":344,"./current_object_routes":345,"./current_object_states":346,"./data_profiles":347,"./devices":348,"./emergency_plans":349,"./event_rules":350,"./event_templates":351,"./gateways":352,"./guides":353,"./help":354,"./incidents":355,"./invitations":357,"./locations":358,"./map":359,"./object_groups":360,"./object_positions":361,"./object_routes":362,"./object_states":363,"./objects_routes":364,"./operational_events":365,"./organizations":366,"./resolutions":367,"./roles":368,"./rosters":369,"./sessions":370,"./settings":371,"./shifts":372,"./signals":373,"./states":374,"./statistics":375,"./type_collections":376,"./zones":377}],357:[function(require,module,exports){
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 require("../data/invitations/InvitationsDataService");
@@ -22047,7 +22071,7 @@ angular.module('iqsInvitations', [
     'iqsInvitations.Resource',
     'iqsInvitations.ViewModel'
 ]);
-},{"../data/invitations/InvitationsDataService":179,"../models/invitations/InvitationsViewModel":279,"../rest/InvitationsResources":400}],357:[function(require,module,exports){
+},{"../data/invitations/InvitationsDataService":179,"../models/invitations/InvitationsViewModel":280,"../rest/InvitationsResources":401}],358:[function(require,module,exports){
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 require("../data/locations/LocationsDataService");
@@ -22056,14 +22080,14 @@ angular.module('iqsLocations', [
     'iqsLocations.Data',
     'iqsLocations.Resource'
 ]);
-},{"../data/locations/LocationsDataService":182,"../rest/LocationsResources":401}],358:[function(require,module,exports){
+},{"../data/locations/LocationsDataService":182,"../rest/LocationsResources":402}],359:[function(require,module,exports){
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 require("../models/map/MapViewModel");
 angular.module('iqsMap', [
     'iqsMap.ViewModel'
 ]);
-},{"../models/map/MapViewModel":285}],359:[function(require,module,exports){
+},{"../models/map/MapViewModel":286}],360:[function(require,module,exports){
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 require("../data/object_groups/ObjectGroupsDataService");
@@ -22072,7 +22096,7 @@ angular.module('iqsObjectGroups', [
     'iqsObjectGroups.Data',
     'iqsObjectGroups.Resource'
 ]);
-},{"../data/object_groups/ObjectGroupsDataService":185,"../rest/ObjectGroupsResources":403}],360:[function(require,module,exports){
+},{"../data/object_groups/ObjectGroupsDataService":185,"../rest/ObjectGroupsResources":404}],361:[function(require,module,exports){
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 require("../data/object_positions/ObjectPositionsDataService");
@@ -22081,7 +22105,7 @@ angular.module('iqsObjectPositions', [
     'iqsObjectPositions.Data',
     'iqsObjectPositions.Resource'
 ]);
-},{"../data/object_positions/ObjectPositionsDataService":188,"../rest/ObjectPositionsResources":404}],361:[function(require,module,exports){
+},{"../data/object_positions/ObjectPositionsDataService":188,"../rest/ObjectPositionsResources":405}],362:[function(require,module,exports){
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 require("../data/object_routes/ObjectRoutesDataService");
@@ -22092,7 +22116,7 @@ angular.module('iqsObjectRoutes', [
     'iqsObjectRoutes.Resource',
     'iqsObjectRoutes.ViewModel'
 ]);
-},{"../data/object_routes/ObjectRoutesDataService":191,"../models/object_routes/ObjectRoutesViewModel":291,"../rest/ObjectRoutesResources":405}],362:[function(require,module,exports){
+},{"../data/object_routes/ObjectRoutesDataService":191,"../models/object_routes/ObjectRoutesViewModel":292,"../rest/ObjectRoutesResources":406}],363:[function(require,module,exports){
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 require("../data/object_states/ObjectStatesDataService");
@@ -22103,7 +22127,7 @@ angular.module('iqsObjectStates', [
     'iqsObjectStates.Resource',
     'iqsObjectStates.ViewModel'
 ]);
-},{"../data/object_states/ObjectStatesDataService":196,"../models/object_states/ObjectStatesViewModel":297,"../rest/ObjectStateResources":406}],363:[function(require,module,exports){
+},{"../data/object_states/ObjectStatesDataService":196,"../models/object_states/ObjectStatesViewModel":298,"../rest/ObjectStateResources":407}],364:[function(require,module,exports){
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 require("../models/object_routes/ObjectsRoutesViewModel");
@@ -22111,7 +22135,7 @@ angular.module('iqsObjectsRoutes', [
     'iqsObjectRoutes',
     'iqsObjectsRoutes.ViewModel'
 ]);
-},{"../models/object_routes/ObjectsRoutesViewModel":293}],364:[function(require,module,exports){
+},{"../models/object_routes/ObjectsRoutesViewModel":294}],365:[function(require,module,exports){
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 require("../data/operational_events/OperationalEventDataService");
@@ -22124,7 +22148,7 @@ angular.module('iqsOperationalEvents', [
     'iqsOperationalEvents.ViewModel',
     'iqsRetrospectiveOperationalEvents.ViewModel',
 ]);
-},{"../data/operational_events/OperationalEventDataService":199,"../models/operational_events/OperationalEventsViewModel":304,"../models/operational_events/RetrospectiveOperationalEventsViewModel":305,"../rest/OperationalEventResources":407}],365:[function(require,module,exports){
+},{"../data/operational_events/OperationalEventDataService":199,"../models/operational_events/OperationalEventsViewModel":305,"../models/operational_events/RetrospectiveOperationalEventsViewModel":306,"../rest/OperationalEventResources":408}],366:[function(require,module,exports){
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 require("../data/organizations/OrganizationsDataService");
@@ -22137,7 +22161,7 @@ angular.module('iqsOrganizations', [
     'iqsOrganizations.Service',
     'iqsOrganizations.ViewModel'
 ]);
-},{"../data/organizations/OrganizationsDataService":203,"../models/organizations/OrganizationsViewModel":308,"../rest/OrganizationsResources":408,"../services/organizations/OrganizationService":473}],366:[function(require,module,exports){
+},{"../data/organizations/OrganizationsDataService":203,"../models/organizations/OrganizationsViewModel":309,"../rest/OrganizationsResources":409,"../services/organizations/OrganizationService":474}],367:[function(require,module,exports){
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 require("../data/resolutions/ResolutionsDataService");
@@ -22148,7 +22172,7 @@ angular.module('iqsResolutions', [
     'iqsResolutions.Resource',
     'iqsResolutions.ViewModel'
 ]);
-},{"../data/resolutions/ResolutionsDataService":206,"../models/resolutions/ResolutionsViewModel":311,"../rest/ResolutionsResources":410}],367:[function(require,module,exports){
+},{"../data/resolutions/ResolutionsDataService":206,"../models/resolutions/ResolutionsViewModel":312,"../rest/ResolutionsResources":411}],368:[function(require,module,exports){
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 require("../data/roles/RolesDataService");
@@ -22157,7 +22181,7 @@ angular.module('iqsRoles', [
     'iqsRoles.Data',
     'iqsRoles.Resource'
 ]);
-},{"../data/roles/RolesDataService":208,"../rest/RolesResources":411}],368:[function(require,module,exports){
+},{"../data/roles/RolesDataService":208,"../rest/RolesResources":412}],369:[function(require,module,exports){
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 require("../data/rosters/RostersDataService");
@@ -22166,7 +22190,7 @@ angular.module('iqsRosters', [
     'iqsRosters.Data',
     'iqsRosters.Resource'
 ]);
-},{"../data/rosters/RostersDataService":211,"../rest/RostersResources":412}],369:[function(require,module,exports){
+},{"../data/rosters/RostersDataService":211,"../rest/RostersResources":413}],370:[function(require,module,exports){
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 require("../data/sessions/SessionsDataService");
@@ -22175,7 +22199,7 @@ angular.module('iqsSessions', [
     'iqsSessions.Data',
     'iqsSessions.Resource'
 ]);
-},{"../data/sessions/SessionsDataService":214,"../rest/SessionsResources":413}],370:[function(require,module,exports){
+},{"../data/sessions/SessionsDataService":214,"../rest/SessionsResources":414}],371:[function(require,module,exports){
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 require("../data/settings/EmailSettingsDataService");
@@ -22196,7 +22220,7 @@ angular.module('iqsSettings', [
     'iqsSettings.Resource',
     'iqsSettings.ViewModel'
 ]);
-},{"../data/settings/EmailSettingsDataService":217,"../data/settings/SmsSettingsDataServce":220,"../models/settings/SettingsViewModel":315,"../rest/SettingsResources":414}],371:[function(require,module,exports){
+},{"../data/settings/EmailSettingsDataService":218,"../data/settings/SmsSettingsDataServce":221,"../models/settings/SettingsViewModel":316,"../rest/SettingsResources":415}],372:[function(require,module,exports){
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 require("../data/shifts/ShiftsDataService");
@@ -22207,7 +22231,7 @@ angular.module('iqsShifts', [
     'iqsShifts.Resource',
     'iqsShifts.ViewModel'
 ]);
-},{"../data/shifts/ShiftsDataService":223,"../models/shifts/ShiftsViewModel":318,"../rest/ShiftsResources":415}],372:[function(require,module,exports){
+},{"../data/shifts/ShiftsDataService":224,"../models/shifts/ShiftsViewModel":319,"../rest/ShiftsResources":416}],373:[function(require,module,exports){
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 require("../data/signals/SignalsDataService");
@@ -22218,14 +22242,14 @@ angular.module('iqsSignals', [
     'iqsSignals.Resource',
     'iqsSignals.ViewModel'
 ]);
-},{"../data/signals/SignalsDataService":228,"../models/signals/SignalsViewModel":321,"../rest/SignalResources":416}],373:[function(require,module,exports){
+},{"../data/signals/SignalsDataService":229,"../models/signals/SignalsViewModel":322,"../rest/SignalResources":417}],374:[function(require,module,exports){
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 require("../models/states/StatesViewModel");
 angular.module('iqsStates', [
     'iqsStates.ViewModel'
 ]);
-},{"../models/states/StatesViewModel":324}],374:[function(require,module,exports){
+},{"../models/states/StatesViewModel":325}],375:[function(require,module,exports){
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 require("../data/statistics/StatisticsDataService");
@@ -22238,14 +22262,14 @@ angular.module('iqsStatistics', [
     'iqsStatistics.Resource',
     'iqsStatistics.ViewModel'
 ]);
-},{"../data/statistics/StatisticsDataService":231,"../models/statistics/StatisticsViewModel":327,"../rest/StatisticsResources":417,"../services/statistics/StatisticsDateService":480}],375:[function(require,module,exports){
+},{"../data/statistics/StatisticsDataService":232,"../models/statistics/StatisticsViewModel":328,"../rest/StatisticsResources":418,"../services/statistics/StatisticsDateService":481}],376:[function(require,module,exports){
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 require("../services/type_collections/TypeCollectionsService");
 angular.module('iqsTypeCollections', [
     'iqsTypeCollections.Service'
 ]);
-},{"../services/type_collections/TypeCollectionsService":490}],376:[function(require,module,exports){
+},{"../services/type_collections/TypeCollectionsService":491}],377:[function(require,module,exports){
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 require("../data/zones/ZonesDataService");
@@ -22254,7 +22278,7 @@ angular.module('iqsZones', [
     'iqsZones.Data',
     'iqsZones.Resource'
 ]);
-},{"../data/zones/ZonesDataService":238,"../rest/ZonesResources":418}],377:[function(require,module,exports){
+},{"../data/zones/ZonesDataService":239,"../rest/ZonesResources":419}],378:[function(require,module,exports){
 configAccountsResources.$inject = ['pipRestProvider'];
 function configAccountsResources(pipRestProvider) {
     pipRestProvider.registerPagedCollection('accounts', '/api/v1/accounts/:user_id', { user_id: '@user_id' }, {
@@ -22272,7 +22296,7 @@ function configAccountsResources(pipRestProvider) {
 angular
     .module('iqsAccounts.Resource', ['pipCommonRest'])
     .config(configAccountsResources);
-},{}],378:[function(require,module,exports){
+},{}],379:[function(require,module,exports){
 configActivitiesResources.$inject = ['pipRestProvider'];
 function configActivitiesResources(pipRestProvider) {
     pipRestProvider.registerPagedCollection('activities', '/api/v1/activities/:account_id', { account_id: '@account_id' }, {
@@ -22283,7 +22307,7 @@ function configActivitiesResources(pipRestProvider) {
 angular
     .module('iqsActivities.Resource', ['pipCommonRest'])
     .config(configActivitiesResources);
-},{}],379:[function(require,module,exports){
+},{}],380:[function(require,module,exports){
 configManualAgreementResources.$inject = ['pipRestProvider'];
 function configManualAgreementResources(pipRestProvider) {
     pipRestProvider.registerPagedCollection('agreements', '/api/v1/agreement/:agreement_id', { agreement_id: '@agreement_id', customer_id: '@agreement_id' }, {
@@ -22294,7 +22318,7 @@ function configManualAgreementResources(pipRestProvider) {
 angular
     .module('iqsAgreements.Resource', ['pipCommonRest'])
     .config(configManualAgreementResources);
-},{}],380:[function(require,module,exports){
+},{}],381:[function(require,module,exports){
 configApplicationsResources.$inject = ['pipRestProvider'];
 function configApplicationsResources(pipRestProvider) {
     pipRestProvider.registerPagedCollection('applications', '/api/v1/applications/:application_id', { application_id: '@application_id' }, {
@@ -22309,7 +22333,7 @@ function configApplicationsResources(pipRestProvider) {
 angular
     .module('iqsApplications.Resource', ['pipCommonRest'])
     .config(configApplicationsResources);
-},{}],381:[function(require,module,exports){
+},{}],382:[function(require,module,exports){
 configAttendancesResources.$inject = ['pipRestProvider'];
 function configAttendancesResources(pipRestProvider) {
     pipRestProvider.registerPagedCollection('attendance', '/api/v1/organizations/:org_id/attendance', { org_id: '@org_id' }, {
@@ -22321,7 +22345,7 @@ function configAttendancesResources(pipRestProvider) {
 angular
     .module('iqsAttendances.Resource', ['pipCommonRest'])
     .config(configAttendancesResources);
-},{}],382:[function(require,module,exports){
+},{}],383:[function(require,module,exports){
 configBeaconsResources.$inject = ['pipRestProvider'];
 function configBeaconsResources(pipRestProvider) {
     pipRestProvider.registerPagedCollection('beacons', '/api/v1/organizations/:org_id/beacons/:beacon_id', { beacon_id: '@beacon_id', org_id: '@org_id' }, {
@@ -22336,7 +22360,7 @@ function configBeaconsResources(pipRestProvider) {
 angular
     .module('iqsBeacons.Resource', ['pipCommonRest'])
     .config(configBeaconsResources);
-},{}],383:[function(require,module,exports){
+},{}],384:[function(require,module,exports){
 configControlObjectsResources.$inject = ['pipRestProvider'];
 function configControlObjectsResources(pipRestProvider) {
     pipRestProvider.registerPagedCollection('control_objects', '/api/v1/organizations/:org_id/control_objects/:object_id', { object_id: '@object_id', org_id: '@org_id' }, {
@@ -22347,7 +22371,7 @@ function configControlObjectsResources(pipRestProvider) {
 angular
     .module('iqsControlObjects.Resource', ['pipCommonRest'])
     .config(configControlObjectsResources);
-},{}],384:[function(require,module,exports){
+},{}],385:[function(require,module,exports){
 configManualCorrectionsResources.$inject = ['pipRestProvider'];
 function configManualCorrectionsResources(pipRestProvider) {
     pipRestProvider.registerPagedCollection('corrections', '/api/v1/organizations/:org_id/corrections/:correction_id', { correction_id: '@correction_id', org_id: '@org_id' }, {
@@ -22357,7 +22381,7 @@ function configManualCorrectionsResources(pipRestProvider) {
 angular
     .module('iqsCorrections.Resource', ['pipCommonRest'])
     .config(configManualCorrectionsResources);
-},{}],385:[function(require,module,exports){
+},{}],386:[function(require,module,exports){
 configCountersResources.$inject = ['pipRestProvider'];
 function configCountersResources(pipRestProvider) {
     pipRestProvider.registerOperation('counters', '/api/v1/counters');
@@ -22365,7 +22389,7 @@ function configCountersResources(pipRestProvider) {
 angular
     .module('iqsCounters.Resource', ['pipCommonRest'])
     .config(configCountersResources);
-},{}],386:[function(require,module,exports){
+},{}],387:[function(require,module,exports){
 configManualCreditCardResources.$inject = ['pipRestProvider'];
 function configManualCreditCardResources(pipRestProvider) {
     pipRestProvider.registerPagedCollection('credit_cards', '/api/v1/organizations/:customer_id/credit_cards/:card_id', { card_id: '@card_id', customer_id: '@customer_id' }, {
@@ -22375,7 +22399,7 @@ function configManualCreditCardResources(pipRestProvider) {
 angular
     .module('iqsCreditCards.Resource', ['pipCommonRest'])
     .config(configManualCreditCardResources);
-},{}],387:[function(require,module,exports){
+},{}],388:[function(require,module,exports){
 configCurrentDeviceStateResources.$inject = ['pipRestProvider'];
 function configCurrentDeviceStateResources(pipRestProvider) {
     pipRestProvider.registerOperation('curr_device_states', '/api/v1/organizations/:org_id/curr_device_states/:state_id', { org_id: '@org_id', state_id: '@state_id' });
@@ -22383,7 +22407,7 @@ function configCurrentDeviceStateResources(pipRestProvider) {
 angular
     .module('iqsCurrentDeviceStates.Resource', ['pipCommonRest'])
     .config(configCurrentDeviceStateResources);
-},{}],388:[function(require,module,exports){
+},{}],389:[function(require,module,exports){
 configCurrObjectRoutesResources.$inject = ['pipRestProvider'];
 function configCurrObjectRoutesResources(pipRestProvider) {
     pipRestProvider.registerOperation('curr_object_routes', '/api/v1/organizations/:org_id/curr_object_routes/:object_id', { org_id: '@org_id', object_id: '@object_id' });
@@ -22391,7 +22415,7 @@ function configCurrObjectRoutesResources(pipRestProvider) {
 angular
     .module('iqsCurrentObjectRoutes.Resource', ['pipCommonRest'])
     .config(configCurrObjectRoutesResources);
-},{}],389:[function(require,module,exports){
+},{}],390:[function(require,module,exports){
 configCurrentObjectStateResources.$inject = ['pipRestProvider'];
 function configCurrentObjectStateResources(pipRestProvider) {
     pipRestProvider.registerOperation('current_object_state', '/api/v1/organizations/:org_id/curr_object_states/:state_id', { org_id: '@org_id', state_id: '@state_id' });
@@ -22399,7 +22423,7 @@ function configCurrentObjectStateResources(pipRestProvider) {
 angular
     .module('iqsCurrentObjectStates.Resource', ['pipCommonRest'])
     .config(configCurrentObjectStateResources);
-},{}],390:[function(require,module,exports){
+},{}],391:[function(require,module,exports){
 configDataProfilesResources.$inject = ['pipRestProvider'];
 function configDataProfilesResources(pipRestProvider) {
     pipRestProvider.registerOperation('data_profiles', '/api/v1/organizations/:org_id/data_profiles', { org_id: '@org_id' });
@@ -22407,7 +22431,7 @@ function configDataProfilesResources(pipRestProvider) {
 angular
     .module('iqsDataProfiles.Resource', ['pipCommonRest'])
     .config(configDataProfilesResources);
-},{}],391:[function(require,module,exports){
+},{}],392:[function(require,module,exports){
 configDevicesResources.$inject = ['pipRestProvider'];
 function configDevicesResources(pipRestProvider) {
     pipRestProvider.registerPagedCollection('devices', '/api/v1/organizations/:org_id/devices/:device_id', { device_id: '@device_id', org_id: '@org_id' }, {
@@ -22426,7 +22450,7 @@ function configDevicesResources(pipRestProvider) {
 angular
     .module('iqsDevices.Resource', ['pipCommonRest'])
     .config(configDevicesResources);
-},{}],392:[function(require,module,exports){
+},{}],393:[function(require,module,exports){
 configEmergencyPlansResources.$inject = ['pipRestProvider'];
 function configEmergencyPlansResources(pipRestProvider) {
     pipRestProvider.registerPagedCollection('emergency_plans', '/api/v1/organizations/:org_id/emergency_plans/:plan_id', { template_id: '@plan_id', org_id: '@org_id' }, {
@@ -22436,7 +22460,7 @@ function configEmergencyPlansResources(pipRestProvider) {
 angular
     .module('iqsEmergencyPlans.Resource', ['pipCommonRest'])
     .config(configEmergencyPlansResources);
-},{}],393:[function(require,module,exports){
+},{}],394:[function(require,module,exports){
 configEventRulesResources.$inject = ['pipRestProvider'];
 function configEventRulesResources(pipRestProvider) {
     pipRestProvider.registerPagedCollection('event_rules', '/api/v1/organizations/:org_id/event_rules/:event_rule_id', { event_rule_id: '@event_rule_id', org_id: '@org_id' }, {
@@ -22446,7 +22470,7 @@ function configEventRulesResources(pipRestProvider) {
 angular
     .module('iqsEventRules.Resource', ['pipCommonRest'])
     .config(configEventRulesResources);
-},{}],394:[function(require,module,exports){
+},{}],395:[function(require,module,exports){
 configEventTemplateResources.$inject = ['pipRestProvider'];
 function configEventTemplateResources(pipRestProvider) {
     pipRestProvider.registerPagedCollection('event_templates', '/api/v1/organizations/:org_id/event_templates/:template_id', { template_id: '@template_id', org_id: '@org_id' }, {
@@ -22456,7 +22480,7 @@ function configEventTemplateResources(pipRestProvider) {
 angular
     .module('iqsEventTemplates.Resource', ['pipCommonRest'])
     .config(configEventTemplateResources);
-},{}],395:[function(require,module,exports){
+},{}],396:[function(require,module,exports){
 configEventsResources.$inject = ['pipRestProvider'];
 function configEventsResources(pipRestProvider) {
     pipRestProvider.registerOperation('events', '/api/v1/eventlog');
@@ -22464,7 +22488,7 @@ function configEventsResources(pipRestProvider) {
 angular
     .module('pipEventsResources', ['pipCommonRest'])
     .config(configEventsResources);
-},{}],396:[function(require,module,exports){
+},{}],397:[function(require,module,exports){
 configGatewaysResources.$inject = ['pipRestProvider'];
 function configGatewaysResources(pipRestProvider) {
     pipRestProvider.registerPagedCollection('gateways', '/api/v1/organizations/:org_id/gateways/:gateway_id', { gateway_id: '@gateway_id', org_id: '@org_id' }, {
@@ -22486,7 +22510,7 @@ function configGatewaysResources(pipRestProvider) {
 angular
     .module('iqsGateways.Resource', ['pipCommonRest'])
     .config(configGatewaysResources);
-},{}],397:[function(require,module,exports){
+},{}],398:[function(require,module,exports){
 configHelpArticlesResources.$inject = ['pipRestProvider'];
 function configHelpArticlesResources(pipRestProvider) {
     pipRestProvider.registerPagedCollection('help_articles', '/api/v1/help/articles/:article_id', { article_id: '@article_id' }, {
@@ -22497,7 +22521,7 @@ function configHelpArticlesResources(pipRestProvider) {
 angular
     .module('iqsHelpArticles.Resource', ['pipCommonRest'])
     .config(configHelpArticlesResources);
-},{}],398:[function(require,module,exports){
+},{}],399:[function(require,module,exports){
 configHelpTopicsResources.$inject = ['pipRestProvider'];
 function configHelpTopicsResources(pipRestProvider) {
     pipRestProvider.registerPagedCollection('help_topics', '/api/v1/help/topics/:topic_id', { topic_id: '@topic_id' }, {
@@ -22507,7 +22531,7 @@ function configHelpTopicsResources(pipRestProvider) {
 angular
     .module('iqsHelpTopics.Resource', ['pipCommonRest'])
     .config(configHelpTopicsResources);
-},{}],399:[function(require,module,exports){
+},{}],400:[function(require,module,exports){
 configIncidentsResources.$inject = ['pipRestProvider'];
 function configIncidentsResources(pipRestProvider) {
     pipRestProvider.registerPagedCollection('incidents', '/api/v1/organizations/:org_id/incidents/:incident_id', { incident_id: '@incident_id', org_id: '@org_id' }, {
@@ -22520,7 +22544,7 @@ function configIncidentsResources(pipRestProvider) {
 angular
     .module('iqsIncidents.Resource', ['pipCommonRest'])
     .config(configIncidentsResources);
-},{}],400:[function(require,module,exports){
+},{}],401:[function(require,module,exports){
 configInvitationsResources.$inject = ['pipRestProvider'];
 function configInvitationsResources(pipRestProvider) {
     pipRestProvider.registerPagedCollection('invitations', '/api/v1/organizations/:org_id/invitations/:invitation_id', { invitation_id: '@invitation_id', org_id: '@org_id' }, {
@@ -22547,7 +22571,7 @@ function configInvitationsResources(pipRestProvider) {
 angular
     .module('iqsInvitations.Resource', ['pipCommonRest'])
     .config(configInvitationsResources);
-},{}],401:[function(require,module,exports){
+},{}],402:[function(require,module,exports){
 configLocationsResources.$inject = ['pipRestProvider'];
 function configLocationsResources(pipRestProvider) {
     pipRestProvider.registerPagedCollection('locations', '/api/v1/organizations/:org_id/locations/:location_id', { location_id: '@location_id', org_id: '@org_id' }, {
@@ -22557,7 +22581,7 @@ function configLocationsResources(pipRestProvider) {
 angular
     .module('iqsLocations.Resource', ['pipCommonRest'])
     .config(configLocationsResources);
-},{}],402:[function(require,module,exports){
+},{}],403:[function(require,module,exports){
 configLoggingResources.$inject = ['pipRestProvider'];
 function configLoggingResources(pipRestProvider) {
     pipRestProvider.registerOperation('logging', '/api/v1/logging');
@@ -22566,7 +22590,7 @@ function configLoggingResources(pipRestProvider) {
 angular
     .module('pipLoggingResources', ['pipCommonRest'])
     .config(configLoggingResources);
-},{}],403:[function(require,module,exports){
+},{}],404:[function(require,module,exports){
 configObjectGroupsResources.$inject = ['pipRestProvider'];
 function configObjectGroupsResources(pipRestProvider) {
     pipRestProvider.registerPagedCollection('object_groups', '/api/v1/organizations/:org_id/object_groups/:group_id', { group_id: '@group_id', org_id: '@org_id' }, {
@@ -22576,7 +22600,7 @@ function configObjectGroupsResources(pipRestProvider) {
 angular
     .module('iqsObjectGroups.Resource', ['pipCommonRest'])
     .config(configObjectGroupsResources);
-},{}],404:[function(require,module,exports){
+},{}],405:[function(require,module,exports){
 configObjectPositionsResources.$inject = ['pipRestProvider'];
 function configObjectPositionsResources(pipRestProvider) {
     pipRestProvider.registerOperation('object_positions', '/api/v1/organizations/:org_id/object_positions', { org_id: '@org_id' });
@@ -22585,7 +22609,7 @@ function configObjectPositionsResources(pipRestProvider) {
 angular
     .module('iqsObjectPositions.Resource', ['pipCommonRest'])
     .config(configObjectPositionsResources);
-},{}],405:[function(require,module,exports){
+},{}],406:[function(require,module,exports){
 configObjectRoutesResources.$inject = ['pipRestProvider'];
 function configObjectRoutesResources(pipRestProvider) {
     pipRestProvider.registerOperation('object_routes', '/api/v1/organizations/:org_id/object_routes/:route_id', { org_id: '@org_id', route_id: '@route_id' });
@@ -22593,7 +22617,7 @@ function configObjectRoutesResources(pipRestProvider) {
 angular
     .module('iqsObjectRoutes.Resource', ['pipCommonRest'])
     .config(configObjectRoutesResources);
-},{}],406:[function(require,module,exports){
+},{}],407:[function(require,module,exports){
 configObjectStateResources.$inject = ['pipRestProvider'];
 function configObjectStateResources(pipRestProvider) {
     pipRestProvider.registerOperation('object_state', '/api/v1/organizations/:org_id/object_states/timeline', { org_id: '@org_id', state_id: '@state_id' });
@@ -22601,7 +22625,7 @@ function configObjectStateResources(pipRestProvider) {
 angular
     .module('iqsObjectStates.Resource', ['pipCommonRest'])
     .config(configObjectStateResources);
-},{}],407:[function(require,module,exports){
+},{}],408:[function(require,module,exports){
 configOperationalEventResources.$inject = ['pipRestProvider'];
 function configOperationalEventResources(pipRestProvider) {
     pipRestProvider.registerPagedCollection('operational_events', '/api/v1/organizations/:org_id/operational_events/:event_id', { org_id: '@org_id' });
@@ -22609,7 +22633,7 @@ function configOperationalEventResources(pipRestProvider) {
 angular
     .module('iqsOperationalEvents.Resource', ['pipCommonRest'])
     .config(configOperationalEventResources);
-},{}],408:[function(require,module,exports){
+},{}],409:[function(require,module,exports){
 configOrganizationResources.$inject = ['pipRestProvider'];
 function configOrganizationResources(pipRestProvider) {
     pipRestProvider.registerPagedCollection('organizations', '/api/v1/organizations/:org_id', { org_id: '@org_id' }, {
@@ -22626,7 +22650,7 @@ function configOrganizationResources(pipRestProvider) {
 angular
     .module('iqsOrganizations.Resource', ['pipCommonRest'])
     .config(configOrganizationResources);
-},{}],409:[function(require,module,exports){
+},{}],410:[function(require,module,exports){
 configPipStatisticsResources.$inject = ['pipRestProvider'];
 function configPipStatisticsResources(pipRestProvider) {
     pipRestProvider.registerOperation('statistics_counters', '/api/v1/statistics/counters');
@@ -22636,7 +22660,7 @@ function configPipStatisticsResources(pipRestProvider) {
 angular
     .module('pipStatisticsResources', ['pipCommonRest'])
     .config(configPipStatisticsResources);
-},{}],410:[function(require,module,exports){
+},{}],411:[function(require,module,exports){
 configResolutionsResources.$inject = ['pipRestProvider'];
 function configResolutionsResources(pipRestProvider) {
     pipRestProvider.registerPagedCollection('resolutions', '/api/v1/organizations/:org_id/resolutions/:resolution_id', { resolution_id: '@resolution_id', org_id: '@org_id' }, {
@@ -22646,7 +22670,7 @@ function configResolutionsResources(pipRestProvider) {
 angular
     .module('iqsResolutions.Resource', ['pipCommonRest'])
     .config(configResolutionsResources);
-},{}],411:[function(require,module,exports){
+},{}],412:[function(require,module,exports){
 configRolesResources.$inject = ['pipRestProvider'];
 function configRolesResources(pipRestProvider) {
     pipRestProvider.registerPagedCollection('roles_grant', '/api/v1/roles/:user_id/grant', { user_id: '@user_id' }, {
@@ -22666,7 +22690,7 @@ function configRolesResources(pipRestProvider) {
 angular
     .module('iqsRoles.Resource', ['pipCommonRest'])
     .config(configRolesResources);
-},{}],412:[function(require,module,exports){
+},{}],413:[function(require,module,exports){
 configRostersResources.$inject = ['pipRestProvider'];
 function configRostersResources(pipRestProvider) {
     pipRestProvider.registerPagedCollection('rosters', '/api/v1/organizations/:org_id/rosters/:roster_id', { roster_id: '@roster_id', org_id: '@org_id' }, {
@@ -22676,7 +22700,7 @@ function configRostersResources(pipRestProvider) {
 angular
     .module('iqsRosters.Resource', ['pipCommonRest'])
     .config(configRostersResources);
-},{}],413:[function(require,module,exports){
+},{}],414:[function(require,module,exports){
 configSessionsResources.$inject = ['pipRestProvider'];
 function configSessionsResources(pipRestProvider) {
     pipRestProvider.registerPagedCollection('sessions', '/api/v1/sessions/:user_id/:session_id', { user_id: '@user_id', session_id: '@session_id' });
@@ -22684,7 +22708,7 @@ function configSessionsResources(pipRestProvider) {
 angular
     .module('iqsSessions.Resource', ['pipCommonRest'])
     .config(configSessionsResources);
-},{}],414:[function(require,module,exports){
+},{}],415:[function(require,module,exports){
 configSettingsResources.$inject = ['pipRestProvider'];
 function configSettingsResources(pipRestProvider) {
     pipRestProvider.registerPagedCollection('settings', '/api/v1/settings/:section/:key', { section: '@section' }, {
@@ -22708,7 +22732,7 @@ function configSettingsResources(pipRestProvider) {
 angular
     .module('iqsSettings.Resource', ['pipSettingsResources'])
     .config(configSettingsResources);
-},{}],415:[function(require,module,exports){
+},{}],416:[function(require,module,exports){
 configShiftsResources.$inject = ['pipRestProvider'];
 function configShiftsResources(pipRestProvider) {
     pipRestProvider.registerPagedCollection('shifts', '/api/v1/organizations/:org_id/shifts/:shift_id', { shift_id: '@shift_id', org_id: '@org_id' }, {
@@ -22718,7 +22742,7 @@ function configShiftsResources(pipRestProvider) {
 angular
     .module('iqsShifts.Resource', ['pipCommonRest'])
     .config(configShiftsResources);
-},{}],416:[function(require,module,exports){
+},{}],417:[function(require,module,exports){
 configSignalsResources.$inject = ['pipRestProvider'];
 function configSignalsResources(pipRestProvider) {
     pipRestProvider.registerOperation('signals', '/api/v1/organizations/:org_id/signals/:signal_id', { org_id: '@org_id', signal_id: '@signal_id' });
@@ -22726,7 +22750,7 @@ function configSignalsResources(pipRestProvider) {
 angular
     .module('iqsSignals.Resource', ['pipCommonRest'])
     .config(configSignalsResources);
-},{}],417:[function(require,module,exports){
+},{}],418:[function(require,module,exports){
 configStatisticsResources.$inject = ['pipRestProvider'];
 function configStatisticsResources(pipRestProvider) {
     pipRestProvider.registerOperation('statistics', '/api/v1/organizations/:org_id/statistics/:name', { org_id: '@org_id' });
@@ -22734,7 +22758,7 @@ function configStatisticsResources(pipRestProvider) {
 angular
     .module('iqsStatistics.Resource', ['pipCommonRest'])
     .config(configStatisticsResources);
-},{}],418:[function(require,module,exports){
+},{}],419:[function(require,module,exports){
 configZonesResources.$inject = ['pipRestProvider'];
 function configZonesResources(pipRestProvider) {
     pipRestProvider.registerPagedCollection('zones', '/api/v1/organizations/:org_id/zones/:zone_id', { zone_id: '@zone_id', org_id: '@org_id' }, {
@@ -22744,7 +22768,7 @@ function configZonesResources(pipRestProvider) {
 angular
     .module('iqsZones.Resource', ['pipCommonRest'])
     .config(configZonesResources);
-},{}],419:[function(require,module,exports){
+},{}],420:[function(require,module,exports){
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 require("./AccountsResources");
@@ -22832,7 +22856,7 @@ angular.module('iqsRest', [
     'iqsStatistics.Resource',
     'iqsZones.Resource'
 ]);
-},{"./AccountsResources":377,"./ActivitiesResources":378,"./AgreementsResources":379,"./ApplicationsResources":380,"./AttendancesResources":381,"./BeaconsResources":382,"./ControlObjectsResources":383,"./CorrectionsResources":384,"./CountersResources":385,"./CreditCardResources":386,"./CurrentDeviceStateResources":387,"./CurrentObjectRoutesResources":388,"./CurrentObjectStateResources":389,"./DataProfile":390,"./DevicesResources":391,"./EmergencyPlansResources":392,"./EventRulesResources":393,"./EventTemplateResources":394,"./EventsResources":395,"./GatewaysResources":396,"./HelpArticlesResources":397,"./HelpTopicsResources":398,"./IncidentsResources":399,"./InvitationsResources":400,"./LocationsResources":401,"./LoggingResources":402,"./ObjectGroupsResources":403,"./ObjectPositionsResources":404,"./ObjectRoutesResources":405,"./ObjectStateResources":406,"./OperationalEventResources":407,"./OrganizationsResources":408,"./PipStatisticsResources":409,"./ResolutionsResources":410,"./RolesResources":411,"./RostersResources":412,"./SessionsResources":413,"./SettingsResources":414,"./ShiftsResources":415,"./SignalResources":416,"./StatisticsResources":417,"./ZonesResources":418}],420:[function(require,module,exports){
+},{"./AccountsResources":378,"./ActivitiesResources":379,"./AgreementsResources":380,"./ApplicationsResources":381,"./AttendancesResources":382,"./BeaconsResources":383,"./ControlObjectsResources":384,"./CorrectionsResources":385,"./CountersResources":386,"./CreditCardResources":387,"./CurrentDeviceStateResources":388,"./CurrentObjectRoutesResources":389,"./CurrentObjectStateResources":390,"./DataProfile":391,"./DevicesResources":392,"./EmergencyPlansResources":393,"./EventRulesResources":394,"./EventTemplateResources":395,"./EventsResources":396,"./GatewaysResources":397,"./HelpArticlesResources":398,"./HelpTopicsResources":399,"./IncidentsResources":400,"./InvitationsResources":401,"./LocationsResources":402,"./LoggingResources":403,"./ObjectGroupsResources":404,"./ObjectPositionsResources":405,"./ObjectRoutesResources":406,"./ObjectStateResources":407,"./OperationalEventResources":408,"./OrganizationsResources":409,"./PipStatisticsResources":410,"./ResolutionsResources":411,"./RolesResources":412,"./RostersResources":413,"./SessionsResources":414,"./SettingsResources":415,"./ShiftsResources":416,"./SignalResources":417,"./StatisticsResources":418,"./ZonesResources":419}],421:[function(require,module,exports){
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 require("../organizations/OrganizationService");
@@ -22982,7 +23006,7 @@ var AccessConfigProvider = (function () {
 angular
     .module('iqsAccessConfig.Service', ['iqsOrganizations.Service'])
     .provider('iqsAccessConfig', AccessConfigProvider);
-},{"../../common/unauthorized/UnauthorizedErrorPage":56,"../../config":67,"../../data":176,"../organizations/OrganizationService":473}],421:[function(require,module,exports){
+},{"../../common/unauthorized/UnauthorizedErrorPage":56,"../../config":67,"../../data":176,"../organizations/OrganizationService":474}],422:[function(require,module,exports){
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 var StateAccessAllow = (function () {
@@ -23003,14 +23027,14 @@ var StateAccessConfigure = (function () {
     return StateAccessConfigure;
 }());
 exports.StateAccessConfigure = StateAccessConfigure;
-},{}],422:[function(require,module,exports){
+},{}],423:[function(require,module,exports){
 "use strict";
 function __export(m) {
     for (var p in m) if (!exports.hasOwnProperty(p)) exports[p] = m[p];
 }
 Object.defineProperty(exports, "__esModule", { value: true });
 __export(require("./IAccessConfig"));
-},{"./IAccessConfig":421}],423:[function(require,module,exports){
+},{"./IAccessConfig":422}],424:[function(require,module,exports){
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 require("../object_configs/ObjectConfigsService");
@@ -23115,7 +23139,7 @@ exports.EmergencyPlanActionPageManager = EmergencyPlanActionPageManager;
     angular.module('iqsEmergencyPlanActionPageManager', ['iqsSendSignalDialog', 'iqsObjectConfigs', 'iqsSendSignals'])
         .service('iqsEmergencyPlanActionPageManager', EmergencyPlanActionPageManager);
 }
-},{"../object_configs/ObjectConfigsService":470}],424:[function(require,module,exports){
+},{"../object_configs/ObjectConfigsService":471}],425:[function(require,module,exports){
 "use strict";
 configureEmergencyPlansAccess.$inject = ['iqsAccessConfigProvider'];
 initEmergencyPlans.$inject = ['$rootScope', '$state', '$timeout', 'pipMedia', 'pipAuxPanel', 'pipActions', 'pipSession', 'iqsLoading', 'iqsShell', 'iqsOrganization'];
@@ -23183,7 +23207,7 @@ angular
     .config(configureEmergencyPlansAccess)
     .run(initEmergencyPlans);
 require("./EmergencyPlansStrings");
-},{"../../data":176,"../loading":461,"./EmergencyPlansStrings":425,"./panels/EmergencyPlansPanel":430}],425:[function(require,module,exports){
+},{"../../data":176,"../loading":462,"./EmergencyPlansStrings":426,"./panels/EmergencyPlansPanel":431}],426:[function(require,module,exports){
 {
     declareEmergencyPlansResources.$inject = ['pipTranslateProvider'];
     function declareEmergencyPlansResources(pipTranslateProvider) {
@@ -23230,11 +23254,11 @@ require("./EmergencyPlansStrings");
         .module('iqsEmergencyPlansAux')
         .config(declareEmergencyPlansResources);
 }
-},{}],426:[function(require,module,exports){
+},{}],427:[function(require,module,exports){
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 require("./EmergencyPlansInit");
-},{"./EmergencyPlansInit":424}],427:[function(require,module,exports){
+},{"./EmergencyPlansInit":425}],428:[function(require,module,exports){
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 var EmergencyPlanPanelState = (function () {
@@ -23245,7 +23269,7 @@ var EmergencyPlanPanelState = (function () {
     return EmergencyPlanPanelState;
 }());
 exports.EmergencyPlanPanelState = EmergencyPlanPanelState;
-},{}],428:[function(require,module,exports){
+},{}],429:[function(require,module,exports){
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 require("../EmergencyPlanActionPageManager");
@@ -23333,7 +23357,7 @@ var EmergencyPlansDetailsPanelController = (function () {
         template: "\n                <div class=\"aux-btn-close pointer\" ng-click=\"$ctrl.closeAuxPanel()\" ng-if=\"!$ctrl.hideButton\">\n                \t<md-icon md-svg-icon=\"icons:cross\"></md-icon>\n                </div>\n\n                <div class=\"text-title layout-row layout-align-start-start\">\n                \t<md-button class=\"md-icon-button flex-fixed\" ng-click=\"$ctrl.onEmergencyPlanList()\">\n                \t\t<md-icon md-svg-icon=\"icons:arrow-left\"></md-icon>\n                \t</md-button>\n                \t<div>\n                \t\t{{ $ctrl.emergencyPlan.name }}\n                \t</div>\n                </div>\n\n\n                <div class=\"pip-ref-list pip-scroll-y layout-column p16 tp0 flex\">\n\n                \t<div ng-repeat=\"estep in $ctrl.emergencyPlan.steps track by estep.index\">\n                \t\t<div class=\"layout-row layout-align-start-start pointer\" ng-click=\"$ctrl.onCheck($index)\">\n                \t\t\t<div class=\"flex-fixed\">\n                \t\t\t\t<md-button class=\"md-icon-button m0 tm4  rm16\">\n                \t\t\t\t\t<div class=\"iqs-bulet color-content {{ estep.checked ? 'color-disabled-bg' : 'color-primary-bg' }}\" style=\"border-radius: 12px; width:24px; height: 24px; line-height: 24px; text-align: center\">\n                \t\t\t\t\t\t{{ estep.index }}\n                \t\t\t\t\t</div>\n                \t\t\t\t</md-button>\n                \t\t\t</div>\n                \t\t\t<div class=\"text-body1 flex tp16 {{ estep.checked ? 'ep-step-name-uncheck' : '' }}\">\n                \t\t\t\t{{ estep.name }}\n                \t\t\t</div>\n                \t\t</div>\n                \t\t<div ng-repeat=\"action in estep.actions track by $index\" style=\"margin-left: 56px;\">\n                \t\t\t<!--note-->\n                \t\t\t<div class=\"tm16 text-body1\" ng-if=\"action.type == 'note' && action.params['text']\">\n                \t\t\t\t{{ action.params['text'] }}\n                \t\t\t</div>\n                \t\t\t<!--phone-->\n                \t\t\t<div class=\"text-body1\" ng-if=\"action.type == 'call phone' && action.params['phone']\">\n                \t\t\t\t{{ action.params['phone'] }}\n                \t\t\t</div>\n                \t\t\t<!--local link-->\n                \t\t\t<div ng-if=\"action.type == 'local link' && action.params['page']\">\n                \t\t\t\t<md-button class=\"color-primary\" style=\"margin-left: -6px;\" ng-click=\"$ctrl.onPageClick(action.params['page'])\"\n                \t\t\t\t           ng-if=\"action.params['pageTitle']\">\n                \t\t\t\t\t{{ action.params['pageTitle'] | translate }}\n                \t\t\t\t</md-button>\n\n                \t\t\t\t<div class=\"tm8 text-body1\" ng-if=\"action.params['text']\">\n                \t\t\t\t\t{{ action.params['text'] }}\n                \t\t\t\t</div>\n                \t\t\t</div>\n                \t\t\t<!--global link-->\n                \t\t\t<div class=\"text-body1\" ng-if=\"action.type == 'global link' && action.params['uri']\">\n                \t\t\t\t<a href=\"{{ action.params['uri'] }}\" target=\"_bank\">{{ action.params['uri'] }}</a>\n                \t\t\t</div>\n                \t\t</div>\n                \t</div>\n                \t<div class=\"layout-row layout-align-center-center tm16 bm16\" ng-if=\"$ctrl.isEPComplete()\">\n                \t\t<md-button class=\"color-primary-bg\" ng-click=\"$ctrl.onEPComplete()\">\n                \t\t\t{{ ::'EMERGENCY_DATAILS_COMPLETE_BUTTON' | translate }}\n                \t\t</md-button>\n                \t</div>\n\n                </div>\n            "
     });
 })();
-},{"../EmergencyPlanActionPageManager":423}],429:[function(require,module,exports){
+},{"../EmergencyPlanActionPageManager":424}],430:[function(require,module,exports){
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 var EmergencyPlansInit_1 = require("../EmergencyPlansInit");
@@ -23439,7 +23463,7 @@ var EmergencyPlansListPanelController = (function () {
         template: "\n                <div class=\"aux-btn-close pointer\" ng-click=\"$ctrl.closeAuxPanel()\" ng-if=\"!$ctrl.hideButton\">\n                    <md-icon md-svg-icon=\"icons:cross\"></md-icon>\n                </div>\n\n                <div class=\"text-title\">\n                    {{ ::'EMERGENCY_PLANS_AUX_TITLE' | translate }}\n                </div>\n\n\n                <div class=\"emergency-plans-list pip-scroll-y layout-column bp0 tp0 flex\">\n\n                    <md-list class=\"pip-ref-list p0\" ng-if=\"$ctrl.state == 'data'\">\n\n                        <md-list-item class=\"pip-ref-list-item pointer lp16 tp0 divider-bottom\" ng-repeat=\"item in $ctrl.collection track by $index\"\n                                      md-ink-ripple>\n                            <div class=\"layout-row layout-align-start-start pip-content\" ng-click=\"$ctrl.onDetails(item)\">\n                                <p class=\"text-subhead2 incidents-description text-overflow flex\">\n                                    {{ item.name }}\n                                </p>\n                                <div class=\"flex-fixed\">\n                                    <md-icon class=\"m0 flex-fixed\" md-svg-icon=\"icons:chevron-right\"></md-icon>\n                                </div>\n                            </div>\n                        </md-list-item>\n                    </md-list>\n\n\n                    <div class=\"layout-column layout-align-center-center flex iqs-empty\" ng-if=\"$ctrl.state == 'empty'\">\n                        <div class=\"pip-empty\" style=\"display: block;\">\n                            <img src=\"images/empty/empty.svg\" class=\"pip-pic\" style=\"display: block;\">\n                            <div class=\"text-subhead1 text-center tm16\">\n                                {{ ::'EMERGENCY_PLANS_AUX_DATA_EMPTY_TITLE' | translate }}\n                            </div>\n                            <div class=\"text-subhead1 text-center\">\n                                {{ ::'EMERGENCY_PLANS_AUX_DATA_EMPTY_SUBTITLE' | translate }}\n                            </div>\n                        </div>\n                    </div>\n                </div>\n\n                <div class=\"iqs-footer\" ng-if=\"$ctrl.accessConfig.emergencyPlanConfig\">\n                    <md-list class=\"pip-ref-list\">\n                        <md-list-item class=\"pip-ref-list-item layout-row layout-align-start-start\" md-ink-ripple ng-click=\"$ctrl.onConfigure()\">\n                            <div class=\"pip-content\">\n                                <div class=\"text-body1 text-overflow\">\n                                    {{ ::'EMERGENCY_PLANS_AUX_BUTTON_OPTIONS' | translate }}\n                                </div>\n                            </div>\n                            <div class=\"flex-fixed\">\n                                <md-icon class=\"m0 flex-fixed\" md-svg-icon=\"icons:chevron-right\"></md-icon>\n                            </div>\n                        </md-list-item>\n                    </md-list>\n                </div>\n\n                <div class=\"iqs-footer\" ng-if=\"!$ctrl.accessConfig.emergencyPlanConfig\">\n                    <md-list class=\"pip-ref-list\">\n                        <md-list-item class=\"pip-ref-list-item tp4 layout-row md-list-item layout-align-start-start\">\n                            <div class=\"pip-content\">\n                                <div class=\"text-body1 text-overflow color-secondary-text tp2\">\n                                    {{ ::'EMERGENCY_PLANS_AUX_BUTTON_OPTIONS' | translate }}\n                                </div>\n                            </div>\n                            <div class=\"tp8 flex-fixed color-secondary-text\">\n                                <md-icon class=\"m0 flex-fixed\" md-svg-icon=\"icons:chevron-right\"></md-icon>\n                            </div>\n                        </md-list-item>\n                    </md-list>\n                </div>\n            "
     });
 })();
-},{"../EmergencyPlansInit":424}],430:[function(require,module,exports){
+},{"../EmergencyPlansInit":425}],431:[function(require,module,exports){
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 require("./EmergencyPlansDetailsPanel");
@@ -23571,7 +23595,7 @@ var EmergencyPlansPanelController = (function () {
         template: "\n                <iqs-emergency-plans-list-panel ng-if=\"$ctrl.panelState == 'list'\" iqs-emergency-plan-details=\"$ctrl.onDetails()\">\n\n                </iqs-emergency-plans-list-panel>\n\n                <iqs-emergency-plans-details-panel ng-if=\"$ctrl.panelState == 'details'\" iqs-emergency-plan=\"$ctrl.selectedItem\"\n                                                   iqs-emergency-plan-list=\"$ctrl.onList()\">\n\n                </iqs-emergency-plans-details-panel>\n            "
     });
 })();
-},{"./EmergencyPlanPanelState":427,"./EmergencyPlansDetailsPanel":428,"./EmergencyPlansListPanel":429}],431:[function(require,module,exports){
+},{"./EmergencyPlanPanelState":428,"./EmergencyPlansDetailsPanel":429,"./EmergencyPlansListPanel":430}],432:[function(require,module,exports){
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 var GlobalHelpConfigSection = (function () {
@@ -23634,7 +23658,7 @@ exports.GLOBAL_HELP = {
         }
     ]
 };
-},{}],432:[function(require,module,exports){
+},{}],433:[function(require,module,exports){
 "use strict";
 initGlobalHelp.$inject = ['$rootScope', '$state', '$timeout', 'pipMedia', 'pipAuxPanel', 'pipActions', 'pipSession', 'iqsLoading', 'iqsShell', 'iqsOrganization'];
 resourceYoutubeConfig.$inject = ['$sceDelegateProvider'];
@@ -23698,7 +23722,7 @@ angular
     .module('iqsGlobalHelp', ['iqsGlobalHelpPanel', 'iqsOrganizations.Service'])
     .run(initGlobalHelp)
     .config(resourceYoutubeConfig);
-},{"../../services":455,"./panels/GlobalHelpPanel":439}],433:[function(require,module,exports){
+},{"../../services":456,"./panels/GlobalHelpPanel":440}],434:[function(require,module,exports){
 {
     declareGlobalHelpContentesources.$inject = ['pipTranslateProvider'];
     function declareGlobalHelpContentesources(pipTranslateProvider) {
@@ -23782,7 +23806,7 @@ angular
         .module('iqsGlobalHelp')
         .config(declareGlobalHelpContentesources);
 }
-},{}],434:[function(require,module,exports){
+},{}],435:[function(require,module,exports){
 {
     declareGlobalHelpResources.$inject = ['pipTranslateProvider'];
     function declareGlobalHelpResources(pipTranslateProvider) {
@@ -23807,13 +23831,13 @@ angular
         .module('iqsGlobalHelp')
         .config(declareGlobalHelpResources);
 }
-},{}],435:[function(require,module,exports){
+},{}],436:[function(require,module,exports){
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 require("./GlobalHelpInit");
 require("./GlobalHelpResource");
 require("./GlobalHelpStrings");
-},{"./GlobalHelpInit":432,"./GlobalHelpResource":433,"./GlobalHelpStrings":434}],436:[function(require,module,exports){
+},{"./GlobalHelpInit":433,"./GlobalHelpResource":434,"./GlobalHelpStrings":435}],437:[function(require,module,exports){
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 var GlobalHelpConfig_1 = require("../GlobalHelpConfig");
@@ -23881,7 +23905,7 @@ var GlobalHelpDetailsPanelController = (function () {
         template: "\n                <div class=\"aux-btn-close pointer\" ng-click=\"$ctrl.closeAuxPanel()\" ng-if=\"!$ctrl.hideButton\">\n                    <md-icon md-svg-icon=\"icons:cross\"></md-icon>\n                </div>\n\n                <div class=\"text-title layout-row layout-align-start-start\">\n                    <md-button class=\"md-icon-button flex-fixed\" ng-click=\"$ctrl.onGlobalHelpList()\">\n                        <md-icon md-svg-icon=\"icons:arrow-left\"></md-icon>\n                    </md-button>\n                    <div>\n                        {{ $ctrl.current.title }}\n                    </div>\n                </div>\n\n                <div class=\"pip-ref-list pip-scroll-y layout-column p16 tp0 flex\">\n\n\n                    <iframe width=\"288\" height=\"166\" frameborder=\"0\" allowfullscreen ng-src=\"{{ $ctrl.current.src }}\" style=\"margin: 0 auto;\"\n                            ng-if=\"$ctrl.current.src\">\n                    </iframe>\n\n                    <pip-markdown class=\"tm24\" pip-text=\"$ctrl.current.text\" pip-rebind=\"true\">\n                    </pip-markdown>\n\n                    <div ng-if=\"$ctrl.section.state\">\n                        <md-button class=\"color-primary\" style=\"margin-left: -6px;\" ng-click=\"$ctrl.onSateClick()\">\n\n                            <span ng-if=\"$ctrl.section.stateName\">\n                                {{ $ctrl.section.stateName | translate }}\n                            </span>\n                            <span ng-if=\"!$ctrl.section.stateName\">\n                                {{ 'GLOBAL_HELP_STATE_DEFAULT_NAME' | translate }}\n                            </span>\n                        </md-button>\n                    </div>\n                </div>\n            "
     });
 })();
-},{"../GlobalHelpConfig":431}],437:[function(require,module,exports){
+},{"../GlobalHelpConfig":432}],438:[function(require,module,exports){
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 var GlobalHelpGuidesPanelBindings = {};
@@ -23957,7 +23981,7 @@ var GlobalHelpGuidesPanelController = (function () {
         template: "\n                <div class=\"aux-btn-close pointer\" ng-click=\"$ctrl.closeAuxPanel()\" ng-if=\"!$ctrl.hideButton\">\n                    <md-icon md-svg-icon=\"icons:cross\"></md-icon>\n                </div>\n\n                <div class=\"global-help-guide-list pip-scroll-y layout-column bp0 tp0 flex\">\n                    <md-list class=\"pip-ref-list p0\">\n\n                        <md-list-item class=\"pip-ref-list-item pointer lp16 tp0 divider-bottom\" ng-repeat=\"item in $ctrl.collection track by $index\"\n                                      md-ink-ripple>\n                            <div class=\"layout-row layout-align-start-start pip-content \" ng-click=\"$ctrl.onDetails(item)\">\n                                <p class=\"text-subhead2 incidents-description text-overflow flex\">\n                                    {{ item.app }}, {{ item.version }}\n                                    <span ng-if=\"item.type == 'introduction'\">\n                                        {{ ::'GUIDES_INTRODUCTION' | translate }}\n                                    </span>\n                                    <span ng-if=\"item.type == 'new release'\">\n                                        {{ ::'GUIDES_RELEASE' | translate }}\n                                    </span>\n                                </p>\n                            </div>\n                        </md-list-item>\n                    </md-list>\n\n                    <div class=\"layout-column layout-align-center-center flex iqs-empty\" ng-if=\"$ctrl.state == 'empty'\">\n                        <div class=\"pip-empty\" style=\"display: block; height: calc(100%);\">\n                            <img src=\"images/empty/empty.svg\" class=\"pip-pic\" style=\"display: block;\">\n                            <div class=\"text-subhead1 text-center tm16\">\n                                {{ ::'GLOBAL_HELP_GUIDES_AUX_DATA_EMPTY_TITLE' | translate }}\n                            </div>\n                            <div class=\"text-subhead1 text-center\">\n                                {{ ::'GLOBAL_HELP_GUIDES_AUX_DATA_EMPTY_SUBTITLE' | translate }}\n                            </div>\n                        </div>\n                    </div>\n                </div>\n            "
     });
 })();
-},{}],438:[function(require,module,exports){
+},{}],439:[function(require,module,exports){
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 var GlobalHelpConfig_1 = require("../GlobalHelpConfig");
@@ -24021,7 +24045,7 @@ var GlobalHelpListPanelController = (function () {
         template: "\n                <div class=\"text-title\">\n                    {{ ::'GLOBAL_HELP_AUX_TITLE' | translate }}\n                </div>\n\n                <div class=\"aux-btn-close pointer\" ng-click=\"$ctrl.closeAuxPanel()\" ng-if=\"!$ctrl.hideButton\">\n                    <md-icon md-svg-icon=\"icons:cross\"></md-icon>\n                </div>\n\n                <div class=\"global-help-list pip-scroll-y layout-column bp0 tp0 flex\">\n                    <md-list class=\"pip-ref-list p0\">\n\n                        <md-list-item class=\"pip-ref-list-item pointer lp16 tp0 divider-bottom\" ng-repeat=\"item in $ctrl.collection track by $index\"\n                                      md-ink-ripple>\n                            <div class=\"layout-row layout-align-start-start pip-content \" ng-click=\"$ctrl.onDetails(item)\">\n                                <p class=\"text-subhead2 incidents-description text-overflow flex\">\n                                    {{ item.title | translate }}\n                                </p>\n                                <div class=\"flex-fixed\">\n                                    <md-icon class=\"m0 flex-fixed\" md-svg-icon=\"icons:chevron-right\"></md-icon>\n                                </div>\n                            </div>\n                        </md-list-item>\n                    </md-list>\n\n                    <div class=\"tm48 bm48 lm24 rm24 text-subhead1 text-center tm16\">\n                        {{ ::'GLOBAL_HELP_SUPPORT_MAIL' | translate }}\n                        <a href=\"mailto:support@iquipsys.com\">support@iquipsys.com</a>\n                        <br><br>\n                        {{ ::'GLOBAL_HELP_SUPPORT_PORTAL_PRE' | translate }}\n                        <a href=\"http://help.positron.iquipsys.net?lang={{ $ctrl.language }}\" target=\"_blank\">{{ ::'GLOBAL_HELP_SUPPORT_PORTAL_LINK' | translate }}</a>\n                        {{ ::'GLOBAL_HELP_SUPPORT_PORTAL_POST' | translate }}\n                    </div>\n\n                    <div class=\"layout-column layout-align-center-center flex iqs-empty\" ng-if=\"$ctrl.state == 'empty'\">\n                        <div class=\"pip-empty\" style=\"display: block; height: calc(100%);\">\n                            <img src=\"images/empty/empty.svg\" class=\"pip-pic\" style=\"display: block;\">\n                            <div class=\"text-subhead1 text-center tm16\">\n                                {{ ::'GLOBAL_HELP_AUX_DATA_EMPTY_TITLE' | translate }}\n                            </div>\n                            <div class=\"text-subhead1 text-center\">\n                                {{ ::'GLOBAL_HELP_AUX_DATA_EMPTY_SUBTITLE' | translate }}\n                            </div>\n                        </div>\n                    </div>\n                </div>\n            "
     });
 })();
-},{"../GlobalHelpConfig":431}],439:[function(require,module,exports){
+},{"../GlobalHelpConfig":432}],440:[function(require,module,exports){
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 require("./GlobalHelpDetailsPanel");
@@ -24109,7 +24133,7 @@ var GlobalHelpPanelController = (function () {
         template: "\n                <iqs-global-help-list-panel ng-if=\"$ctrl.section == 0 && $ctrl.panelState == 'list'\" iqs-global-help-details=\"$ctrl.onDetails(item)\">\n                </iqs-global-help-list-panel>\n\n                <iqs-global-help-details-panel ng-if=\"$ctrl.section == 0 && $ctrl.panelState == 'details'\" iqs-global-help=\"$ctrl.selectedItem\" iqs-global-help-list=\"$ctrl.onList()\">\n                </iqs-global-help-details-panel>\n            "
     });
 })();
-},{"./GlobalHelpDetailsPanel":436,"./GlobalHelpGuidesPanel":437,"./GlobalHelpListPanel":438,"./GlobalHelpPanelState":440}],440:[function(require,module,exports){
+},{"./GlobalHelpDetailsPanel":437,"./GlobalHelpGuidesPanel":438,"./GlobalHelpListPanel":439,"./GlobalHelpPanelState":441}],441:[function(require,module,exports){
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 var GlobalHelpPanelState = (function () {
@@ -24120,7 +24144,7 @@ var GlobalHelpPanelState = (function () {
     return GlobalHelpPanelState;
 }());
 exports.GlobalHelpPanelState = GlobalHelpPanelState;
-},{}],441:[function(require,module,exports){
+},{}],442:[function(require,module,exports){
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 require("../type_collections/TypeCollectionsService");
@@ -25160,7 +25184,7 @@ angular.module('iqsGlobalSearch', [
     'iqsZones.ViewModel',
 ])
     .service('iqsGlobalSearch', GlobalSearchService);
-},{"../type_collections/TypeCollectionsService":490,"./SearchObjectTypes":443}],442:[function(require,module,exports){
+},{"../type_collections/TypeCollectionsService":491,"./SearchObjectTypes":444}],443:[function(require,module,exports){
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 var GlobalSearchPanelBindings = {
@@ -25347,7 +25371,7 @@ var GlobalSearchPanelController = (function () {
     })
         .config(declareGlobalSearchStringResources);
 })();
-},{}],443:[function(require,module,exports){
+},{}],444:[function(require,module,exports){
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 var SearchObjectTypes = (function () {
@@ -25369,7 +25393,7 @@ var SearchObjectTypes = (function () {
     return SearchObjectTypes;
 }());
 exports.SearchObjectTypes = SearchObjectTypes;
-},{}],444:[function(require,module,exports){
+},{}],445:[function(require,module,exports){
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 var SearchResult = (function () {
@@ -25378,7 +25402,7 @@ var SearchResult = (function () {
     return SearchResult;
 }());
 exports.SearchResult = SearchResult;
-},{}],445:[function(require,module,exports){
+},{}],446:[function(require,module,exports){
 "use strict";
 function __export(m) {
     for (var p in m) if (!exports.hasOwnProperty(p)) exports[p] = m[p];
@@ -25388,7 +25412,7 @@ require("./GlobalSearchService");
 require("./GlobalSearchsPanel");
 __export(require("./SearchObjectTypes"));
 __export(require("./SearchResult"));
-},{"./GlobalSearchService":441,"./GlobalSearchsPanel":442,"./SearchObjectTypes":443,"./SearchResult":444}],446:[function(require,module,exports){
+},{"./GlobalSearchService":442,"./GlobalSearchsPanel":443,"./SearchObjectTypes":444,"./SearchResult":445}],447:[function(require,module,exports){
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 var IncidentsUpdateType;
@@ -25396,7 +25420,7 @@ var IncidentsUpdateType;
     IncidentsUpdateType["Counter"] = "counter";
     IncidentsUpdateType["Full"] = "full";
 })(IncidentsUpdateType = exports.IncidentsUpdateType || (exports.IncidentsUpdateType = {}));
-},{}],447:[function(require,module,exports){
+},{}],448:[function(require,module,exports){
 "use strict";
 configureIncidentsAccess.$inject = ['iqsAccessConfigProvider'];
 declareIncidentsResources.$inject = ['pipTranslateProvider'];
@@ -25535,7 +25559,7 @@ angular
     .config(configureIncidentsAccess)
     .config(declareIncidentsResources)
     .run(initIncidents);
-},{"../../common":29,"../../data":176,"./IIncidentsConfigService":446,"./IncidentsConfigService":448}],448:[function(require,module,exports){
+},{"../../common":29,"../../data":176,"./IIncidentsConfigService":447,"./IncidentsConfigService":449}],449:[function(require,module,exports){
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 var IIncidentsConfigService_1 = require("./IIncidentsConfigService");
@@ -25558,7 +25582,7 @@ var IncidentsConfigService = (function () {
 angular
     .module('iqsIncidentsConfig', [])
     .service('iqsIncidentsConfig', IncidentsConfigService);
-},{"./IIncidentsConfigService":446}],449:[function(require,module,exports){
+},{"./IIncidentsConfigService":447}],450:[function(require,module,exports){
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 var data_1 = require("../../data");
@@ -25819,7 +25843,7 @@ var IncidentsDetailsPanelController = (function () {
         template: "\n                <div class=\"aux-btn-close pointer\" ng-click=\"$ctrl.closeAuxPanel()\" ng-if=\"!$ctrl.hideButton\">\n                    <md-icon md-svg-icon=\"icons:cross\"></md-icon>\n                </div>\n\n                <div class=\"text-title layout-row layout-align-start-start\">\n                    <md-button class=\"md-icon-button flex-fixed\" ng-click=\"$ctrl.onIncidentList()\">\n                        <md-icon md-svg-icon=\"icons:arrow-left\"></md-icon>\n                    </md-button>\n                    <div>\n                        {{ ::$ctrl.incidentDetails.description }}\n                    </div>\n                </div>\n\n                <div class=\"pip-ref-list pip-scroll-y layout-column p16 tp0 flex\">\n\n                    <div class=\"layout-row layout-align-start-center bm8\">\n                        <pip-avatar class=\"pip-face pip-pic rm16 flex-fixed pointer\" pip-rebind=\"true\" pip-id=\"$ctrl.incidentDetails.object_id\" pip-name=\"$ctrl.incidentDetails.object_name\"\n                            ng-click=\"$ctrl.onObjectClick()\">\n                        </pip-avatar>\n                        <div class=\"pip-content flex\">\n                            <div class=\"flex\">\n                                <div class=\"text-subhead2 text-overflow\">\n                                    {{ ::$ctrl.incidentDetails.object_name }}\n                                </div>\n                                <div class=\"text-body1 color-secondary-text text-overflow\">\n                                    {{ ::$ctrl.incidentDetails.ref_description }}\n                                </div>\n                            </div>\n                        </div>\n                        <div class=\"expanded-button  flex-fixed\" ng-if=\"$ctrl.isExpanded\">\n                            <md-button class=\"md-icon-button\" ng-click=\"$ctrl.expand = !$ctrl.expand\">\n                                <md-icon md-svg-icon=\"icons:chevron-down\" ng-if=\"!$ctrl.expand\"> </md-icon>\n                                <md-icon md-svg-icon=\"icons:chevron-up\" ng-if=\"$ctrl.expand\"></md-icon>\n                            </md-button>\n                        </div>\n                    </div>\n\n                    <div class=\"pip-ref-list-item  layout-row layout-align-start-center incident-content\" ng-if=\"$ctrl.expand && $ctrl.incidentDetails.ref_groups\">\n                        <md-icon md-svg-icon=\"iqs:team\" class=\"incident-icon\">\n                        </md-icon>\n                        <div class=\"pip-content tp8 bp8\">\n                            <div class=\"flex text-body1 text-overflow\">\n                                {{ ::$ctrl.incidentDetails.ref_groups }}\n                            </div>\n                            <div class=\"pip-subtitle text-caption\">\n                                {{ ::'INCIDENT_GROUPS' | translate }}\n                            </div>\n                        </div>\n                    </div>\n\n                    <div class=\"pip-ref-list-item  layout-row layout-align-start-center incident-content\" ng-if=\"$ctrl.expand && $ctrl.incidentDetails.online\">\n                        <md-icon md-svg-icon=\"iqs:comm-on\" class=\"incident-icon\">\n                        </md-icon>\n                        <div class=\"pip-content tp8 bp8\">\n                            <div class=\"flex text-body1 text-overflow\">\n                                {{ ::$ctrl.incidentDetails.online | formatTimeLong }}\n                            </div>\n                            <div class=\"pip-subtitle text-caption\">\n                                {{::'INCIDENT_ONLINE' | translate}}\n                            </div>\n                        </div>\n                    </div>\n\n                    <div class=\"pip-ref-list-item  layout-row layout-align-start-center incident-content\" ng-if=\"$ctrl.expand && $ctrl.incidentDetails.offline\">\n                        <md-icon md-svg-icon=\"iqs:comm-off\" class=\"incident-icon\">\n                        </md-icon>\n                        <div class=\"pip-content tp8 bp8\">\n                            <div class=\"flex text-body1 text-overflow\">\n                                {{ ::$ctrl.incidentDetails.offline | formatTimeLong }}\n                            </div>\n                            <div class=\"pip-subtitle text-caption\">\n                                {{ ::'INCIDENT_OFFLINE' | translate}}\n                            </div>\n                        </div>\n                    </div>\n\n                    <div class=\"pip-ref-list-item  layout-row layout-align-start-center incident-content\" ng-if=\"$ctrl.expand && $ctrl.incidentDetails.freezed\">\n                        <md-icon md-svg-icon=\"iqs:comm-off\" class=\"incident-icon\">\n                        </md-icon>\n                        <div class=\"pip-content tp8 bp8\">\n                            <div class=\"flex text-body1 text-overflow\">\n                                {{ ::$ctrl.incidentDetails.freezed | formatTimeLong }}\n                            </div>\n                            <div class=\"pip-subtitle text-caption\">\n                                {{::'INCIDENT_FREEZED' | translate}}\n                            </div>\n                        </div>\n                    </div>\n\n                    <div class=\"pip-ref-list-item  layout-row layout-align-start-center incident-content\" ng-if=\"$ctrl.expand && $ctrl.incidentDetails.immobile\">\n                        <md-icon md-svg-icon=\"iqs:comm-off\" class=\"incident-icon\">\n                        </md-icon>\n                        <div class=\"pip-content tp8 bp8\">\n                            <div class=\"flex text-body1 text-overflow\">\n                                {{ ::$ctrl.incidentDetails.immobile | formatTimeLong }}\n                            </div>\n                            <div class=\"pip-subtitle text-caption\">\n                                {{::'INCIDENT_IMMOBILE' | translate}}\n                            </div>\n                        </div>\n                    </div>\n\n                    <div class=\"pip-ref-list-item  layout-row layout-align-start-center incident-content\" ng-if=\"$ctrl.expand && $ctrl.incidentDetails.ref_phone\">\n                        <md-icon md-svg-icon=\"icons:phone\" class=\"incident-icon\">\n                        </md-icon>\n                        <div class=\"pip-content tp8 bp8\">\n                            <div class=\"flex text-body1 text-overflow\">\n                                {{ ::$ctrl.incidentDetails.ref_phone }}\n                            </div>\n                            <div class=\"pip-subtitle text-caption\">\n                                {{::'INCIDENT_PHONE' | translate}}\n                            </div>\n                        </div>\n                    </div>\n\n                    <div class=\"pip-ref-list-item  layout-row layout-align-start-center incident-content\" ng-if=\"$ctrl.expand && $ctrl.incidentDetails.ref_email\">\n                        <md-icon md-svg-icon=\"icons:message\" class=\"incident-icon\">\n                        </md-icon>\n                        <div class=\"pip-content tp8 bp8\">\n                            <div class=\"flex text-body1 text-overflow\">\n                                {{ ::$ctrl.incidentDetails.ref_email }}\n                            </div>\n                            <div class=\"pip-subtitle text-caption\">\n                                {{::'EMAIL' | translate}}\n                            </div>\n                        </div>\n                    </div>\n\n                    <div class=\"pip-ref-list-item  layout-row layout-align-start-center incident-content\" ng-if=\"$ctrl.expand && $ctrl.incidentDetails.incidentCount > 1\">\n                        <md-icon md-svg-icon=\"icons:ribbon\" class=\"incident-icon\">\n                        </md-icon>\n                        <div class=\"pip-content tp8 bp8\">\n                            <div class=\"flex text-body1 text-overflow\">\n                                {{ ::$ctrl.incidentDetails.incidentCount }} {{ ::'INCIDENT_DAY_COUNT_TEXT' | translate }}\n                            </div>\n                            <div class=\"pip-subtitle text-caption\">\n                                {{::'INCIDENT_COUNT_EVENT' | translate}}\n                            </div>\n                        </div>\n                    </div>\n\n                    <div class=\"incident-divider-top divider-top tm8 bm16\"></div>\n\n                    <div class=\"pip-ref-list-item  layout-row layout-align-start-center incident-content\" ng-if=\"$ctrl.incidentDetails.assigned_name\">\n                        <md-icon md-svg-icon=\"iqs:schedule\" class=\"incident-icon\">\n                        </md-icon>\n                        <div class=\"pip-content tp8 bp8\">\n                            <div class=\"flex text-body1 text-overflow\">\n                                {{ ::$ctrl.incidentDetails.assigned_name }}\n                            </div>\n                            <div class=\"pip-subtitle text-caption\">\n                                {{ ::'INCIDENT_ASSIGNED' | translate }}\n                            </div>\n                        </div>\n                    </div>\n\n                    <div class=\"pip-ref-list-item  layout-row layout-align-start-center incident-content\" ng-if=\"$ctrl.incidentDetails.incidentValue\">\n                        <md-icon md-svg-icon=\"iqs:incident\" class=\"incident-icon\">\n                        </md-icon>\n                        <div class=\"pip-content tp8 bp8\">\n                            <div class=\"flex text-body1 text-overflow\">\n                                {{ ::$ctrl.incidentDetails.incidentValue }}\n                            </div>\n                            <div class=\"pip-subtitle text-caption\">\n                                {{ ::'INCIDENT_VALUE' | translate }}\n                            </div>\n                        </div>\n                    </div>\n\n                    <div class=\"pip-ref-list-item  layout-row layout-align-start-center incident-content\">\n                        <md-icon md-svg-icon=\"icons:time\" class=\"incident-icon\">\n                        </md-icon>\n                        <div class=\"pip-content tp8 bp8\">\n                            <div class=\"flex text-body1 text-overflow\">\n                                {{ ::$ctrl.incidentDetails.time | formatMiddleDateLongTime }}\n                            </div>\n                            <div class=\"pip-subtitle text-caption\">\n                                {{ ::'INCIDENT_TIME' | translate }}\n                            </div>\n                        </div>\n                    </div>\n\n                    <div class=\"pip-ref-list-item  layout-row layout-align-start-center incident-content\">\n                        <md-icon md-svg-icon=\"iqs:location\" class=\"incident-icon\">\n                        </md-icon>\n                        <div class=\"pip-content tp8 bp8\">\n                            <div class=\"flex text-body1 text-overflow\" ng-if=\"$ctrl.incidentDetails.locationName\">\n                                {{ ::$ctrl.incidentDetails.locationName }}\n                            </div>\n                            <div class=\"flex text-body1 text-overflow\" ng-if=\"!$ctrl.incidentDetails.locationName\">\n                                <!-- {{ ::'INCIDENT_WHOLE_SITE' | translate }}  -->\n                                {{ $ctrl.organizationName }}\n                            </div>\n                            <div class=\"pip-subtitle text-caption\">\n                                {{::'INCIDENT_LOCATION' | translate }}\n                            </div>\n                        </div>\n                    </div>\n\n                    <div class=\"incident-map tm8 bm8\" ng-if=\"$ctrl.incidentDetails.pos && $ctrl.incidentDetails.pos.latitude && $ctrl.incidentDetails.pos.longitude\">\n                        <iqs-incidents-map-panel iqs-object=\"$ctrl.incidentDetails.pos\" ng-click=\"$ctrl.openRetrospective()\">\n                        </iqs-incidents-map-panel>\n                    </div>\n\n                    <div class=\"layout-row layout-align-start-start tp8 bm8\" xxxng-if=\"$ctrl.accessConfig.incidentClose\">\n                        <md-input-container class=\"md-block flex\" class=\"incident-input\">\n                            <label>{{::'INCIDENT_RESOLUTION' | translate }}</label>\n                            <textarea ng-model=\"$ctrl.incidentDetails.resolution\" aria-label=\"RESOLUTION\" md-select-on-focus ng-disabled=\"!$ctrl.accessConfig.incidentClose\">\n\n                            </textarea>\n                        </md-input-container>\n                        <md-button class=\"md-icon-button tm8\" ng-click=\"$ctrl.onChooseResolution($event)\" ng-disabled=\"!$ctrl.accessConfig.incidentClose\">\n                            <md-icon md-svg-icon=\"icons:dots\"></md-icon>\n                        </md-button>\n                    </div>\n\n                    <div class=\"incident-button\">\n                        <md-button class=\"color-accent-bg tm12 flex\" aria-label=\"DOWNLOAD\" xxxng-if=\"$ctrl.accessConfig.incidentClose\" ng-click=\"$ctrl.onIncidentClose()\"\n                            ng-disabled=\"$ctrl.transaction.busy() || !$ctrl.incidentDetails.resolution || !$ctrl.accessConfig.incidentClose\">\n                            {{ ::'INCIDENT_CLOSE_BUTTON' | translate }}\n                        </md-button>\n                    </div>\n                </div>\n            "
     });
 })();
-},{"../../data":176,"../../services":455,"./Incidents":447}],450:[function(require,module,exports){
+},{"../../data":176,"../../services":456,"./Incidents":448}],451:[function(require,module,exports){
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 var data_1 = require("../../data");
@@ -26041,7 +26065,7 @@ var IncidentsListPanelController = (function () {
         template: "\n                <div class=\"aux-btn-close pointer\" ng-click=\"$ctrl.closeAuxPanel()\" ng-if=\"!$ctrl.hideButton\">\n                    <md-icon md-svg-icon=\"icons:cross\"></md-icon>\n                </div>\n\n                <div class=\"text-title\">\n                    {{ ::'INCIDENT_TITLE' | translate }}\n                </div>\n\n                <md-list class=\"pip-ref-list insidents-list pip-scroll-y bp0 tp0\" ng-if=\"$ctrl.state == 'data'\" pip-selected=\"$ctrl.selectedIndex\"\n                    pip-select=\"$ctrl.selectItem($event.index)\">\n\n                    <md-list-item class=\"pip-ref-list-item pointer lp16 tp0 pip-selectable\" ng-repeat=\"item in $ctrl.collection track by item.id\"\n                        md-ink-ripple>\n                        <div class=\"layout-row layout-align-start-start pip-ref-list-item-clicked\" ng-click=\"$ctrl.onDetails(item)\">\n                            <pip-avatar class=\"pip-face pip-pic\" pip-rebind=\"true\" pip-id=\"item.ref_id\" pip-name=\"item.ref_name\">\n                            </pip-avatar>\n                            <div class=\"pip-content divider-bottom\">\n                                <div class=\"layout-row layout-align-start-start bm4\">\n                                    <div class=\"flex\">\n                                        <p class=\"text-subhead2 incidents-description text-overflow\">\n                                            {{ ::item.description }}\n                                        </p>\n                                    </div>\n                                    <div class=\"incidents-icon flex-fixed\">\n                                        <md-icon md-svg-icon=\"icons:stop\" ng-if=\"item.severity == $ctrl.severityHigh\" class=\"color-error\">\n                                        </md-icon>\n                                    </div>\n                                </div>\n                                <div class=\"layout-row layout-align-start-start bm4\">\n                                    <div class=\"text-body1 incidents-subtitle text-overflow flex\">\n                                        {{ ::item.object.name }}\n                                    </div>\n                                </div>\n                                <div class=\"layout-row layout-align-start-start\">\n                                    <div class=\"text-body1 incidents-time flex-fixed\">\n                                        {{ item.timeString }}\n                                    </div>\n                                </div>\n                            </div>\n                        </div>\n                    </md-list-item>\n\n                    <md-list-item class=\"pip-ref-list-item pointer iqs-ref-list-button divider-bottom\" md-ink-ripple>\n                        <md-button class=\"md-accent lp8 rp8\" ng-click=\"$ctrl.onCloseAll()\" ng-disabled=\"!$ctrl.accessConfig.incidentClose || $ctrl.transactionAll.busy()\">\n                            {{ '\u0417\u0430\u043A\u0440\u044B\u0442\u044C \u0432\u0441\u0435' }}\n                        </md-button>\n                        <div class=\"flex\"></div>\n                        <md-button class=\"md-accent lm16 lp8 rp8\" ng-if=\"$ctrl.total > $ctrl.shortIncidentListCount && $ctrl.hideAll\" ng-click=\"$ctrl.onShowAll()\"\n                            ng-disabled=\"$ctrl.transactionAll.busy()\">\n                            {{ ::'INCIDENT_SHOW_ALL' | translate }}\n                        </md-button>\n                        <md-button class=\"md-accent lm16 rm16 lp8 rp8\" ng-if=\"$ctrl.total > $ctrl.shortIncidentListCount && !$ctrl.hideAll\" ng-click=\"$ctrl.onShowAll()\"\n                            ng-disabled=\"$ctrl.transactionAll.busy()\">\n                            {{ ::'INCIDENT_HIDE_ALL' | translate }}\n                        </md-button>\n                    </md-list-item>\n\n                </md-list>\n\n                <div class=\"insidents-list pip-scroll-y layout-column bp0 tp0 flex\" ng-if=\"$ctrl.state == 'empty'\">\n                    <div class=\"layout-column layout-align-center-center flex iqs-empty\">\n                        <div class=\"pip-empty layout-column layout-align-center-center\" xxxstyle=\"display: block; height: calc(100%);\">\n                            <img src=\"images/empty/empty.svg\" class=\"pip-pic\" style=\"display: block;\">\n                            <div class=\"text-title text-center tm16\">\n                                {{ ::'INCIDENTS_DATA_EMPTY_TITLE' | translate }}\n                            </div>\n                            <div class=\"text-subhead1 text-center\">\n                                {{ ::'INCIDENTS_DATA_EMPTY_SUBTITLE' | translate }}\n                            </div>\n                        </div>\n                    </div>\n                </div>\n\n                <div class=\"iqs-footer\" ng-if=\"$ctrl.accessConfig.incidentConfig\">\n                    <md-list class=\"pip-ref-list\">\n                        <md-list-item class=\"pip-ref-list-item layout-row md-list-item layout-align-start-start\" md-ink-ripple ng-click=\"$ctrl.onConfigure()\">\n                            <div class=\"pip-content\">\n                                <div class=\"text-body1 text-overflow\">\n                                    {{ ::'INCIDENT_BUTTON_OPTIONS' | translate }}\n                                </div>\n                            </div>\n                            <div class=\"flex-fixed\">\n                                <md-icon class=\"m0 flex-fixed\" md-svg-icon=\"icons:chevron-right\"></md-icon>\n                            </div>\n                        </md-list-item>\n                    </md-list>\n                </div>\n                <!--  do not have access -->\n                <div class=\"iqs-footer tp4\" ng-if=\"!$ctrl.accessConfig.incidentConfig\">\n                    <md-list class=\"pip-ref-list\">\n                        <md-list-item class=\"pip-ref-list-item layout-row md-list-item layout-align-start-start\">\n                            <div class=\"pip-content\">\n                                <div class=\"text-body1 text-overflow color-secondary-text tp2\">\n                                    {{ ::'INCIDENT_BUTTON_OPTIONS' | translate }}\n                                </div>\n                            </div>\n                            <div class=\"tp8 flex-fixed color-secondary-text\">\n                                <md-icon class=\"m0 flex-fixed\" md-svg-icon=\"icons:chevron-right\"></md-icon>\n                            </div>\n                        </md-list-item>\n                    </md-list>\n                </div>\n            "
     });
 })();
-},{"../../data":176,"../../services":455,"./Incidents":447}],451:[function(require,module,exports){
+},{"../../data":176,"../../services":456,"./Incidents":448}],452:[function(require,module,exports){
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 var IncidentsMapPanelBindings = {
@@ -26135,7 +26159,7 @@ var IncidentsMapPanelController = (function () {
         template: "\n                <pip-map pip-options=\"$ctrl.configs\" ng-if=\"!$ctrl.startPause && !$ctrl.empty\">\n                <!-- Incident points -->\n                    <pip-map-markers pip-models=\"$ctrl.objects\"></pip-map-markers>\n                </pip-map>\n\n                <div class=\"pip-empty\" ng-if=\"$ctrl.empty\">\n                    <img src=\"images/EmptyState.svg\" class=\"pip-pic\">\n                    <div class=\"pip-text\">\n                        {{ ::'NO_COORDINATES' | translate }}\n                    </div>\n                </div>\n            "
     });
 })();
-},{}],452:[function(require,module,exports){
+},{}],453:[function(require,module,exports){
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 require("./IncidentsDetailsPanel");
@@ -26211,7 +26235,7 @@ var IncidentsPanelController = (function () {
         template: "\n                <iqs-incidents-list-panel\n                    ng-if=\"$ctrl.panelState == 'list'\"\n                    iqs-incident-details=\"$ctrl.onDetails()\"></iqs-incidents-list-panel>\n            \n                <iqs-incidents-details-panel\n                    ng-if=\"$ctrl.panelState == 'details'\"\n                    iqs-incident=\"$ctrl.selectedItem\"\n                    iqs-incident-list=\"$ctrl.onList()\"></iqs-incidents-details-panel>\n            "
     });
 })();
-},{"./IncidentsDetailsPanel":449,"./IncidentsListPanel":450,"./IncidentsMapPanel":451,"./IncidentsPanelState":453}],453:[function(require,module,exports){
+},{"./IncidentsDetailsPanel":450,"./IncidentsListPanel":451,"./IncidentsMapPanel":452,"./IncidentsPanelState":454}],454:[function(require,module,exports){
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 var IncidentsPanelState = (function () {
@@ -26222,7 +26246,7 @@ var IncidentsPanelState = (function () {
     return IncidentsPanelState;
 }());
 exports.IncidentsPanelState = IncidentsPanelState;
-},{}],454:[function(require,module,exports){
+},{}],455:[function(require,module,exports){
 "use strict";
 function __export(m) {
     for (var p in m) if (!exports.hasOwnProperty(p)) exports[p] = m[p];
@@ -26231,7 +26255,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 require("./Incidents");
 require("./IncidentsPanel");
 __export(require("./IIncidentsConfigService"));
-},{"./IIncidentsConfigService":446,"./Incidents":447,"./IncidentsPanel":452}],455:[function(require,module,exports){
+},{"./IIncidentsConfigService":447,"./Incidents":448,"./IncidentsPanel":453}],456:[function(require,module,exports){
 "use strict";
 function __export(m) {
     for (var p in m) if (!exports.hasOwnProperty(p)) exports[p] = m[p];
@@ -26264,10 +26288,10 @@ __export(require("./smart_zoom"));
 __export(require("./statistics"));
 __export(require("./tab_state"));
 __export(require("./type_collections"));
-},{"./access_config":422,"./emergency_plans":426,"./global_help":435,"./global_search":445,"./incidents":454,"./loading":461,"./map":464,"./map_icon":468,"./object_configs":471,"./organizations":474,"./send_signals":476,"./smart_zoom":479,"./statistics":484,"./tab_state":487,"./type_collections":492}],456:[function(require,module,exports){
+},{"./access_config":423,"./emergency_plans":427,"./global_help":436,"./global_search":446,"./incidents":455,"./loading":462,"./map":465,"./map_icon":469,"./object_configs":472,"./organizations":475,"./send_signals":477,"./smart_zoom":480,"./statistics":485,"./tab_state":488,"./type_collections":493}],457:[function(require,module,exports){
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-},{}],457:[function(require,module,exports){
+},{}],458:[function(require,module,exports){
 "use strict";
 initLoading.$inject = ['$log', '$rootScope', '$state', 'pipAuthState', 'iqsLoading', 'pipIdentity', 'iqsTypeCollectionsService', 'iqsApplicationsViewModel', 'iqsAccessConfig', 'iqsOrganization', 'iqsSendSignalDialog', 'iqsSendSignals', 'iqsGuidesViewModel', 'iqsEmergencyPlansViewModel', 'iqsInvitationsViewModel', 'iqsDemo', 'iqsGlobalSearch', 'iqsDevicesViewModel', 'iqsLocationsViewModel', 'iqsObjectGroupsViewModel', 'iqsObjectsViewModel', 'iqsZonesViewModel', 'pipInformationDialog', 'pipTranslate'];
 Object.defineProperty(exports, "__esModule", { value: true });
@@ -26483,7 +26507,7 @@ function initLoading($log, $rootScope, $state, pipAuthState, iqsLoading, pipIden
 angular
     .module('iqsLoading')
     .run(initLoading);
-},{".":461,"../":455,"../../common":29,"../../states/demo/DemoService":496,"./LoadingStatus":459}],458:[function(require,module,exports){
+},{".":462,"../":456,"../../common":29,"../../states/demo/DemoService":497,"./LoadingStatus":460}],459:[function(require,module,exports){
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 require("../../shell/ShellService");
@@ -26847,7 +26871,7 @@ angular.module('iqsLoading', [
 ])
     .provider('iqsLoading', LoadingProvider);
 require("./LoadingStrings");
-},{"../../common":29,"../../data":176,"../../services/send_signals/SendSignals":475,"../../shell/ShellService":494,"./":461,"./LoadingStrings":460}],459:[function(require,module,exports){
+},{"../../common":29,"../../data":176,"../../services/send_signals/SendSignals":476,"../../shell/ShellService":495,"./":462,"./LoadingStrings":461}],460:[function(require,module,exports){
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 var LoadingStatus;
@@ -26858,7 +26882,7 @@ var LoadingStatus;
     LoadingStatus["Completed"] = "completed";
     LoadingStatus["Error"] = "error";
 })(LoadingStatus = exports.LoadingStatus || (exports.LoadingStatus = {}));
-},{}],460:[function(require,module,exports){
+},{}],461:[function(require,module,exports){
 {
     declareLoadingTranslateResources.$inject = ['pipTranslateProvider'];
     function declareLoadingTranslateResources(pipTranslateProvider) {
@@ -26877,7 +26901,7 @@ var LoadingStatus;
         .module('iqsLoading')
         .config(declareLoadingTranslateResources);
 }
-},{}],461:[function(require,module,exports){
+},{}],462:[function(require,module,exports){
 "use strict";
 function __export(m) {
     for (var p in m) if (!exports.hasOwnProperty(p)) exports[p] = m[p];
@@ -26888,7 +26912,7 @@ require("./LoadingService");
 require("./LoadingInit");
 exports.LoadingCompleteEvent = 'iqsLoadingComplete';
 __export(require("./LoadingStatus"));
-},{"./ILoadingService":456,"./LoadingInit":457,"./LoadingService":458,"./LoadingStatus":459}],462:[function(require,module,exports){
+},{"./ILoadingService":457,"./LoadingInit":458,"./LoadingService":459,"./LoadingStatus":460}],463:[function(require,module,exports){
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 var MapConfigs = (function () {
@@ -26903,7 +26927,7 @@ var EmbededMap = (function () {
     return EmbededMap;
 }());
 exports.EmbededMap = EmbededMap;
-},{}],463:[function(require,module,exports){
+},{}],464:[function(require,module,exports){
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 var IMapService_1 = require("./IMapService");
@@ -27176,7 +27200,7 @@ var MapService = (function () {
 angular
     .module('iqsMapConfig', [])
     .service('iqsMapConfig', MapService);
-},{"./IMapService":462}],464:[function(require,module,exports){
+},{"./IMapService":463}],465:[function(require,module,exports){
 "use strict";
 function __export(m) {
     for (var p in m) if (!exports.hasOwnProperty(p)) exports[p] = m[p];
@@ -27185,7 +27209,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 require("./MapService");
 __export(require("./IMapService"));
 __export(require("./MapService"));
-},{"./IMapService":462,"./MapService":463}],465:[function(require,module,exports){
+},{"./IMapService":463,"./MapService":464}],466:[function(require,module,exports){
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 var formattedMapIcon = (function () {
@@ -27194,7 +27218,7 @@ var formattedMapIcon = (function () {
     return formattedMapIcon;
 }());
 exports.formattedMapIcon = formattedMapIcon;
-},{}],466:[function(require,module,exports){
+},{}],467:[function(require,module,exports){
 "use strict";
 configIconsTemplates.$inject = ['iqsMapIconProvider'];
 Object.defineProperty(exports, "__esModule", { value: true });
@@ -27337,7 +27361,7 @@ angular
     .module('iqsMapIcon', ['iqsMapConfig', 'iqsSmartZoom'])
     .provider('iqsMapIcon', MapIconProvider)
     .config(configIconsTemplates);
-},{"./MapIcons":467}],467:[function(require,module,exports){
+},{"./MapIcons":468}],468:[function(require,module,exports){
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 var MapIcon = (function () {
@@ -27672,7 +27696,7 @@ var MapIcons = (function () {
     return MapIcons;
 }());
 exports.MapIcons = MapIcons;
-},{}],468:[function(require,module,exports){
+},{}],469:[function(require,module,exports){
 "use strict";
 function __export(m) {
     for (var p in m) if (!exports.hasOwnProperty(p)) exports[p] = m[p];
@@ -27681,7 +27705,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 require("./MapIconService");
 __export(require("./IMapIconService"));
 __export(require("./MapIcons"));
-},{"./IMapIconService":465,"./MapIconService":466,"./MapIcons":467}],469:[function(require,module,exports){
+},{"./IMapIconService":466,"./MapIconService":467,"./MapIcons":468}],470:[function(require,module,exports){
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 var ObjectConfigs = (function () {
@@ -27690,7 +27714,7 @@ var ObjectConfigs = (function () {
     return ObjectConfigs;
 }());
 exports.ObjectConfigs = ObjectConfigs;
-},{}],470:[function(require,module,exports){
+},{}],471:[function(require,module,exports){
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 var ObjectConfigsService = (function () {
@@ -27713,23 +27737,24 @@ var ObjectConfigsService = (function () {
 angular
     .module('iqsObjectConfigs', [])
     .service('iqsObjectConfigs', ObjectConfigsService);
-},{}],471:[function(require,module,exports){
+},{}],472:[function(require,module,exports){
 "use strict";
 function __export(m) {
     for (var p in m) if (!exports.hasOwnProperty(p)) exports[p] = m[p];
 }
 Object.defineProperty(exports, "__esModule", { value: true });
 __export(require("./ObjectConfigs"));
-},{"./ObjectConfigs":469}],472:[function(require,module,exports){
+},{"./ObjectConfigs":470}],473:[function(require,module,exports){
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.OrganizationRootVar = "$organization";
 exports.OrganizationChangedEvent = "iqsOrganizationEventChanged";
 exports.regestryOrgIdKey = "org_id";
-},{}],473:[function(require,module,exports){
+},{}],474:[function(require,module,exports){
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 var IOrganizationService_1 = require("./IOrganizationService");
+var UserRole_1 = require("../../data/sessions/UserRole");
 var OrganizationService = (function () {
     OrganizationService.$inject = ['$rootScope', '$log', 'localStorageService', '$cookieStore', '_organization', '_orgIdKey', '_setRootVar', 'pipSettingsData', 'pipIdentity'];
     function OrganizationService($rootScope, $log, localStorageService, $cookieStore, _organization, _orgIdKey, _setRootVar, pipSettingsData, pipIdentity) {
@@ -27808,6 +27833,32 @@ var OrganizationService = (function () {
                     });
                 }
             }
+        },
+        enumerable: true,
+        configurable: true
+    });
+    Object.defineProperty(OrganizationService.prototype, "role", {
+        get: function () {
+            var roles = _.get(this.pipIdentity, 'identity.user.roles', []);
+            if (roles.includes('admin')) {
+                return UserRole_1.UserRole.admin;
+            }
+            var orgId = this.orgId;
+            if (!orgId || !roles.length) {
+                return UserRole_1.UserRole.unknown;
+            }
+            var orgRole = roles.find(function (r) { return r.startsWith(orgId); });
+            if (!orgRole) {
+                return UserRole_1.UserRole.unknown;
+            }
+            var role = orgRole.substr(orgId.length + 1);
+            if (role === UserRole_1.UserRole.admin) {
+                role = UserRole_1.UserRole.org_admin;
+            }
+            if (!Object.values(UserRole_1.UserRole).includes(role)) {
+                return UserRole_1.UserRole.unknown;
+            }
+            return role;
         },
         enumerable: true,
         configurable: true
@@ -27908,14 +27959,14 @@ var OrganizationProvider = (function () {
 angular
     .module('iqsOrganizations.Service', ['pipSystem'])
     .provider('iqsOrganization', OrganizationProvider);
-},{"./IOrganizationService":472}],474:[function(require,module,exports){
+},{"../../data/sessions/UserRole":215,"./IOrganizationService":473}],475:[function(require,module,exports){
 "use strict";
 function __export(m) {
     for (var p in m) if (!exports.hasOwnProperty(p)) exports[p] = m[p];
 }
 Object.defineProperty(exports, "__esModule", { value: true });
 __export(require("./IOrganizationService"));
-},{"./IOrganizationService":472}],475:[function(require,module,exports){
+},{"./IOrganizationService":473}],476:[function(require,module,exports){
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 var SendSignals = (function () {
@@ -28076,10 +28127,10 @@ var SendSignals = (function () {
 angular
     .module('iqsSendSignals', [])
     .service('iqsSendSignals', SendSignals);
-},{}],476:[function(require,module,exports){
+},{}],477:[function(require,module,exports){
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-},{}],477:[function(require,module,exports){
+},{}],478:[function(require,module,exports){
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 var SmartZoomItem = (function () {
@@ -28094,7 +28145,7 @@ var SmartZoomLevel = (function () {
     return SmartZoomLevel;
 }());
 exports.SmartZoomLevel = SmartZoomLevel;
-},{}],478:[function(require,module,exports){
+},{}],479:[function(require,module,exports){
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 var SmartZoomService = (function () {
@@ -28173,14 +28224,14 @@ var SmartZoomService = (function () {
 angular
     .module('iqsSmartZoom', [])
     .service('iqsSmartZoom', SmartZoomService);
-},{}],479:[function(require,module,exports){
+},{}],480:[function(require,module,exports){
 "use strict";
 function __export(m) {
     for (var p in m) if (!exports.hasOwnProperty(p)) exports[p] = m[p];
 }
 Object.defineProperty(exports, "__esModule", { value: true });
 __export(require("./ISmartZoomService"));
-},{"./ISmartZoomService":477}],480:[function(require,module,exports){
+},{"./ISmartZoomService":478}],481:[function(require,module,exports){
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 var StatisticsDateType_1 = require("./StatisticsDateType");
@@ -28267,7 +28318,7 @@ var StatisticsDateService = (function () {
     angular.module('iqsStatistics.DateService', ['iqsStatistics.ViewModel'])
         .service('iqsStatisticsDateService', StatisticsDateService);
 }
-},{"./StatisticsDateType":482,"./StatisticsFormatXTick":483}],481:[function(require,module,exports){
+},{"./StatisticsDateType":483,"./StatisticsFormatXTick":484}],482:[function(require,module,exports){
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 var StatisticsDateSteps = (function () {
@@ -28280,7 +28331,7 @@ var StatisticsDateSteps = (function () {
     return StatisticsDateSteps;
 }());
 exports.StatisticsDateSteps = StatisticsDateSteps;
-},{}],482:[function(require,module,exports){
+},{}],483:[function(require,module,exports){
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 var StatisticsDateType = (function () {
@@ -28296,7 +28347,7 @@ var StatisticsDateType = (function () {
     return StatisticsDateType;
 }());
 exports.StatisticsDateType = StatisticsDateType;
-},{}],483:[function(require,module,exports){
+},{}],484:[function(require,module,exports){
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 var StatisticsFormatXTick = (function () {
@@ -28330,7 +28381,7 @@ var StatisticsFormatXTick = (function () {
     return StatisticsFormatXTick;
 }());
 exports.StatisticsFormatXTick = StatisticsFormatXTick;
-},{}],484:[function(require,module,exports){
+},{}],485:[function(require,module,exports){
 "use strict";
 function __export(m) {
     for (var p in m) if (!exports.hasOwnProperty(p)) exports[p] = m[p];
@@ -28340,7 +28391,7 @@ require("./StatisticsDateService");
 __export(require("./StatisticsDateSteps"));
 __export(require("./StatisticsDateType"));
 __export(require("./StatisticsFormatXTick"));
-},{"./StatisticsDateService":480,"./StatisticsDateSteps":481,"./StatisticsDateType":482,"./StatisticsFormatXTick":483}],485:[function(require,module,exports){
+},{"./StatisticsDateService":481,"./StatisticsDateSteps":482,"./StatisticsDateType":483,"./StatisticsFormatXTick":484}],486:[function(require,module,exports){
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 var TabRecord = (function () {
@@ -28349,7 +28400,7 @@ var TabRecord = (function () {
     return TabRecord;
 }());
 exports.TabRecord = TabRecord;
-},{}],486:[function(require,module,exports){
+},{}],487:[function(require,module,exports){
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 var TabState = (function () {
@@ -28368,7 +28419,7 @@ var TabState = (function () {
 angular
     .module('iqsTabState', [])
     .service('iqsTabState', TabState);
-},{}],487:[function(require,module,exports){
+},{}],488:[function(require,module,exports){
 "use strict";
 function __export(m) {
     for (var p in m) if (!exports.hasOwnProperty(p)) exports[p] = m[p];
@@ -28376,7 +28427,7 @@ function __export(m) {
 Object.defineProperty(exports, "__esModule", { value: true });
 require("./TabSateService");
 __export(require("./TabRecord"));
-},{"./TabRecord":485,"./TabSateService":486}],488:[function(require,module,exports){
+},{"./TabRecord":486,"./TabSateService":487}],489:[function(require,module,exports){
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 var TypeCollectionItem = (function () {
@@ -28391,7 +28442,7 @@ var TypeNumericCollectionItem = (function () {
     return TypeNumericCollectionItem;
 }());
 exports.TypeNumericCollectionItem = TypeNumericCollectionItem;
-},{}],489:[function(require,module,exports){
+},{}],490:[function(require,module,exports){
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 var TypeCollection = (function () {
@@ -28406,7 +28457,7 @@ var TypeNumericCollection = (function () {
     return TypeNumericCollection;
 }());
 exports.TypeNumericCollection = TypeNumericCollection;
-},{}],490:[function(require,module,exports){
+},{}],491:[function(require,module,exports){
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 var TypeCollectionsService = (function () {
@@ -28620,7 +28671,7 @@ angular
     .module('iqsTypeCollections.Service', ['pipTranslate'])
     .service('iqsTypeCollectionsService', TypeCollectionsService);
 require("./TypeCollectionsStrings");
-},{"./TypeCollectionsStrings":491}],491:[function(require,module,exports){
+},{"./TypeCollectionsStrings":492}],492:[function(require,module,exports){
 declareDataTypeStringResources.$inject = ['pipTranslateProvider'];
 function declareDataTypeStringResources(pipTranslateProvider) {
     pipTranslateProvider.translations('en', {
@@ -28835,7 +28886,7 @@ function declareDataTypeStringResources(pipTranslateProvider) {
 angular
     .module('iqsTypeCollections.Service')
     .config(declareDataTypeStringResources);
-},{}],492:[function(require,module,exports){
+},{}],493:[function(require,module,exports){
 "use strict";
 function __export(m) {
     for (var p in m) if (!exports.hasOwnProperty(p)) exports[p] = m[p];
@@ -28844,7 +28895,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 require("./TypeCollectionsService");
 __export(require("./TypeCollectioItem"));
 __export(require("./TypeCollection"));
-},{"./TypeCollectioItem":488,"./TypeCollection":489,"./TypeCollectionsService":490}],493:[function(require,module,exports){
+},{"./TypeCollectioItem":489,"./TypeCollection":490,"./TypeCollectionsService":491}],494:[function(require,module,exports){
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 require("../components/appbar/AppbarOrganizations");
@@ -29031,7 +29082,7 @@ var IqsShellController = (function () {
     });
 })();
 require("./ShellStrings");
-},{"../common/LocationZones":3,"../components/appbar/AppbarOrganizations":59,"../components/side_nav/SideNav":61,"./ShellStrings":495}],494:[function(require,module,exports){
+},{"../common/LocationZones":3,"../components/appbar/AppbarOrganizations":59,"../components/side_nav/SideNav":61,"./ShellStrings":496}],495:[function(require,module,exports){
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 var ShellService = (function () {
@@ -29147,7 +29198,7 @@ var ShellProvider = (function () {
 angular
     .module('iqsShellService', [])
     .provider('iqsShell', ShellProvider);
-},{}],495:[function(require,module,exports){
+},{}],496:[function(require,module,exports){
 (function () {
     var translateConfig = function (pipTranslateProvider) {
         pipTranslateProvider.translations('en', {
@@ -29166,7 +29217,7 @@ angular
         .module('iqsClientShell')
         .config(translateConfig);
 })();
-},{}],496:[function(require,module,exports){
+},{}],497:[function(require,module,exports){
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 require("../../shell/ShellService");
@@ -29272,7 +29323,7 @@ exports.DemoService = DemoService;
 angular
     .module('iqsDemo', ['iqsShellService'])
     .service('iqsDemo', DemoService);
-},{"../../shell/ShellService":494}],497:[function(require,module,exports){
+},{"../../shell/ShellService":495}],498:[function(require,module,exports){
 "use strict";
 configureDemoStateRoute.$inject = ['$stateProvider', 'iqsShellProvider'];
 Object.defineProperty(exports, "__esModule", { value: true });
@@ -29305,7 +29356,7 @@ angular
     .module('iqsDemo')
     .config(configureDemoStateRoute);
 require("./DemoStrings");
-},{"./DemoStrings":498}],498:[function(require,module,exports){
+},{"./DemoStrings":499}],499:[function(require,module,exports){
 {
     declareDemoTranslateResources.$inject = ['pipTranslateProvider'];
     function declareDemoTranslateResources(pipTranslateProvider) {
@@ -29320,16 +29371,16 @@ require("./DemoStrings");
         .module('iqsDemo')
         .config(declareDemoTranslateResources);
 }
-},{}],499:[function(require,module,exports){
+},{}],500:[function(require,module,exports){
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-},{}],500:[function(require,module,exports){
+},{}],501:[function(require,module,exports){
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 require("./IDemoService");
 require("./DemoService");
 require("./DemoState");
-},{"./DemoService":496,"./DemoState":497,"./IDemoService":499}],501:[function(require,module,exports){
+},{"./DemoService":497,"./DemoState":498,"./IDemoService":500}],502:[function(require,module,exports){
 "use strict";
 function __export(m) {
     for (var p in m) if (!exports.hasOwnProperty(p)) exports[p] = m[p];
@@ -29339,7 +29390,7 @@ require("./demo");
 require("./landing");
 require("./organizations");
 __export(require("./landing"));
-},{"./demo":500,"./landing":504,"./organizations":506}],502:[function(require,module,exports){
+},{"./demo":501,"./landing":505,"./organizations":507}],503:[function(require,module,exports){
 "use strict";
 configureLandingRoute.$inject = ['$injector', '$stateProvider'];
 Object.defineProperty(exports, "__esModule", { value: true });
@@ -29426,7 +29477,7 @@ function configureLandingRoute($injector, $stateProvider) {
         .config(configureLandingRoute);
 })();
 require("./LandingStrings");
-},{"./LandingStrings":503}],503:[function(require,module,exports){
+},{"./LandingStrings":504}],504:[function(require,module,exports){
 (function () {
     var translateConfig = function (pipTranslateProvider) {
         pipTranslateProvider.translations('en', {
@@ -29459,14 +29510,14 @@ require("./LandingStrings");
         .module('iqsLanding')
         .config(translateConfig);
 })();
-},{}],504:[function(require,module,exports){
+},{}],505:[function(require,module,exports){
 "use strict";
 function __export(m) {
     for (var p in m) if (!exports.hasOwnProperty(p)) exports[p] = m[p];
 }
 Object.defineProperty(exports, "__esModule", { value: true });
 __export(require("./Landing"));
-},{"./Landing":502}],505:[function(require,module,exports){
+},{"./Landing":503}],506:[function(require,module,exports){
 (function () {
     var translateConfig = function (pipTranslateProvider) {
         pipTranslateProvider.translations('en', {});
@@ -29477,7 +29528,7 @@ __export(require("./Landing"));
         .module('iqsOrganizations')
         .config(translateConfig);
 })();
-},{}],506:[function(require,module,exports){
+},{}],507:[function(require,module,exports){
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 require("./organization/Organization");
@@ -29498,7 +29549,7 @@ require("./organizations_home/OrganizationsHome");
     ]);
 })();
 require("./OrganizationsStrings");
-},{"./OrganizationsStrings":505,"./organization/Organization":507,"./organization_invitation/OrganizationInvitation":513,"./organization_quick_start/OrganizationQuickStart":516,"./organization_welcome/OrganizationWelcome":524,"./organizations_connection/OrganizationsConnection":526,"./organizations_home/OrganizationsHome":527}],507:[function(require,module,exports){
+},{"./OrganizationsStrings":506,"./organization/Organization":508,"./organization_invitation/OrganizationInvitation":514,"./organization_quick_start/OrganizationQuickStart":517,"./organization_welcome/OrganizationWelcome":525,"./organizations_connection/OrganizationsConnection":527,"./organizations_home/OrganizationsHome":528}],508:[function(require,module,exports){
 "use strict";
 configureOrganizationsCreateRoute.$inject = ['$injector', '$stateProvider'];
 configureOrganizationsCreateAccess.$inject = ['iqsAccessConfigProvider'];
@@ -29690,7 +29741,7 @@ function configureOrganizationsCreateAccess(iqsAccessConfigProvider) {
         .config(configureOrganizationsCreateAccess);
 })();
 require("./OrganizationResource");
-},{"../../../data":176,"./OrganizationResource":508,"./panels/NewOrganizationPanel":511,"./panels/PaymentPanel":512}],508:[function(require,module,exports){
+},{"../../../data":176,"./OrganizationResource":509,"./panels/NewOrganizationPanel":512,"./panels/PaymentPanel":513}],509:[function(require,module,exports){
 (function () {
     var translateConfig = function (pipTranslateProvider) {
         pipTranslateProvider.translations('en', {
@@ -29861,7 +29912,7 @@ require("./OrganizationResource");
         .module('iqsNewOrganization')
         .config(translateConfig);
 })();
-},{}],509:[function(require,module,exports){
+},{}],510:[function(require,module,exports){
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 var AgreementParams = (function () {
@@ -29957,7 +30008,7 @@ var AgreementPanelController = (function () {
         template: "\n                <form name=\"form\" novalidate autocomplete=\"off\" ng-submit=\"$ctrl.onSaveClick()\">\n                    <input type=\"password\" style=\"display:none\">\n\n                    <md-input-container class=\"bm0 md-block flex\">\n                        <label>{{::'SITES_CREATE_AGREEMENT_NUMBER_LABEL' | translate}}</label>\n                        <input iqs-test-card-number type=\"text\" value=\"\" autocomplete=\"off\" name=\"agreementNumber\" aria-label=\"AGREEMENT_NUMBER\"\n                               ng-model=\"$ctrl.agreementNumber\" required ng-disabled=\"$ctrl.isDisabled()\" ng-change=\"$ctrl.onChange()\" />\n\n                        <div ng-messages=\"$ctrl.touchedErrorsWithHint($ctrl.form, $ctrl.form.agreementNumber)\" role=\"alert\">\n                            <div ng-message=\"required\">{{ 'SITES_CREATE_AGREEMENT_NUMBER_REQ_ERR' | translate }}</div>\n                            <div ng-message=\"agreementValidate\">{{ 'SITES_CREATE_AGREEMENT_VALIDATE_ERROR' | translate }}</div>\n                        </div>\n                    </md-input-container>\n\n                    <md-input-container class=\"bm0 md-block flex\">\n                        <label>{{::'SITES_CREATE_AGREEMENT_INN_LABEL' | translate}}</label>\n                        <input iqs-test-card-name type=\"text\" value=\"\" autocomplete=\"off\" name=\"agreementInn\" aria-label=\"AGREEMENT_INN\"\n                               ng-model=\"$ctrl.agreementInn\" required ng-disabled=\"$ctrl.isDisabled()\" />\n\n                        <div ng-messages=\"$ctrl.touchedErrorsWithHint($ctrl.form, $ctrl.form.agreementInn)\" role=\"alert\">\n                            <div ng-message=\"required\">{{ 'SITES_CREATE_AGREEMENT_INN_REQ_ERR' | translate }}</div>\n                        </div>\n                    </md-input-container>\n\n                    <div ng-if=\"!$ctrl.pipMedia('gt-sm')\">\n                        <md-button iqs-test-back class=\"md-primary md-raised w-stretch flex lm0 rm0 tm16\" ng-click=\"$ctrl.onCancel()\">\n                            {{ ::'SITES_CREATE_BACK' | translate }}\n                        </md-button>\n                        <md-button iqs-test-next class=\"md-primary md-raised w-stretch flex lm0 rm0 bm0\" ng-disabled=\"$ctrl.isDisabled()\"\n                                   type=\"submit\" xxng-click=\"$ctrl.onSaveClick()\">\n                            {{ ::'SITES_CREATE_CREATE' | translate }}\n                        </md-button>\n                    </div>\n\n                    <!--\n                    <div class=\"layout-row layout-align-start-center tm16\" ng-if=\"$ctrl.pipMedia('gt-sm')\">\n                        <md-button iqs-test-back class=\"md-primary md-raised w-stretch flex lm0 rm8 bm0\" ng-click=\"$ctrl.onCancel()\" >\n                            {{ ::'SITES_CREATE_BACK' | translate }}\n                        </md-button>\n                        <md-button iqs-test-next class=\"md-primary md-raised w-stretch flex lm8 rm0 bm0\" ng-disabled=\"$ctrl.isDisabled()\" type=\"submit\" xxxng-click=\"$ctrl.onSaveClick()\">\n                            {{ ::'SITES_CREATE_CREATE' | translate }}\n                        </md-button>\n                    </div>\n                    -->\n                </form>\n            "
     });
 })();
-},{}],510:[function(require,module,exports){
+},{}],511:[function(require,module,exports){
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 var data_1 = require("../../../../data");
@@ -30088,7 +30139,7 @@ var CreditCardPanelController = (function () {
         template: "\n                <form name=\"form\" novalidate autocomplete=\"off\" ng-submit=\"$ctrl.onSaveClick()\">\n                    <input type=\"password\" style=\"display:none\">\n\n                    <div class=\"layout-row layout-align-start-start flex\">\n                        <md-input-container class=\"bm0 md-block flex rm24\">\n                            <label>{{::'SITES_CREATE_CREDIT_CARD_NUMBER_LABEL' | translate}}</label>\n                            <input iqs-test-card-number type=\"text\" value=\"\" autocomplete=\"off\" name=\"cardNumber\" aria-label=\"CURD_NUMBER\"\n                                   ng-model=\"$ctrl.item.number\" required ng-pattern=\"/^[ -]*(?:4[ -]*(?:d[ -]*){11}(?:(?:d[ -]*){3})?d|5[ -]*[1-5](?:[ -]*[0-9]){14}|3[ -]*[47](?:[ -]*[0-9]){13})[ -]*$/\" />\n                            <div ng-messages=\"$ctrl.touchedErrorsWithHint($ctrl.form, $ctrl.form.cardNumber, true)\" role=\"alert\">\n                                <div ng-message=\"required\">{{ 'SITES_CREATE_CREDIT_CARD_NUMBER_REQ_ERR' | translate }}</div>\n                                <div ng-message=\"pattern\">{{ 'SITES_CREATE_CREDIT_CARD_NUMBER_PATTERN_ERR' | translate }}</div>\n                            </div>\n                        </md-input-container>\n\n                        <md-input-container class=\"bm0 md-block w100\">\n                            <label>{{::'SITES_CREATE_CREDIT_CARD_CODE_LABEL' | translate}}</label>\n                            <input iqs-test-password type=\"password\" value=\"\" autocomplete=\"off\" name=\"cardCode\" aria-label=\"CURD_CODE\"\n                                   ng-model=\"$ctrl.item.ccv\" required ng-pattern=\"/^[0-9]{3,4}$/\" />\n                            <div ng-messages=\"$ctrl.touchedErrorsWithHint($ctrl.form, $ctrl.form.cardCode, true)\" role=\"alert\">\n                                <div ng-message=\"required\">{{ 'SITES_CREATE_CREDIT_CARD_CODE_REQ_ERR' | translate }}</div>\n                                <div ng-message=\"pattern\">{{ 'SITES_CREATE_CREDIT_CARD_CODE_PATTERN_ERR' | translate }}</div>\n                            </div>\n                        </md-input-container>\n                    </div>\n\n                    <div class=\"layout-row layout-align-start-center flex\">\n                        <md-input-container class=\"bm0 rm16 md-block flex\">\n                            <label>{{::'SITES_CREATE_CREDIT_CARD_FIRST_NAME_LABEL' | translate}}</label>\n                            <input iqs-test-card-name type=\"text\" value=\"\" autocomplete=\"off\" name=\"customerFirstName\" aria-label=\"CUSTOMER_NAME\"\n                                   ng-model=\"$ctrl.item.first_name\" required ng-pattern=\"/^[a-zA-Z]+(([',. -][a-zA-Z ])?[a-zA-Z]*)*$/\" />\n                            <div ng-messages=\"$ctrl.touchedErrorsWithHint($ctrl.form, $ctrl.form.customerFirstName, true)\" role=\"alert\">\n                                <div ng-message=\"required\">{{ 'SITES_CREATE_CREDIT_CARD_FIRST_NAME_REQ_ERR' | translate }}</div>\n                                <div ng-message=\"pattern\">{{ 'SITES_CREATE_CREDIT_CARD_FIRST_NAME_PATTERN_ERR' | translate }}</div>\n                            </div>\n                        </md-input-container>\n                        <md-input-container class=\"bm0 md-block flex\">\n                            <label>{{::'SITES_CREATE_CREDIT_CARD_LAST_NAME_LABEL' | translate}}</label>\n                            <input iqs-test-card-name type=\"text\" value=\"\" autocomplete=\"off\" name=\"customerLastName\" aria-label=\"CUSTOMER_NAME\"\n                                   ng-model=\"$ctrl.item.last_name\" required ng-pattern=\"/^[a-zA-Z]+(([',. -][a-zA-Z ])?[a-zA-Z]*)*$/\" />\n                            <div ng-messages=\"$ctrl.touchedErrorsWithHint($ctrl.form, $ctrl.form.customerLastName, true)\" role=\"alert\">\n                                <div ng-message=\"required\">{{ 'SITES_CREATE_CREDIT_CARD_LAST_NAME_REQ_ERR' | translate }}</div>\n                                <div ng-message=\"pattern\">{{ 'SITES_CREATE_CREDIT_CARD_LAST_NAME_PATTERN_ERR' | translate }}</div>\n                            </div>\n                        </md-input-container>\n                    </div>\n\n                    <div>\n                        <div class=\"text-caption\">{{::'SITES_CREATE_CREDIT_CARD_EXPIRED_LABEL' | translate}}</div>\n                        <div class=\"layout-row layout-align-start-center flex\">\n                            <md-input-container class=\"bm0 tm0 md-block flex\">\n                                <md-select class=\"flex\" ng-model=\"$ctrl.item.expire_month\">\n                                    <md-option ng-value=\"opt.id\" ng-repeat=\"opt in $ctrl.months track by opt.id\">\n                                        {{:: opt.name }}\n                                    </md-option>\n                                </md-select>\n                            </md-input-container>\n                            /\n                            <md-input-container class=\"bm0 tm0 md-block flex\">\n                                <md-select class=\"flex\" ng-model=\"$ctrl.item.expire_year\">\n                                    <md-option ng-value=\"opt\" ng-repeat=\"opt in $ctrl.years track by opt\">\n                                        {{:: opt }}\n                                    </md-option>\n                                </md-select>\n                            </md-input-container>\n                        </div>\n                    </div>\n\n                    <div ng-if=\"!$ctrl.pipMedia('gt-sm')\">\n                        <md-button iqs-test-back class=\"md-primary md-raised w-stretch flex lm0 rm0 tm16\" ng-click=\"$ctrl.onCancel()\">\n                            {{ ::'SITES_CREATE_BACK' | translate }}\n                        </md-button>\n                        <md-button iqs-test-next class=\"md-primary md-raised w-stretch flex lm0 rm0 bm0\" ng-disabled=\"$ctrl.isDisabled()\"\n                                   xxxng-click=\"$ctrl.onSaveClick()\" type=\"submit\">\n                            {{ ::'SITES_CREATE_CREATE' | translate }}\n                        </md-button>\n                    </div>\n\n                    <!--\n                    <div class=\"layout-row layout-align-start-center tm16\" ng-if=\"$ctrl.pipMedia('gt-sm')\">\n                        <md-button iqs-test-back class=\"md-primary md-raised w-stretch flex lm0 rm8 bm0\" ng-click=\"$ctrl.onCancel()\">\n                            {{ ::'SITES_CREATE_BACK' | translate }}\n                        </md-button>\n                        <md-button iqs-test-next class=\"md-primary md-raised w-stretch flex lm8 rm0 bm0\" ng-disabled=\"$ctrl.isDisabled()\" xxxng-click=\"$ctrl.onSaveClick()\"\n                            type=\"submit\">\n                            {{ ::'SITES_CREATE_CREATE' | translate }}\n                        </md-button>\n                    </div>\n                    -->\n                </form>\n            "
     });
 })();
-},{"../../../../data":176}],511:[function(require,module,exports){
+},{"../../../../data":176}],512:[function(require,module,exports){
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 var NewOrganizationParams = (function () {
@@ -30352,7 +30403,7 @@ var NewOrganizationPanelController = (function () {
         template: "\n                <pip-card>\n                    <div class=\"pip-body\">\n                        <form name=\"form\" novalidate>\n\n                            <h2 class=\"text-center bm24\">{{:: 'SITES_CREATE_TITLE' | translate}}</h2>\n\n                            <md-input-container class=\"hide-md-errors-spacer\">\n                                <label>{{::'SITES_CREATE_NAME' | translate}}</label>\n                                <input iqs-test-name ng-model=\"$ctrl.organization.name\" required />\n                                <!-- todo verficate form -->\n                            </md-input-container>\n\n                            <div class=\"flex bm8\">\n                                {{ ::'SITES_CREATE_MAP_DESCRIPTION' | translate }}\n                                <span class=\"text-body2 text-overflow color-primary pointer\" ng-click=\"$ctrl.showMapTip($event)\">\n                                    {{ ::'SITES_CREATE_MAP_DESCRIPTION_LINK' | translate }}\n                                </span>\n                            </div>\n                            <div iqs-test-map class=\"flex\" style=\"position: relative; min-height: 350px\">\n                                <pip-map-edit ng-if=\"$ctrl.mapOptions && !$ctrl.startPause\" pip-on-edit=\"$ctrl.onEdit(overlay, type, path, center, radius)\"\n                                              pip-show-action-panel=\"false\" pip-overlay=\"$ctrl.organizationOverlay\" pip-map-options=\"$ctrl.mapOptions\"\n                                              pip-control=\"$ctrl.setControl(control)\">\n                                </pip-map-edit>\n\n\n                                <div class=\"iqs-map-edit-zoom-buttons layout-column\">\n                                    <md-button aria-label=\"ZoomIn\" ng-click=\"$ctrl.onZoomIn()\" class=\"md-fab md-raised md-mini m8\">\n                                        <md-tooltip md-visible=\"showTooltip\" md-direction=\"left\">\n                                            {{ ::'ZONE_ZOOM_IN' | translate }}\n                                        </md-tooltip>\n                                        <md-icon md-svg-icon=\"icons:plus\" aria-label=\"ZoomIn\"></md-icon>\n                                    </md-button>\n                                    <md-button aria-label=\"ZoomOut\" ng-click=\"$ctrl.onZoomOut()\" class=\"md-fab md-raised md-mini m8\">\n                                        <md-tooltip md-visible=\"showTooltip\" md-direction=\"left\">\n                                            {{ ::'ZONE_ZOOM_OUT' | translate }}\n                                        </md-tooltip>\n                                        <md-icon md-svg-icon=\"icons:minus\" aria-label=\"ZoomOut\"></md-icon>\n                                    </md-button>\n                                </div>\n\n                                <div class=\"iqs-map-edit-overlay-buttons layout-column\">\n                                    <md-button aria-label=\"PAN\" ng-click=\"$ctrl.selectSection(0)\" ng-class=\"{'md-accent': $ctrl.section === 0 }\"\n                                               class=\"md-fab md-raised md-mini m8\">\n                                        <md-tooltip md-visible=\"showTooltip\" md-direction=\"right\">\n                                            {{ 'ZONE_PAN' | translate }}\n                                        </md-tooltip>\n                                        <md-icon md-svg-icon=\"iqs:draw-pan\" aria-label=\"Pan\"></md-icon>\n                                    </md-button>\n                                    <md-button iqs-test-map-add-center aria-label=\"DrawCircle\" ng-click=\"$ctrl.selectSection(1)\"\n                                               ng-class=\"{'md-accent': $ctrl.section === 1 }\" class=\"md-fab md-raised md-mini m8\">\n                                        <md-tooltip md-visible=\"showTooltip\" md-direction=\"right\">\n                                            {{ 'ADD_CENTER' | translate }}\n                                        </md-tooltip>\n                                        <md-icon md-svg-icon=\"icons:pen\" aria-label=\"DrawCircle\"></md-icon>\n                                    </md-button>\n                                </div>\n\n                                <div class=\"iqs-map-edit-clear-buttons layout-column\">\n                                    <md-button iqs-test-map-clear aria-label=\"ClearMap\" ng-click=\"$ctrl.clearMap()\" class=\"md-fab md-raised md-mini m8\">\n                                        <md-tooltip md-visible=\"showTooltip\" md-direction=\"right\">\n                                            {{::'ZONE_CLEAR_MAP' | translate }}\n                                        </md-tooltip>\n                                        <md-icon md-svg-icon=\"iqs:draw-clear\" aria-label=\"ClearMap\"></md-icon>\n                                    </md-button>\n                                </div>\n\n                                <!-- <div class=\"iqs-map-edit-center-buttons layout-column\" ng-if=\"$ctrl.mapOptions && $ctrl.organization.center.coordinates[0] && $ctrl.organization.center.coordinates[1]\">\n                                    <md-button aria-label=\"ClearMap\" ng-click=\"$ctrl.setOverlay()\" class=\"md-fab md-raised md-mini m8\">\n                                        <md-tooltip md-visible=\"showTooltip\" md-direction=\"left\">\n                                            {{:: 'REDRAW' | translate }}\n                                        </md-tooltip>\n                                        <md-icon md-svg-icon=\"icons:reload\" aria-label=\"ClearMap\"></md-icon>\n                                    </md-button>\n                                </div> -->\n                            </div>\n\n\n\n                            <div class=\"layout-row hide-md-errors-spacer tm8 bm8\">\n                                <md-input-container class=\"md-block  bm0 rm16 flex\">\n                                    <label>{{::'GLOBAL_SETTINGS_LOCATION_LONGITUDE' | translate}}</label>\n                                    <input iqs-test-longtitude ng-model=\"$ctrl.organization.center.coordinates[0]\" type=\"number\" ng-change=\"$ctrl.onChangeOrganization()\">\n                                </md-input-container>\n                                <md-input-container class=\"md-block bm0 flex\">\n                                    <label>{{::'GLOBAL_SETTINGS_LOCATION_LATTITUDE' | translate}}</label>\n                                    <input iqs-test-latitude ng-model=\"$ctrl.organization.center.coordinates[1]\" type=\"number\" ng-change=\"$ctrl.onChangeOrganization()\">\n                                </md-input-container>\n                            </div>\n                            <div class=\"layout-row hide-md-errors-spacer bm16\">\n                                <md-input-container class=\"md-block rm16 bm8 flex\">\n                                    <label>{{::'GLOBAL_SETTINGS_LOCATION_DISTANSE' | translate}}</label>\n                                    <input iqs-test-radius ng-model=\"$ctrl.organization.radius\" type=\"number\" ng-change=\"$ctrl.onChangeOrganization()\">\n                                </md-input-container>\n                                <md-input-container class=\"md-block flex bm8 hide-md-errors-spacer iqs-timezone-select\">\n                                    <label>{{::'GLOBAL_SETTINGS_LOCATION_TIMEZONE'| translate}}</label>\n                                    <md-select iqs-test-timezone-select ng-model=\"$ctrl.organization.timezone\">\n                                        <md-option iqs-test-timezone-option ng-repeat=\"obj in $ctrl.zones track by $index\" ng-value=\"obj.name\">\n                                            {{ ::obj.title }}\n                                        </md-option>\n                                    </md-select>\n                                </md-input-container>\n                            </div>\n\n\n                            <div ng-if=\"!$ctrl.pipMedia('gt-sm')\">\n                                <md-button iqs-test-cancel class=\"md-primary md-raised w-stretch flex lm0 rm0 tm16\" ng-disabled=\"$ctrl.transaction.busy()\"\n                                           ng-click=\"$ctrl.onBack()\">\n                                    {{ ::'SITES_CREATE_BACK' | translate }}\n                                </md-button>\n                                <md-button iqs-test-next class=\"md-primary md-raised w-stretch flex lm0 rm0 bm0\" ng-disabled=\"$ctrl.isFillOrganization() || $ctrl.transaction.busy()\"\n                                           ng-click=\"$ctrl.next()\">\n                                    {{ ::'SITES_CREATE_FORVARD' | translate }}\n                                </md-button>\n                            </div>\n                            <div class=\"layout-row layout-align-start-center tm16\" ng-if=\"$ctrl.pipMedia('gt-sm')\">\n                                <md-button iqs-test-cancel class=\"md-primary md-raised w-stretch flex lm0 rm8 bm0\" ng-disabled=\"$ctrl.transaction.busy()\"\n                                           ng-click=\"$ctrl.onBack()\">\n                                    {{ ::'SITES_CREATE_BACK' | translate }}\n                                </md-button>\n                                <md-button iqs-test-next class=\"md-primary md-raised w-stretch flex lm8 rm0 bm0\" ng-disabled=\"$ctrl.isFillOrganization() || $ctrl.transaction.busy()\"\n                                           ng-click=\"$ctrl.next()\">\n                                    {{ ::'SITES_CREATE_FORVARD' | translate }}\n                                </md-button>\n                            </div>\n                        </form>\n                    </div>\n                </pip-card>\n            "
     });
 })();
-},{}],512:[function(require,module,exports){
+},{}],513:[function(require,module,exports){
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 require("./AgreementPanel");
@@ -30452,7 +30503,7 @@ var PaymentPanelController = (function () {
         template: "\n                <md-progress-linear md-mode=\"indeterminate\" style=\"position: absolute;\" ng-show=\"$ctrl.transaction && $ctrl.transaction.busy()\"></md-progress-linear>\n                    <div class=\"pip-body\">\n\n                        <div ng-show=\"$ctrl.error\" class=\"pip-page-errors bm16\">\n                            <span class=\"pip-error-text color-error flex\"> {{ $ctrl.error | translate }}</span>\n                            <md-icon md-svg-icon=\"icons:warn-circle\" class=\"color-error\"></md-icon>\n                        </div>\n\n                        <div class=\"aux-btn-close pointer\" ng-click=\"$ctrl.onBack()\">\n                            <md-icon md-svg-icon=\"icons:cross\"></md-icon>\n                        </div>\n\n                        <h2 class=\"text-center bm24 lm24 rm24\">\n                            {{:: 'SITES_CREATE_CREDIT_CARD_TITLE' | translate}}\n                        </h2>\n\n                        <md-tabs md-dynamic-height md-stretch-tabs=\"auto\" md-selected=\"$ctrl.section\">\n                            <md-tab label=\"{{ section.title | translate }}\" id=\"{{ section.id }}\" ng-repeat=\"section in $ctrl.sections track by $index\"\n                                    xxxng-click=\"$ctrl.selectSection(section.id)\">\n                            </md-tab>\n                        </md-tabs>\n\n                        <p class=\"text-body1 h72 bm16 iqs-info\" ng-show=\"$ctrl.section == 0\">\n                            {{ ::'SITES_CREATE_CREDIT_CARD_SUBTITLE1' | translate }}\n                            <span class=\"text-body2 text-overflow color-primary pointer\" ng-click=\"$ctrl.showTip($event)\">\n                                {{ ::'SITES_CREATE_CREDIT_CARD_SUBTITLE_LINK' | translate }}\n                            </span>\n                            {{ ::'SITES_CREATE_CREDIT_CARD_SUBTITLE2' | translate }}\n                        </p>\n\n                        <p class=\"text-body1 h72 bm16 iqs-info\" ng-show=\"$ctrl.section == 1\">\n                            <pip-translate-html key=\"SITES_CREATE_AGREEMENT_SUBTITLE\" />\n                            </pip-translate-html>\n                        </p>\n\n\n                        <iqs-credit-card-panel iqs-save=\"$ctrl.onCreateCreditCard(card)\" iqs-init=\"$ctrl.creditCardPanelInit($API)\"\n                                               ng-disabled=\"$ctrl.transaction.busy()\" ng-show=\"$ctrl.section == 0\"></iqs-credit-card-panel>\n\n                        <iqs-agreement-panel iqs-save=\"$ctrl.onCreateAgreement(agreement)\" iqs-init=\"$ctrl.agreementPanelInit($API)\"\n                                             ng-disabled=\"$ctrl.transaction.busy()\" ng-show=\"$ctrl.section == 1\"></iqs-agreement-panel>\n\n                        <div class=\"layout-row layout-align-start-center tm16\" ng-if=\"$ctrl.pipMedia('gt-sm')\">\n                            <md-button iqs-test-back class=\"md-primary md-raised w-stretch flex lm0 rm8 bm0\" ng-click=\"$ctrl.onBack()\">\n                                {{ ::'SITES_CREATE_BACK' | translate }}\n                            </md-button>\n                            <md-button iqs-test-next class=\"md-primary md-raised w-stretch flex lm8 rm0 bm0\" ng-disabled=\"$ctrl.isDisabled()\"\n                                       type=\"submit\" ng-click=\"$ctrl.save()\">\n                                {{ ::'SITES_CREATE_CREATE' | translate }}\n                            </md-button>\n                        </div>\n\n                    </div>\n            "
     });
 })();
-},{"./AgreementPanel":509,"./CreditCardPanel":510}],513:[function(require,module,exports){
+},{"./AgreementPanel":510,"./CreditCardPanel":511}],514:[function(require,module,exports){
 "use strict";
 configureOrganizationInvitationRoute.$inject = ['$injector', '$stateProvider'];
 configureOrganizationInvitationAccess.$inject = ['iqsAccessConfigProvider'];
@@ -30588,7 +30639,7 @@ function configureOrganizationInvitationAccess(iqsAccessConfigProvider) {
         .config(configureOrganizationInvitationAccess);
 })();
 require("./OrganizationInvitationResource");
-},{"../../../data":176,"./OrganizationInvitationResource":514,"./panels/InvitationPanel":515}],514:[function(require,module,exports){
+},{"../../../data":176,"./OrganizationInvitationResource":515,"./panels/InvitationPanel":516}],515:[function(require,module,exports){
 (function () {
     var translateConfig = function (pipTranslateProvider) {
         pipTranslateProvider.translations('en', {
@@ -30615,7 +30666,7 @@ require("./OrganizationInvitationResource");
         .module('iqsOrganizationInvitation')
         .config(translateConfig);
 })();
-},{}],515:[function(require,module,exports){
+},{}],516:[function(require,module,exports){
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 var data_1 = require("../../../../data");
@@ -30898,7 +30949,7 @@ var InvitationPanelController = (function () {
         template: "\n                <form name=\"form\" novalidate autocomplete=\"off\">\n                    <md-progress-linear md-mode=\"indeterminate\" class=\"dialog-progress-linear\" ng-show=\"$ctrl.transaction.busy()\">\n                    </md-progress-linear>\n                    <div class=\"pip-body {{$ctrl.pipMedia('gt-sm') ? 'p24' : 'p16' }}\">\n\n\n                        <h2 class=\"text-center bm24 lm24 rm24\">\n                            {{:: 'SITES_QUICK_START_INVITATION_TITLE' | translate}}\n                        </h2>\n\n                        <p class=\"text-body1 bm16 iqs-info\">\n                            {{:: 'SITES_QUICK_START_INVITATION_SUBTITLE' | translate}}\n                        </p>\n\n\n                        <div style=\"height:156px;\" class=\"bm16\">\n                            <div class=\"layout-row layout-align-start-center h48\" ng-repeat=\"people in $ctrl.peoples\">\n\n                                <md-icon md-svg-icon=\"icons:person\" class=\"flex-fixed rm16 m0\" ng-if=\"people.id\">\n                                </md-icon>\n                                <md-icon md-svg-icon=\"icons:message\" class=\"flex-fixed rm16 m0\" ng-if=\"!people.id\">\n                                </md-icon>\n                                <div class=\"flex text-body1 text-overflow rm16\">\n                                    {{ $ctrl.getItemText(people) }}\n                                </div>\n                                <md-button class=\"md-icon-button flex-fixed m0\" ng-click=\"$ctrl.delPeople($index)\">\n                                    <md-icon md-svg-icon=\"icons:cross\" class=\"flex-fixed\">\n                                    </md-icon>\n                                </md-button>\n                            </div>\n\n                            <div class=\"layout-row tm8\" ng-if=\"$ctrl.peoples.length < 3\">\n                                <md-icon md-svg-icon=\"icons:person-message\" class=\"flex-fixed rm16 lm0 bm0 tm8\">\n                                </md-icon>\n                                <md-autocomplete iqs-test-people-name class=\"flex iqs-without-label\" md-input-name=\"people\"\n                                                 md-selected-item=\"$ctrl.people\" md-search-text=\"$ctrl.searchText\" md-items=\"item in $ctrl.querySearch($ctrl.searchText)\"\n                                                 md-selected-item-change=\"$ctrl.onItemChange()\" pip-input-blur=\"$ctrl.onItemBlur()\"\n                                                 md-item-text=\"$ctrl.getItemText(item)\" ng-keydown=\"$ctrl.onKeyDown($event)\"\n                                                 md-no-cache=\"true\" md-delay=\"400\" md-floating-label=\"{{::'SITES_CREATE_INVITE_PEOPLE_PLACEHOLDER' | translate}}\">\n                                    <md-item-template>\n                                        <span ng-if=\"item.name && item.login\">\n                                            {{ item.name + ' (' + item.login + ')' }}\n                                        </span>\n                                        <span ng-if=\"!(item.name && item.login)\">\n                                            {{ item.name || item.login }}\n                                        </span>\n                                    </md-item-template>\n\n                                    <div ng-messages=\"!$ctrl.getPeopleValidate()\" role=\"alert\">\n                                        <div ng-if=\"!$ctrl.getPeopleEmailValidate()\">{{ 'ACCOUNTT_EMAIL_VALIDATE_ERROR' | translate }}</div>\n                                        <div ng-if=\"!$ctrl.getPeopleUniqueValidate()\">{{ 'ACCOUNTT_EMAIL_UNIQUE_ERROR' | translate }}</div>\n                                    </div>\n                                </md-autocomplete>\n                                <md-button iqs-test-people-add class=\"md-icon-button flex-fixed m0\" ng-if=\"$ctrl.peoples.length < 3\"\n                                           ng-click=\"$ctrl.addPeople($index)\" ng-disabled=\"!$ctrl.getPeopleValidate() || $ctrl.peopleIsEmpty()\">\n\n                                    <md-icon md-svg-icon=\"icons:plus\" class=\"flex-fixed\">\n                                    </md-icon>\n                                </md-button>\n                            </div>\n                        </div>\n\n                        <p class=\"color-secondary-text m0\" style=\"height:52px;\">\n                            <span ng-if=\"$ctrl.peoples.length > 0\">{{:: 'SITES_CREATE_INVITE_PEOPLE1' | translate}}</span>\n                        </p>\n                    </div>\n\n                    <div class=\"pip-footer {{$ctrl.pipMedia('gt-sm') ? 'p24' : 'p16' }} tp0\">\n                        <div ng-if=\"!$ctrl.pipMedia('gt-sm')\">\n                            <md-button iqs-test-cancel class=\"md-primary md-raised w-stretch flex lm0 rm0 bm16\" ng-disabled=\"$ctrl.transaction.busy()\"\n                                       ng-click=\"$ctrl.onSkip()\">\n                                {{ ::'SITES_INVITATION_SKIP_BUTTON' | translate }}\n                            </md-button>\n                            <md-button iqs-test-next class=\"md-primary md-raised w-stretch flex lm0 rm0 bm0\" ng-disabled=\"$ctrl.transaction.busy() || !$ctrl.getPeopleValidate()\"\n                                       ng-click=\"$ctrl.onSaveInvitation()\">\n                                {{ ::'SITES_INVITATION_CREATE_BUTTON' | translate }}\n                            </md-button>\n                        </div>\n                        <div class=\"layout-row layout-align-start-center\" ng-if=\"$ctrl.pipMedia('gt-sm')\">\n                            <md-button iqs-test-cancel class=\"md-primary md-raised w-stretch flex lm0 rm8 bm0\" ng-disabled=\"$ctrl.transaction.busy()\"\n                                       ng-click=\"$ctrl.onSkip()\">\n                                {{ ::'SITES_INVITATION_SKIP_BUTTON' | translate }}\n                            </md-button>\n                            <md-button iqs-test-next class=\"md-primary md-raised w-stretch flex lm8 rm0 bm0\" ng-disabled=\"$ctrl.transaction.busy() || !$ctrl.getPeopleValidate()\"\n                                       ng-click=\"$ctrl.onSaveInvitation()\">\n                                {{ ::'SITES_INVITATION_CREATE_BUTTON' | translate }}\n                            </md-button>\n                        </div>\n                    </div>\n                </form>\n            "
     });
 })();
-},{"../../../../data":176}],516:[function(require,module,exports){
+},{"../../../../data":176}],517:[function(require,module,exports){
 "use strict";
 configureOrganizationQuickStartRoute.$inject = ['$injector', '$stateProvider'];
 configureOrganizationQuickStartAccess.$inject = ['iqsAccessConfigProvider'];
@@ -31060,7 +31111,7 @@ function configureOrganizationQuickStartAccess(iqsAccessConfigProvider) {
         .config(configureOrganizationQuickStartAccess);
 })();
 require("./OrganizationQuickStartResource");
-},{"../../../data":176,"./OrganizationQuickStartResource":517,"./panels/LoraPanel":518,"./panels/MobileMorePanel":519,"./panels/MobilePanel":520,"./panels/MobileStartPanel":521,"./panels/MobileWelcomePanel":522,"./panels/WelcomePanel":523}],517:[function(require,module,exports){
+},{"../../../data":176,"./OrganizationQuickStartResource":518,"./panels/LoraPanel":519,"./panels/MobileMorePanel":520,"./panels/MobilePanel":521,"./panels/MobileStartPanel":522,"./panels/MobileWelcomePanel":523,"./panels/WelcomePanel":524}],518:[function(require,module,exports){
 (function () {
     var translateConfig = function (pipTranslateProvider) {
         pipTranslateProvider.translations('en', {
@@ -31171,7 +31222,7 @@ require("./OrganizationQuickStartResource");
         .module('iqsOrganizationQuickStart')
         .config(translateConfig);
 })();
-},{}],518:[function(require,module,exports){
+},{}],519:[function(require,module,exports){
 var LoraPanelBindings = {
     onNext: '&?iqsNext',
     ngDisabled: '&?'
@@ -31209,7 +31260,7 @@ var LoraPanelController = (function () {
         template: "\n                <div class=\"pip-body {{$ctrl.pipMedia('gt-sm') ? 'p24' : 'p16' }}\">\n                    <h2 class=\"text-center bm24 lm24 rm24\">\n                        {{:: 'SITES_CREATE_LORA_TITLE' | translate}}\n                    </h2>\n\n                    <div class=\"text-body1 min-h136 bm16 iqs-info\">\n                        <p>\n                            {{:: 'SITES_CREATE_LORA_SUBTITLE1' | translate}}\n                        </p>\n                        <p>\n                            <pip-translate-html key=\"SITES_CREATE_LORA_SUBTITLE2\" />\n                            </pip-translate-html>\n                        </p>\n                        <p>\n                            {{:: 'SITES_CREATE_LORA_SUBTITLE3' | translate}}\n                        </p>\n                    </div>\n                </div>\n\n                <div class=\"pip-footer {{$ctrl.pipMedia('gt-sm') ? 'p24' : 'p16' }} tp0\">\n                    <div class=\"layout-row layout-align-start-center tm16\" ng-if=\"$ctrl.pipMedia('gt-sm')\">\n                        <md-button iqs-test-cancel class=\"md-primary md-raised w-stretch flex lm0 rm8 bm0\" ng-disabled=\"$ctrl.transaction.busy()\"\n                                   ng-click=\"$ctrl.next()\">\n                            {{ ::'SITES_CREATE_LORA_BUTTON' | translate }}\n                        </md-button>\n                    </div>\n                </div>\n            "
     });
 })();
-},{}],519:[function(require,module,exports){
+},{}],520:[function(require,module,exports){
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 var MobileMorePanelBindings = {
@@ -31256,7 +31307,7 @@ var MobileMorePanelController = (function () {
         template: "\n                <div class=\"pip-body {{$ctrl.pipMedia('gt-sm') ? 'p24' : 'p16' }}\">\n                    <h2 class=\"text-center bm24 lm24 rm24\">\n                        {{:: 'SITES_CREATE_MOBILE_MORE_TITLE' | translate}}\n                    </h2>\n\n                    <p class=\"text-body1 min-h136 bm16 iqs-info\">\n                        {{:: 'SITES_CREATE_MOBILE_MORE_SUBTITLE1' | translate}}{{ $ctrl.organization.code }}{{::\n                        'SITES_CREATE_MOBILE_MORE_SUBTITLE2' | translate}}\n                    </p>\n                </div>\n                <div class=\"pip-footer {{$ctrl.pipMedia('gt-sm') ? 'p24' : 'p16' }} tp0\">\n                    <div ng-if=\"!$ctrl.pipMedia('gt-sm')\">\n                        <md-button iqs-test-cancel class=\"md-primary md-raised w-stretch flex lm0 rm0 tm16\" ng-disabled=\"$ctrl.transaction.busy()\"\n                                   ng-click=\"$ctrl.next()\">\n                            {{ ::'SITES_CREATE_MOBILE_MORE_BUTTON_NEXT' | translate }}\n                        </md-button>\n                        <md-button iqs-test-next class=\"md-primary md-raised w-stretch flex lm0 rm0 bm0\" ng-disabled=\"$ctrl.transaction.busy()\"\n                                   ng-click=\"$ctrl.onAdd()\">\n                            {{ ::'SITES_CREATE_MOBILE_MORE_BUTTON_ADD_MORE' | translate }}\n                        </md-button>\n                    </div>\n                    <div class=\"layout-row layout-align-start-center tm16\" ng-if=\"$ctrl.pipMedia('gt-sm')\">\n                        <md-button iqs-test-cancel class=\"md-primary md-raised w-stretch flex lm0 rm8 bm0\" ng-disabled=\"$ctrl.transaction.busy()\"\n                                   ng-click=\"$ctrl.next()\">\n                            {{ ::'SITES_CREATE_MOBILE_MORE_BUTTON_NEXT' | translate }}\n                        </md-button>\n                        <md-button iqs-test-next class=\"md-primary md-raised w-stretch flex lm8 rm0 bm0\" ng-disabled=\"$ctrl.transaction.busy()\"\n                                   ng-click=\"$ctrl.onAdd()\">\n                            {{ ::'SITES_CREATE_MOBILE_MORE_BUTTON_ADD_MORE' | translate }}\n                        </md-button>\n                    </div>\n                        \n                </div>\n            "
     });
 })();
-},{}],520:[function(require,module,exports){
+},{}],521:[function(require,module,exports){
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 var MobilePanelBindings = {
@@ -31497,7 +31548,7 @@ var MobilePanelController = (function () {
         template: "\n                <form name=\"form\" novalidate autocomplete=\"off\">\n                    <div class=\"pip-body {{$ctrl.pipMedia('gt-sm') ? 'p24' : 'p16' }}\">\n\n                        <h2 class=\"text-center bm24 lm24 rm24\">\n                            {{:: 'SITES_QUICK_START_ADD_MOBILE_TITLE' | translate}}\n                        </h2>\n\n                        <md-input-container class=\"md-block flex bm0\">\n                            <label>{{::'DEVICE_UDI_PHONE' | translate}}</label>\n                            <input iqs-test-udi ng-model=\"$ctrl.device.udi\" required aria-label=\"PHONE\" ng-change=\"$ctrl.onChangeUdi()\"\n                                   iqs-phone-validator ng-change=\"$ctrl.error=''\" name=\"phone\" ng-disabled=\"$ctrl.transaction.busy()\">\n\n                            <div class=\"hint\" ng-if=\"!$ctrl.touchedErrorsWithHint($ctrl.form, $ctrl.form.phone, true)\">\n                                {{::'DEVICE_UDI_HINT_PHONE' | translate}}\n                            </div>\n\n                            <div ng-messages=\"$ctrl.touchedErrorsWithHint($ctrl.form, $ctrl.form.phone, true)\" role=\"alert\">\n                                <div ng-message=\"required\">{{ 'DEVICE_UDI_PHONE_REQUIRED_ERROR' | translate }}</div>\n                                <div ng-message=\"phoneValidate\">{{ 'DEVICE_UDI_PHONE_VALIDATE_ERROR' | translate }}</div>\n                                <div ng-message=\"verifyDeviceUdi\">{{ 'DEVICE_UDI_NOT_UNIQUE' | translate }}</div>\n                            </div>\n                        </md-input-container>\n\n                        <md-input-container class=\"md-block flex bm24\">\n                            <label>{{::'CATEGORY'| translate}}</label>\n                            <md-select iqs-test-category ng-model=\"$ctrl.object.category\" ng-change=\"$ctrl.filterTypeCollection()\"\n                                       required aria-label=\"CATEGORY\" name=\"category\" ng-disabled=\"$ctrl.transaction.busy()\">\n                                <md-option iqs-test-option-category ng-repeat=\"type in $ctrl.categoryCollection track by type.id\"\n                                           ng-value=\"type.id\">\n                                    {{::type.title | translate}}\n                                </md-option>\n                            </md-select>\n\n                            <div ng-messages=\"$ctrl.touchedErrorsWithHint($ctrl.form, $ctrl.form.category, true)\" role=\"alert\">\n                                <div ng-message=\"required\">{{ 'OBJECT_CATEGORY_REQUIRED_ERROR' | translate }}</div>\n                            </div>\n                        </md-input-container>\n\n                        <!-- <md-input-container class=\"md-block flex bm24\">\n                            <label>{{::'TYPE'| translate}}</label>\n                            <md-select iqs-test-type ng-model=\"$ctrl.object.type\" required aria-label=\"TYPE\" name=\"object_type\" ng-disabled=\"$ctrl.transaction.busy()\">\n                                <md-option iqs-test-option-type ng-repeat=\"type in $ctrl.typeCollection  track by type.id\" ng-value=\"type.id\">\n                                    {{::type.title | translate}}\n                                </md-option>\n                            </md-select>\n\n                            <div ng-messages=\"$ctrl.touchedErrorsWithHint($ctrl.form, $ctrl.form.object_type, true)\" role=\"alert\">\n                                <div ng-message=\"required\">{{ 'OBJECT_TYPE_REQUIRED_ERROR' | translate }}</div>\n                            </div>\n                        </md-input-container> -->\n\n                        <md-input-container class=\"md-block flex\">\n                            <label ng-if=\"$ctrl.object.category != 'person'\">{{::'CONFIG_OBJECT_NAME' | translate}}</label>\n                            <label ng-if=\"$ctrl.object.category == 'person'\">{{::'CONFIG_PERSON_NAME' | translate}}</label>\n                            <input iqs-test-name ng-model=\"$ctrl.object.name\" required ng-disabled=\"$ctrl.transaction.busy()\"\n                                   aria-label=\"OBJECT_NAME\" name=\"object_name\" pip-clear-errors>\n\n                            <div ng-messages=\"$ctrl.touchedErrorsWithHint($ctrl.form, $ctrl.form.object_name, true)\" role=\"alert\">\n                                <div ng-message=\"required\">\n                                    <span ng-show=\"$ctrl.object.category != 'person'\">\n                                        {{ 'OBJECT_NAME_REQUIRED_ERROR' | translate }}\n                                    </span>\n                                    <span ng-show=\"$ctrl.object.category == 'person'\">\n                                        {{ 'OBJECT_PERSON_NAME_REQUIRED_ERROR' | translate }}\n                                    </span>\n                                </div>\n                                <div ng-message=\"uniqueValidate\">{{ 'SITE_CREATE_OBJECT_NAME_UNIQUE_ERROR' | translate }}</div>\n                            </div>\n                        </md-input-container>\n\n                        <md-input-container class=\"md-block flex\">\n                            <label ng-if=\"$ctrl.object.category == 'person'\">{{::'SETTINGS_BASIC_INFO_DESCRIPTION' | translate}}</label>\n                            <label ng-if=\"$ctrl.object.category != 'person'\">{{::'OBJECTS_EDIT_DESCRIPTION_ASSET' | translate}}</label>\n                            <input iqs-test-description ng-model=\"$ctrl.object.description\" ng-disabled=\"$ctrl.transaction.busy()\">\n                        </md-input-container>\n\n\n                    </div>\n                    <div class=\"pip-footer {{$ctrl.pipMedia('gt-sm') ? 'p24' : 'p16' }} tp0\">\n                        <div ng-if=\"!$ctrl.pipMedia('gt-sm')\">\n                            <md-button iqs-test-cancel class=\"md-primary md-raised w-stretch flex lm0 rm0 tm16\" ng-disabled=\"$ctrl.transaction.busy()\"\n                                       ng-click=\"$ctrl.onSkip()\">\n                                {{ ::'SITES_QUICK_START_MOBILE_SKIP_BUTTON' | translate }}\n                            </md-button>\n                            <md-button iqs-test-next class=\"md-primary md-raised w-stretch flex lm0 rm0 bm0\" ng-disabled=\"$ctrl.transaction.busy()\"\n                                       ng-click=\"$ctrl.onSavePhone()\">\n                                {{ ::'SITES_QUICK_START_MOBILE_CREATE_BUTTON' | translate }}\n                            </md-button>\n                        </div>\n                        <div class=\"layout-row layout-align-start-center tm16\" ng-if=\"$ctrl.pipMedia('gt-sm')\">\n                            <md-button iqs-test-cancel class=\"md-primary md-raised w-stretch flex lm0 rm8 bm0\" ng-disabled=\"$ctrl.transaction.busy()\"\n                                       ng-click=\"$ctrl.onSkip()\">\n                                {{ ::'SITES_QUICK_START_MOBILE_SKIP_BUTTON' | translate }}\n                            </md-button>\n                            <md-button iqs-test-next class=\"md-primary md-raised w-stretch flex lm8 rm0 bm0\" ng-disabled=\"$ctrl.transaction.busy()\"\n                                       ng-click=\"$ctrl.onSavePhone()\">\n                                {{ ::'SITES_QUICK_START_MOBILE_CREATE_BUTTON' | translate }}\n                            </md-button>\n                        </div>\n\n                    </div>\n\n                </form>\n            "
     });
 })();
-},{}],521:[function(require,module,exports){
+},{}],522:[function(require,module,exports){
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 var MobileStartPanelBindings = {
@@ -31544,7 +31595,7 @@ var MobileStartPanelController = (function () {
         template: "\n                <div class=\"pip-body {{$ctrl.pipMedia('gt-sm') ? 'p24' : 'p16' }}\">\n                    <h2 class=\"text-center bm24 lm24 rm24\">\n                        {{:: 'SITES_CREATE_MOBILE_START_TITLE' | translate}}\n                    </h2>\n\n                    <div class=\"text-body1 min-h136 bm16 iqs-info\">\n                        <p>\n                            {{:: 'SITES_CREATE_MOBILE_START_SUBTITLE1' | translate}}\n\n                        </p>\n                        <p>\n                            {{:: 'SITES_CREATE_MOBILE_START_SUBTITLE2' | translate}}\n\n                        </p>\n                        <p>\n                            {{:: 'SITES_CREATE_MOBILE_START_SUBTITLE3' | translate}}\n                            {{ $ctrl.organization.code }}\n                            {{:: 'SITES_CREATE_MOBILE_START_SUBTITLE4' | translate}}\n\n                        </p>\n                        <p>\n                            {{:: 'SITES_CREATE_MOBILE_START_SUBTITLE5' | translate}}\n\n                        </p>\n                    </div>\n\n                </div>\n                <div class=\"pip-footer {{$ctrl.pipMedia('gt-sm') ? 'p24' : 'p16' }} tp0\">\n                    <div ng-if=\"!$ctrl.pipMedia('gt-sm')\">\n                        <md-button iqs-test-cancel class=\"md-primary md-raised w-stretch flex lm0 rm0 tm16\" ng-disabled=\"$ctrl.transaction.busy()\"\n                                   ng-click=\"$ctrl.onSkip()\">\n                            {{ ::'SITES_CREATE_MOBILE_START_BUTTON_SKIP' | translate }}\n                        </md-button>\n                        <md-button iqs-test-next class=\"md-primary md-raised w-stretch flex lm0 rm0 bm0\" ng-disabled=\"$ctrl.transaction.busy()\"\n                                   ng-click=\"$ctrl.onNextPhone()\">\n                            {{ ::'SITES_CREATE_MOBILE_START_BUTTON_PHONE' | translate }}\n                        </md-button>\n                    </div>\n                    <div class=\"layout-row layout-align-start-center tm16\" ng-if=\"$ctrl.pipMedia('gt-sm')\">\n                        <md-button iqs-test-cancel class=\"md-primary md-raised w-stretch flex lm0 rm8 bm0\" ng-disabled=\"$ctrl.transaction.busy()\"\n                                   ng-click=\"$ctrl.onSkip()\">\n                            {{ ::'SITES_CREATE_MOBILE_START_BUTTON_SKIP' | translate }}\n                        </md-button>\n                        <md-button iqs-test-next class=\"md-primary md-raised w-stretch flex lm8 rm0 bm0\" ng-disabled=\"$ctrl.transaction.busy()\"\n                                   ng-click=\"$ctrl.onNextPhone()\">\n                            {{ ::'SITES_CREATE_MOBILE_START_BUTTON_PHONE' | translate }}\n                        </md-button>\n                    </div>\n                </div>\n            "
     });
 })();
-},{}],522:[function(require,module,exports){
+},{}],523:[function(require,module,exports){
 var MobileWelcomePanelBindings = {
     onLora: '&?iqsLora',
     onPhone: '&?iqsPhone',
@@ -31588,7 +31639,7 @@ var MobileWelcomePanelController = (function () {
         template: "\n                <div class=\"pip-body {{$ctrl.pipMedia('gt-sm') ? 'p24' : 'p16' }}\">\n                    <h2 class=\"text-center bm24 lm24 rm24\">\n                        {{:: 'SITES_CREATE_MOBILE_WELCOME_TITLE' | translate}}\n                    </h2>\n\n                    <div class=\"text-body1 min-h136 bm16 iqs-info\">\n                        <p>\n                            {{:: 'SITES_CREATE_MOBILE_WELCOME_SUBTITLE1' | translate}}\n                        </p>\n                        <ul>\n                            <li>{{:: 'SITES_CREATE_MOBILE_WELCOME_SUBTITLE2' | translate}}</li>\n                            <li>{{:: 'SITES_CREATE_MOBILE_WELCOME_SUBTITLE3' | translate}}</li>\n                            <li>{{:: 'SITES_CREATE_MOBILE_WELCOME_SUBTITLE4' | translate}}</li>\n                        </ul>\n                        <p>\n                            {{:: 'SITES_CREATE_MOBILE_WELCOME_SUBTITLE5' | translate}}\n                        </p>\n                        <p>\n                            {{:: 'SITES_CREATE_MOBILE_WELCOME_SUBTITLE6' | translate}}\n                        </p>\n                    </div>\n\n                </div>\n                <div class=\"pip-footer {{$ctrl.pipMedia('gt-sm') ? 'p24' : 'p16' }} tp0\">\n                    <div ng-if=\"!$ctrl.pipMedia('gt-sm')\">\n\n                        <md-button iqs-test-next class=\"md-primary md-raised w-stretch flex lm0 rm0 tm16\" ng-disabled=\"$ctrl.transaction.busy()\"\n                                   ng-click=\"$ctrl.onNextLora()\">\n                            {{ ::'SITES_CREATE_MOBILE_WELCOME_NOT_BUTTON' | translate }}\n                        </md-button>\n                        <md-button iqs-test-cancel class=\"md-primary md-raised w-stretch flex lm0 rm0 bm0 \" ng-disabled=\"$ctrl.transaction.busy()\"\n                                   ng-click=\"$ctrl.onNextPhone()\">\n                            {{ ::'SITES_CREATE_MOBILE_WELCOME_YES_BUTTON' | translate }}\n                        </md-button>\n                    </div>\n                    <div class=\"layout-row layout-align-start-center tm16\" ng-if=\"$ctrl.pipMedia('gt-sm')\">\n                        <md-button iqs-test-next class=\"md-primary md-raised w-stretch flex lm0 rm8 bm0\" ng-disabled=\"$ctrl.transaction.busy()\"\n                                   ng-click=\"$ctrl.onNextLora()\">\n                            {{ ::'SITES_CREATE_MOBILE_WELCOME_NOT_BUTTON' | translate }}\n                        </md-button>\n\n                        <md-button iqs-test-cancel class=\"md-primary md-raised w-stretch flex lm8 rm0 bm0\" ng-disabled=\"$ctrl.transaction.busy()\"\n                                   ng-click=\"$ctrl.onNextPhone()\">\n                            {{ ::'SITES_CREATE_MOBILE_WELCOME_YES_BUTTON' | translate }}\n                        </md-button>\n\n\n                    </div>\n                </div>\n            "
     });
 })();
-},{}],523:[function(require,module,exports){
+},{}],524:[function(require,module,exports){
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 var WelcomePanelBindings = {
@@ -31635,7 +31686,7 @@ var WelcomePanelController = (function () {
         template: "\n                <div class=\"pip-body {{$ctrl.pipMedia('gt-sm') ? 'p24' : 'p16' }}\">\n                    <h2 class=\"text-center bm24 lm24 rm24\">\n                        {{ :: 'SITES_MOBILE_WELCOME_TITLE' | translate }}\n                        \"{{ ::$ctrl.organization.name }}\"\n                        {{ :: 'SITES_MOBILE_WELCOME_TITLE1' | translate }}\n                    </h2>\n\n                    <div class=\"min-h136 bm16\">\n                        <p class=\"text-body1 bm16 iqs-info\">\n                            {{ :: 'SITES_MOBILE_WELCOME_DESCRIPTION' | translate }}\n                        </p>\n                        <p class=\"text-body1 iqs-info\">\n                            {{ :: 'SITES_MOBILE_WELCOME_DESCRIPTION1' | translate }}\n                        </p>\n                    </div>\n\n\n                </div>\n\n                <div class=\"pip-footer {{$ctrl.pipMedia('gt-sm') ? 'p24' : 'p16' }} tp0\">\n                    <div ng-if=\"!$ctrl.pipMedia('gt-sm')\">\n                        <md-button iqs-test-cancel class=\"md-primary md-raised w-stretch flex lm0 rm0 tm16\" ng-disabled=\"$ctrl.transaction.busy()\"\n                                   ng-click=\"$ctrl.onMonitoring()\">\n                            {{ :: 'SITES_MOBILE_WELCOME_SKIP_BUTTON' | translate }}\n                        </md-button>\n                        <md-button iqs-test-next class=\"md-primary md-raised w-stretch flex lm0 rm0 bm0\" ng-disabled=\"$ctrl.transaction.busy()\"\n                                   ng-click=\"$ctrl.next()\">\n                            {{ :: 'SITES_MOBILE_WELCOME_PROCESS_BUTTON' | translate }}\n                        </md-button>\n                    </div>\n                    <div class=\"layout-row layout-align-start-center tm16\" ng-if=\"$ctrl.pipMedia('gt-sm')\">\n                        <md-button iqs-test-cancel class=\"md-primary md-raised w-stretch flex lm0 rm8 bm0\" ng-disabled=\"$ctrl.transaction.busy()\"\n                                   ng-click=\"$ctrl.onMonitoring()\">\n                            {{ :: 'SITES_MOBILE_WELCOME_SKIP_BUTTON' | translate }}\n                        </md-button>\n                        <md-button iqs-test-next class=\"md-primary md-raised w-stretch flex lm8 rm0 bm0\" ng-disabled=\"$ctrl.transaction.busy()\"\n                                   ng-click=\"$ctrl.next()\">\n                            {{ :: 'SITES_MOBILE_WELCOME_PROCESS_BUTTON' | translate }}\n                        </md-button>\n                    </div>\n                </div>\n            "
     });
 })();
-},{}],524:[function(require,module,exports){
+},{}],525:[function(require,module,exports){
 "use strict";
 configureOrganizationsRoute.$inject = ['$injector', '$stateProvider'];
 Object.defineProperty(exports, "__esModule", { value: true });
@@ -31747,7 +31798,7 @@ function configureOrganizationsRoute($injector, $stateProvider) {
         .config(configureOrganizationsRoute);
 })();
 require("./OrganizationWelcomeResource");
-},{"../../../data":176,"./OrganizationWelcomeResource":525}],525:[function(require,module,exports){
+},{"../../../data":176,"./OrganizationWelcomeResource":526}],526:[function(require,module,exports){
 (function () {
     var translateOrganizationHomeConfig = function (pipTranslateProvider) {
         pipTranslateProvider.translations('en', {
@@ -31778,7 +31829,7 @@ require("./OrganizationWelcomeResource");
         .module('iqsOrganizationWelcome')
         .config(translateOrganizationHomeConfig);
 })();
-},{}],526:[function(require,module,exports){
+},{}],527:[function(require,module,exports){
 "use strict";
 configureOrganizationsConnectionRoute.$inject = ['$injector', '$stateProvider'];
 configureOrganizationsConnectionAccess.$inject = ['iqsAccessConfigProvider'];
@@ -31978,7 +32029,7 @@ function configureOrganizationsConnectionAccess(iqsAccessConfigProvider) {
         .config(translateConfig)
         .config(configureOrganizationsConnectionAccess);
 })();
-},{"../../../data":176,"../../../services":455}],527:[function(require,module,exports){
+},{"../../../data":176,"../../../services":456}],528:[function(require,module,exports){
 "use strict";
 configureOrganizationsRoute.$inject = ['$injector', '$stateProvider'];
 configureStatisticsUserAccess.$inject = ['iqsAccessConfigProvider'];
@@ -32188,7 +32239,7 @@ function configureStatisticsUserAccess(iqsAccessConfigProvider) {
         .config(configureStatisticsUserAccess);
 })();
 require("./OrganizationsHomeResource");
-},{"../../../data":176,"../../../services":455,"./OrganizationsHomeResource":528}],528:[function(require,module,exports){
+},{"../../../data":176,"../../../services":456,"./OrganizationsHomeResource":529}],529:[function(require,module,exports){
 (function () {
     var translateOrganizationHomeConfig = function (pipTranslateProvider) {
         pipTranslateProvider.translations('en', {
@@ -32211,7 +32262,7 @@ require("./OrganizationsHomeResource");
         .module('iqsOrganizationsHome')
         .config(translateOrganizationHomeConfig);
 })();
-},{}],529:[function(require,module,exports){
+},{}],530:[function(require,module,exports){
 var EMAIL_REGEXP = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
 function EmailValidator() {
     return {
@@ -32230,7 +32281,7 @@ function EmailValidator() {
     };
 }
 angular.module('ValidateDirectives').directive('iqsEmailValidator', EmailValidator);
-},{}],530:[function(require,module,exports){
+},{}],531:[function(require,module,exports){
 var PHONE_REGEXP = /^\+[0-9]{10,15}$/;
 function PhoneValidator() {
     return {
@@ -32249,7 +32300,7 @@ function PhoneValidator() {
     };
 }
 angular.module('ValidateDirectives').directive('iqsPhoneValidator', PhoneValidator);
-},{}],531:[function(require,module,exports){
+},{}],532:[function(require,module,exports){
 UniqueValidator.$inject = ['$parse'];
 function UniqueValidator($parse) {
     return {
@@ -32277,7 +32328,7 @@ function UniqueValidator($parse) {
     };
 }
 angular.module('ValidateDirectives').directive('iqsUniqueValidator', UniqueValidator);
-},{}],532:[function(require,module,exports){
+},{}],533:[function(require,module,exports){
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 var ValidatorsService = (function () {
@@ -32308,7 +32359,7 @@ var ValidatorsService = (function () {
     angular.module('iqsValidatorsService', [])
         .service('iqsValidatorsService', ValidatorsService);
 }
-},{}],533:[function(require,module,exports){
+},{}],534:[function(require,module,exports){
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 angular.module('ValidateDirectives', []);
@@ -32316,7 +32367,7 @@ require("./ValidatorService");
 require("./ValidateEmailDirective");
 require("./ValidatePhoneDiective");
 require("./ValidateUnique");
-},{"./ValidateEmailDirective":529,"./ValidatePhoneDiective":530,"./ValidateUnique":531,"./ValidatorService":532}],534:[function(require,module,exports){
+},{"./ValidateEmailDirective":530,"./ValidatePhoneDiective":531,"./ValidateUnique":532,"./ValidatorService":533}],535:[function(require,module,exports){
 (function (global){
 /**
  * @license
@@ -49433,7 +49484,7 @@ require("./ValidateUnique");
 
 }).call(this,typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {})
 
-},{}]},{},[240])(240)
+},{}]},{},[241])(241)
 });
 
 //# sourceMappingURL=iqs-libs-clientshell-angular.js.map

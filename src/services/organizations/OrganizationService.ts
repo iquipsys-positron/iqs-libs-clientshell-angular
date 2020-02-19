@@ -3,6 +3,7 @@ import {
     OrganizationRootVar, regestryOrgIdKey
 } from './IOrganizationService';
 import { Organization } from '../../data/organizations/Organization';
+import { UserRole } from '../../data/sessions/UserRole';
 
 class OrganizationService implements IOrganizationService {
     private _roleLevel: number = 0;
@@ -82,6 +83,19 @@ class OrganizationService implements IOrganizationService {
         return this._organization;
     }
 
+    public get role(): UserRole {
+        const roles = _.get(this.pipIdentity, 'identity.user.roles', []);
+        if (roles.includes('admin')) { return UserRole.admin; }
+        const orgId = this.orgId;
+        if (!orgId || !roles.length) { return UserRole.unknown; }
+        const orgRole = roles.find(r => r.startsWith(orgId));
+        if (!orgRole) { return UserRole.unknown; }
+        let role = orgRole.substr(orgId.length + 1) as UserRole;
+        if (role === UserRole.admin) { role = UserRole.org_admin; }
+        if (!Object.values(UserRole).includes(role as UserRole)) { return UserRole.unknown; }
+        return role;
+    }
+
     public get isDemo(): boolean {
         return this._isDemo;
     }
@@ -128,7 +142,7 @@ class OrganizationService implements IOrganizationService {
     public get canAddOrganization(): boolean {
         return this._canAddOrganization;
     }
-    
+
     public get canRemoveOrganization(): boolean {
         return this._canRemoveOrganization;
     }
@@ -136,7 +150,7 @@ class OrganizationService implements IOrganizationService {
     public set canAddOrganization(value: boolean) {
         this._canAddOrganization = value;
     }
-    
+
     public set canRemoveOrganization(value: boolean) {
         this._canRemoveOrganization = value;
     }
@@ -144,7 +158,7 @@ class OrganizationService implements IOrganizationService {
     public setOrganizationRole(roleLevel: number, AddOrganizationLanding: boolean, RemoveOrganizationNav: boolean): void {
         if (roleLevel >= 0 && roleLevel < 4) {
             this._roleLevel = roleLevel;
-        } 
+        }
     }
 }
 

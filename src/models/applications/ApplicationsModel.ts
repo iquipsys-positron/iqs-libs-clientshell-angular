@@ -5,7 +5,9 @@ import { ISettingsViewModel } from '../settings';
 import {
     IApplicationsDataService,
     ApplicationTile,
-    DataPage
+    DataPage,
+    userRoleValue,
+    UserRole
 } from '../../data';
 import { IOrganizationService } from '../../services';
 
@@ -97,6 +99,11 @@ export class ApplicationsModel {
         }
     }
 
+    private filterByRole(applications: ApplicationTile[]): ApplicationTile[] {
+        const urv = userRoleValue[this.iqsOrganization.role];
+        return applications.filter(app => userRoleValue[app.role || UserRole.unknown] <= urv);
+    }
+
     public get transaction(): pip.services.Transaction {
         return this.iqsSettingsViewModel.getTransaction();
     }
@@ -111,7 +118,7 @@ export class ApplicationsModel {
             // read applications
             (callback) => {
                 this.iqsApplicationsData.readApplications(null, (data: DataPage<ApplicationTile>) => {
-                    this.applications = data.data;
+                    this.applications = this.filterByRole(data.data);
                     this.categories = [{
                         key: this.favouritesKey,
                         tiles: []
