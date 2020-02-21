@@ -3714,7 +3714,7 @@ exports.defaultShellModuleConfig = {
     var cfgm;
     var requires = ['pipCommonRest', 'pipErrors', 'pipErrors.Unauthorized'];
     try {
-        cfgm = angular.module('iqsConfig');
+        cfgm = angular.module('iqsShellRuntimeConfig');
         requires.forEach(function (r) {
             if (!cfgm.requires.includes(r)) {
                 cfgm.requires.push(r);
@@ -3722,7 +3722,7 @@ exports.defaultShellModuleConfig = {
         });
     }
     catch (err) {
-        cfgm = angular.module('iqsConfig', requires).constant('SHELL_RUNTIME_CONFIG', exports.defaultShellModuleConfig);
+        cfgm = angular.module('iqsShellRuntimeConfig', requires).constant('SHELL_RUNTIME_CONFIG', exports.defaultShellModuleConfig);
     }
     cfgm.config(['$injector', 'pipErrorPageConfigServiceProvider', 'pipAuthStateProvider', 'pipRestProvider', function ($injector, pipErrorPageConfigServiceProvider, pipAuthStateProvider, pipRestProvider) {
         var SHELL_RUNTIME_CONFIG = $injector.has('SHELL_RUNTIME_CONFIG') ? $injector.get('SHELL_RUNTIME_CONFIG') : exports.defaultShellModuleConfig;
@@ -3735,7 +3735,7 @@ exports.defaultShellModuleConfig = {
     angular
         .module('iqsShell.Config', [
         'ngCookies',
-        'iqsConfig',
+        'iqsShellRuntimeConfig',
         'pipEntry', 'pipCommonRest', 'pipPictures', 'pipDocuments', 'pipMaps',
         'iqsTheme', 'pipTheme',
         'pipLayout', 'pipNav', 'pipDialogs', 'pipBehaviors', 'pipControls',

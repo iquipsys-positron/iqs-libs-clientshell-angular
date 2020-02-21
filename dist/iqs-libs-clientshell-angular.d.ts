@@ -486,59 +486,6 @@ export interface IBeaconsDataProvider extends ng.IServiceProvider {
 }
 
 
-export class Correction {
-    id: string;
-    org_id: string;
-    object_id?: string;
-    group_id?: string;
-    affected_ids?: string[];
-    reason?: string;
-    status: string;
-    time?: Date;
-    create_time: Date;
-    creator_id?: string;
-    creator_name?: string;
-    close_time?: Date;
-    closer_id?: string;
-    closer_name?: string;
-    changes?: CorrectionChange[];
-}
-
-export class CorrectionChange {
-    param_name?: string;
-    event_rule_id?: string;
-    zone_id?: string;
-    value: number;
-}
-
-export {};
-
-export const enum CorrectionStatus {
-    Requested = "requested",
-    Approved = "approved",
-    Rejected = "rejected"
-}
-
-export interface ICorrectionsDataService {
-    readCorrection(id: string, successCallback?: (data: Correction) => void, errorCallback?: (error: any) => void): angular.IPromise<any>;
-    readCorrections(params: any, successCallback?: (data: DataPage<Correction>) => void, errorCallback?: (error: any) => void): angular.IPromise<any>;
-    createCorrection(data: Correction, successCallback?: (data: Correction) => void, errorCallback?: (error: any) => void): void;
-    updateCorrection(id: string, data: Correction, successCallback?: (data: Correction) => void, errorCallback?: (error: any) => void): void;
-    deleteCorrection(id: string, successCallback?: () => void, errorCallback?: (error: any) => void): void;
-}
-export interface ICorrectionsDataProvider extends ng.IServiceProvider {
-}
-
-
-export const enum ParameterName {
-    Distance = "distance",
-    Online = "online",
-    Offline = "offline",
-    Freezed = "freezed",
-    immobile = "immobile",
-    Emergency = "emergency"
-}
-
 export class ControlObject {
     id: string;
     org_id: string;
@@ -603,6 +550,59 @@ export const enum ObjectType {
     AccessPoint = "access point",
     Welding = "welding",
     Other = "other"
+}
+
+export class Correction {
+    id: string;
+    org_id: string;
+    object_id?: string;
+    group_id?: string;
+    affected_ids?: string[];
+    reason?: string;
+    status: string;
+    time?: Date;
+    create_time: Date;
+    creator_id?: string;
+    creator_name?: string;
+    close_time?: Date;
+    closer_id?: string;
+    closer_name?: string;
+    changes?: CorrectionChange[];
+}
+
+export class CorrectionChange {
+    param_name?: string;
+    event_rule_id?: string;
+    zone_id?: string;
+    value: number;
+}
+
+export {};
+
+export const enum CorrectionStatus {
+    Requested = "requested",
+    Approved = "approved",
+    Rejected = "rejected"
+}
+
+export interface ICorrectionsDataService {
+    readCorrection(id: string, successCallback?: (data: Correction) => void, errorCallback?: (error: any) => void): angular.IPromise<any>;
+    readCorrections(params: any, successCallback?: (data: DataPage<Correction>) => void, errorCallback?: (error: any) => void): angular.IPromise<any>;
+    createCorrection(data: Correction, successCallback?: (data: Correction) => void, errorCallback?: (error: any) => void): void;
+    updateCorrection(id: string, data: Correction, successCallback?: (data: Correction) => void, errorCallback?: (error: any) => void): void;
+    deleteCorrection(id: string, successCallback?: () => void, errorCallback?: (error: any) => void): void;
+}
+export interface ICorrectionsDataProvider extends ng.IServiceProvider {
+}
+
+
+export const enum ParameterName {
+    Distance = "distance",
+    Online = "online",
+    Offline = "offline",
+    Freezed = "freezed",
+    immobile = "immobile",
+    Emergency = "emergency"
 }
 
 export class Address {
@@ -680,6 +680,16 @@ export interface ICurrentDeviceStatesDataService {
     readCurrentDeviceStates(successCallback?: (data: DataPage<CurrentDeviceState>) => void, errorCallback?: (error: any) => void): angular.IPromise<any>;
 }
 export interface ICurrentDeviceStatesDataProvider {
+}
+
+
+export {};
+
+export interface ICurrentObjectStatesDataService {
+    readCurrentObjectState(object_id: string, successCallback?: (data: ObjectState) => void, errorCallback?: (error: any) => void): any;
+    readCurrentObjectStates(successCallback?: (data: DataPage<ObjectState>) => void, errorCallback?: (error: any) => void): void;
+}
+export interface ICurrentObjectStatesDataProvider {
 }
 
 
@@ -775,16 +785,6 @@ export class TimedPosition {
     speed?: number;
     angle?: number;
 }
-
-export {};
-
-export interface ICurrentObjectStatesDataService {
-    readCurrentObjectState(object_id: string, successCallback?: (data: ObjectState) => void, errorCallback?: (error: any) => void): any;
-    readCurrentObjectStates(successCallback?: (data: DataPage<ObjectState>) => void, errorCallback?: (error: any) => void): void;
-}
-export interface ICurrentObjectStatesDataProvider {
-}
-
 
 export class DataProfile {
     state_types: DataProfileStateType[];
@@ -1313,6 +1313,43 @@ export class ObjectGroup {
 export {};
 
 
+export interface IObjectPositionsDataService {
+    readObjectsPositions(params: any, successCallback?: (data: DataPage<ObjectPositions>) => void, errorCallback?: (error: any) => void): angular.IPromise<any>;
+    readObjectPositions(params: any, successCallback?: (data: DataPage<ObjectPositions>) => void, errorCallback?: (error: any) => void): void;
+    getObjectsPositionsCount(params: any, successCallback?: (data: number) => void, errorCallback?: (error: any) => void): angular.IPromise<any>;
+}
+export interface IObjectPositionsDataProvider {
+}
+
+export class Position {
+    time: Date;
+    lat: any;
+    lng: any;
+    agl: number;
+    spd: number;
+    duration_time?: number;
+    parking?: boolean;
+    stoping?: boolean;
+}
+export class ObjectPositions {
+    id: string;
+    org_id: string;
+    object_id: string;
+    start_time: Date;
+    end_time: Date;
+    last_time?: Date;
+    positions: Position[];
+    path?: any[];
+    icons?: any[];
+    stroke?: any;
+    duration_time?: number;
+    parking?: boolean;
+    stoping?: boolean;
+}
+
+export {};
+
+
 export interface IObjectRoutesDataService {
     readObjectsPositions(params: any, successCallback?: (data: DataPage<ObjectRoute>) => void, errorCallback?: (error: any) => void): angular.IPromise<any>;
     readObjectPositions(params: any, successCallback?: (data: any) => void, errorCallback?: (error: any) => void): angular.IPromise<any>;
@@ -1349,43 +1386,6 @@ export class PositionShort {
     lat: number;
     lng: number;
 }
-
-
-export interface IObjectPositionsDataService {
-    readObjectsPositions(params: any, successCallback?: (data: DataPage<ObjectPositions>) => void, errorCallback?: (error: any) => void): angular.IPromise<any>;
-    readObjectPositions(params: any, successCallback?: (data: DataPage<ObjectPositions>) => void, errorCallback?: (error: any) => void): void;
-    getObjectsPositionsCount(params: any, successCallback?: (data: number) => void, errorCallback?: (error: any) => void): angular.IPromise<any>;
-}
-export interface IObjectPositionsDataProvider {
-}
-
-export class Position {
-    time: Date;
-    lat: any;
-    lng: any;
-    agl: number;
-    spd: number;
-    duration_time?: number;
-    parking?: boolean;
-    stoping?: boolean;
-}
-export class ObjectPositions {
-    id: string;
-    org_id: string;
-    object_id: string;
-    start_time: Date;
-    end_time: Date;
-    last_time?: Date;
-    positions: Position[];
-    path?: any[];
-    icons?: any[];
-    stroke?: any;
-    duration_time?: number;
-    parking?: boolean;
-    stoping?: boolean;
-}
-
-export {};
 
 
 export interface IObjectStatesDataService {
@@ -1760,6 +1760,40 @@ export class Shift {
 export {};
 
 
+export interface IStatisticsDataService {
+    readStatistics(params: any, successCallback?: (data: any[]) => void, errorCallback?: (error: any) => void): any;
+    updateStatistics(id: string, data: any, successCallback?: (data: any) => void, errorCallback?: (error: any) => void): any;
+    saveStatistics(data: any, successCallback?: (data: any) => void, errorCallback?: (error: any) => void): any;
+}
+export interface IStatisticsDataProvider {
+}
+
+export class StatisticsValue {
+    value: number;
+}
+export class Statistics {
+    group: string;
+    name: string;
+    type: number | string;
+    values: StatisticsValue[];
+}
+
+export {};
+
+export const enum StatisticsFilter {
+    Yearly = "Yearly",
+    Monthly = "Monthly",
+    Daily = "Daily",
+    Weekly = "Weekly"
+}
+
+export const enum StatisticsView {
+    Chart = "chart",
+    Grid = "grid",
+    List = "list"
+}
+
+
 export interface ISignalsDataService {
     readSignals(params: any, successCallback?: (data: DataPage<Signal>) => void, errorCallback?: (error: any) => void): angular.IPromise<any>;
     saveSignal(data: Signal, successCallback?: (data: Signal) => void, errorCallback?: (error: any) => void): any;
@@ -1840,40 +1874,6 @@ export const enum ZoneType {
     Polygon = "polygon",
     Cirle = "circle",
     Object = "object"
-}
-
-
-export interface IStatisticsDataService {
-    readStatistics(params: any, successCallback?: (data: any[]) => void, errorCallback?: (error: any) => void): any;
-    updateStatistics(id: string, data: any, successCallback?: (data: any) => void, errorCallback?: (error: any) => void): any;
-    saveStatistics(data: any, successCallback?: (data: any) => void, errorCallback?: (error: any) => void): any;
-}
-export interface IStatisticsDataProvider {
-}
-
-export class StatisticsValue {
-    value: number;
-}
-export class Statistics {
-    group: string;
-    name: string;
-    type: number | string;
-    values: StatisticsValue[];
-}
-
-export {};
-
-export const enum StatisticsFilter {
-    Yearly = "Yearly",
-    Monthly = "Monthly",
-    Daily = "Daily",
-    Weekly = "Weekly"
-}
-
-export const enum StatisticsView {
-    Chart = "chart",
-    Grid = "grid",
-    List = "list"
 }
 
 export class AccountParams {
@@ -3225,120 +3225,6 @@ export class ObjectStatesModel extends ObjectStatesAbstractModel {
 export {};
 
 
-export interface IOrganizationsViewModel {
-    initOrganizations(successCallback?: (data: any[]) => void, errorCallback?: (error: any) => void): any;
-    organizations: Organization[];
-    state: string;
-    getOrganizationById(id: string): any;
-    updateOrganization(organization: Organization, successCallback: (Organization: any) => void, errorCallback: (error: any) => void): void;
-    generateCode(id: string, successCallback?: (data: any) => void, errorCallback?: (error: any) => void): any;
-    deleteOrganization(data: Organization, successCallback?: (data: Organization) => void, errorCallback?: (error: any) => void): any;
-    createOrganization(data: Organization, successCallback?: (data: Organization) => void, errorCallback?: (error: any) => void): any;
-    clean(): void;
-    demoConnect(params: any, successCallback?: (data: any) => void, errorCallback?: (error: any) => void): any;
-    removeOrganization(id: string, successCallback?: (data: Organization) => void, errorCallback?: (error: any) => void): any;
-    getUserOrganizations(): Organization[];
-    getTransaction(): pip.services.Transaction;
-}
-
-export class OrganizationsModel {
-    private $location;
-    private iqsOrganizationsData;
-    private pipRest;
-    private pipIdentity;
-    state: string;
-    private _transaction;
-    allOrganizations: Organization[];
-    constructor(pipTransaction: pip.services.ITransactionService, $location: ng.ILocationService, iqsOrganizationsData: IOrganizationsDataService, pipRest: pip.rest.IRestService, pipIdentity: pip.services.IIdentityService);
-    private updateIdentity;
-    private setState;
-    getOrganizations(successCallback?: (data: Organization[]) => void, errorCallback?: (error: any) => void): void;
-    getOrganizationById(id: string): Organization;
-    private getOrganizationCallback;
-    updateOrganization(data: Organization, successCallback?: (data: Organization) => void, errorCallback?: (error: any) => void): void;
-    createOrganization(data: Organization, successCallback?: (data: Organization) => void, errorCallback?: (error: any) => void): void;
-    deleteOrganization(data: Organization, successCallback?: (data: Organization) => void, errorCallback?: (error: any) => void): void;
-    demoConnect(params: any, successCallback?: (data: any) => void, errorCallback?: (error: any) => void): void;
-    removeOrganization(id: string, successCallback?: (data: any) => void, errorCallback?: (error: any) => void): void;
-    readonly transaction: pip.services.Transaction;
-    clean(): void;
-    getUserOrganizations(): Organization[];
-}
-
-export {};
-
-
-export interface IResolutionsViewModel {
-    state: string;
-    isSort: boolean;
-    filter: any;
-    selectedIndex: number;
-    searchedCollection: string[];
-    read(successCallback?: (data: Resolution[]) => void, errorCallback?: (error: any) => void): any;
-    reload(successCallback?: (data: Resolution[]) => void, errorCallback?: (error: any) => void): void;
-    getCollection(localSearch?: string): Resolution[];
-    getTransaction(): pip.services.Transaction;
-    selectItem(index?: number): void;
-    getSelectedItem(): Resolution;
-    removeItem(id: string): void;
-    create(eventTemplate: Resolution, successCallback?: (data: Resolution) => void, errorCallback?: (error: any) => void): void;
-    deleteResolutionById(id: string, successCallback?: () => void, errorCallback?: (error: any) => void): void;
-    updateResolutionById(id: string, eventTemplate: Resolution, successCallback?: (data: Resolution) => void, errorCallback?: (error: any) => void): void;
-    getResolutionsByEventRuleId(ruleId: string): Resolution[];
-    getResolutionsByName(resolution: string): Resolution;
-    clean(): void;
-}
-
-export let UpdateResolutionEvent: string;
-export class ResolutionsModel {
-    private $log;
-    private $location;
-    private $timeout;
-    private pipTransaction;
-    private iqsOrganization;
-    private iqsResolutionData;
-    private _state;
-    private _isSort;
-    private _filter;
-    private resolutions;
-    private resolutionsFiltered;
-    private searchedCollection;
-    private selectIndex;
-    private selectedItem;
-    private transaction;
-    private localSearch;
-    constructor($log: ng.ILogService, $location: ng.ILocationService, $timeout: ng.ITimeoutService, pipTransaction: pip.services.ITransactionService, iqsOrganization: IOrganizationService, iqsResolutionData: IResolutionsDataService);
-    private updateItemInCollection;
-    private collectionChanged;
-    private setState;
-    private prepareSearchedCollection;
-    private sortCollection;
-    private onRead;
-    private getFiltered;
-    private getFilter;
-    read(successCallback?: (data: Resolution[]) => void, errorCallback?: (error: any) => void): angular.IPromise<any>;
-    create(resolutions: Resolution, successCallback?: (data: Resolution) => void, errorCallback?: (error: any) => void): void;
-    delete(id: string, successCallback?: () => void, errorCallback?: (error: any) => void): void;
-    update(id: string, resolutions: Resolution, successCallback?: (data: Resolution) => void, errorCallback?: (error: any) => void): void;
-    filter: any;
-    isSort: boolean;
-    state: string;
-    get(localSearch?: string): Resolution[];
-    getSearchedCollection(): string[];
-    getSelectedIndex(): number;
-    getSelectedItem(): Resolution;
-    getTransaction(): pip.services.Transaction;
-    remove(id: string): void;
-    reload(successCallback?: (data: Resolution[]) => void, errorCallback?: (error: any) => void): void;
-    selectItem(index?: number): void;
-    getResolutionsByEventRuleId(ruleId: string): Resolution[];
-    getResolutionsByName(resolution: string): Resolution;
-    clean(): void;
-}
-
-export {};
-
-
 export interface IOperationalEventsViewModel {
     state: string;
     isSort: boolean;
@@ -3449,6 +3335,120 @@ export class OperationalEventsModel {
 }
 
 export {};
+
+export {};
+
+
+export interface IOrganizationsViewModel {
+    initOrganizations(successCallback?: (data: any[]) => void, errorCallback?: (error: any) => void): any;
+    organizations: Organization[];
+    state: string;
+    getOrganizationById(id: string): any;
+    updateOrganization(organization: Organization, successCallback: (Organization: any) => void, errorCallback: (error: any) => void): void;
+    generateCode(id: string, successCallback?: (data: any) => void, errorCallback?: (error: any) => void): any;
+    deleteOrganization(data: Organization, successCallback?: (data: Organization) => void, errorCallback?: (error: any) => void): any;
+    createOrganization(data: Organization, successCallback?: (data: Organization) => void, errorCallback?: (error: any) => void): any;
+    clean(): void;
+    demoConnect(params: any, successCallback?: (data: any) => void, errorCallback?: (error: any) => void): any;
+    removeOrganization(id: string, successCallback?: (data: Organization) => void, errorCallback?: (error: any) => void): any;
+    getUserOrganizations(): Organization[];
+    getTransaction(): pip.services.Transaction;
+}
+
+export class OrganizationsModel {
+    private $location;
+    private iqsOrganizationsData;
+    private pipRest;
+    private pipIdentity;
+    state: string;
+    private _transaction;
+    allOrganizations: Organization[];
+    constructor(pipTransaction: pip.services.ITransactionService, $location: ng.ILocationService, iqsOrganizationsData: IOrganizationsDataService, pipRest: pip.rest.IRestService, pipIdentity: pip.services.IIdentityService);
+    private updateIdentity;
+    private setState;
+    getOrganizations(successCallback?: (data: Organization[]) => void, errorCallback?: (error: any) => void): void;
+    getOrganizationById(id: string): Organization;
+    private getOrganizationCallback;
+    updateOrganization(data: Organization, successCallback?: (data: Organization) => void, errorCallback?: (error: any) => void): void;
+    createOrganization(data: Organization, successCallback?: (data: Organization) => void, errorCallback?: (error: any) => void): void;
+    deleteOrganization(data: Organization, successCallback?: (data: Organization) => void, errorCallback?: (error: any) => void): void;
+    demoConnect(params: any, successCallback?: (data: any) => void, errorCallback?: (error: any) => void): void;
+    removeOrganization(id: string, successCallback?: (data: any) => void, errorCallback?: (error: any) => void): void;
+    readonly transaction: pip.services.Transaction;
+    clean(): void;
+    getUserOrganizations(): Organization[];
+}
+
+export {};
+
+
+export interface IResolutionsViewModel {
+    state: string;
+    isSort: boolean;
+    filter: any;
+    selectedIndex: number;
+    searchedCollection: string[];
+    read(successCallback?: (data: Resolution[]) => void, errorCallback?: (error: any) => void): any;
+    reload(successCallback?: (data: Resolution[]) => void, errorCallback?: (error: any) => void): void;
+    getCollection(localSearch?: string): Resolution[];
+    getTransaction(): pip.services.Transaction;
+    selectItem(index?: number): void;
+    getSelectedItem(): Resolution;
+    removeItem(id: string): void;
+    create(eventTemplate: Resolution, successCallback?: (data: Resolution) => void, errorCallback?: (error: any) => void): void;
+    deleteResolutionById(id: string, successCallback?: () => void, errorCallback?: (error: any) => void): void;
+    updateResolutionById(id: string, eventTemplate: Resolution, successCallback?: (data: Resolution) => void, errorCallback?: (error: any) => void): void;
+    getResolutionsByEventRuleId(ruleId: string): Resolution[];
+    getResolutionsByName(resolution: string): Resolution;
+    clean(): void;
+}
+
+export let UpdateResolutionEvent: string;
+export class ResolutionsModel {
+    private $log;
+    private $location;
+    private $timeout;
+    private pipTransaction;
+    private iqsOrganization;
+    private iqsResolutionData;
+    private _state;
+    private _isSort;
+    private _filter;
+    private resolutions;
+    private resolutionsFiltered;
+    private searchedCollection;
+    private selectIndex;
+    private selectedItem;
+    private transaction;
+    private localSearch;
+    constructor($log: ng.ILogService, $location: ng.ILocationService, $timeout: ng.ITimeoutService, pipTransaction: pip.services.ITransactionService, iqsOrganization: IOrganizationService, iqsResolutionData: IResolutionsDataService);
+    private updateItemInCollection;
+    private collectionChanged;
+    private setState;
+    private prepareSearchedCollection;
+    private sortCollection;
+    private onRead;
+    private getFiltered;
+    private getFilter;
+    read(successCallback?: (data: Resolution[]) => void, errorCallback?: (error: any) => void): angular.IPromise<any>;
+    create(resolutions: Resolution, successCallback?: (data: Resolution) => void, errorCallback?: (error: any) => void): void;
+    delete(id: string, successCallback?: () => void, errorCallback?: (error: any) => void): void;
+    update(id: string, resolutions: Resolution, successCallback?: (data: Resolution) => void, errorCallback?: (error: any) => void): void;
+    filter: any;
+    isSort: boolean;
+    state: string;
+    get(localSearch?: string): Resolution[];
+    getSearchedCollection(): string[];
+    getSelectedIndex(): number;
+    getSelectedItem(): Resolution;
+    getTransaction(): pip.services.Transaction;
+    remove(id: string): void;
+    reload(successCallback?: (data: Resolution[]) => void, errorCallback?: (error: any) => void): void;
+    selectItem(index?: number): void;
+    getResolutionsByEventRuleId(ruleId: string): Resolution[];
+    getResolutionsByName(resolution: string): Resolution;
+    clean(): void;
+}
 
 export {};
 
@@ -3942,36 +3942,6 @@ export class ZonesModel {
 }
 
 
-export class ActionPageParams {
-    title: string;
-    state: string;
-    id: string;
-}
-
-export class EmergencyPlanActionPageManager implements IEmergencyPlanActionPageManager {
-    private $state;
-    private $location;
-    private pipTranslate;
-    private iqsObjectConfigs;
-    private iqsSendSignalDialog;
-    private iqsSendSignals;
-    constructor($state: ng.ui.IStateService, $location: ng.ILocationService, pipTranslate: pip.services.ITranslateService, iqsObjectConfigs: IObjectConfigsService, iqsSendSignalDialog: ISendSignalDialogService, iqsSendSignals: ISendSignals);
-    private _actionPagesCollection;
-    readonly actionPagesCollection: ActionPageParams[];
-    getPageTitle(action: EmergencyAction): string;
-    onPageClick(page: string): void;
-}
-
-export const EmargencyPlanStateName: string;
-
-
-export interface IEmergencyPlanActionPageManager {
-    actionPagesCollection: ActionPageParams[];
-    getPageTitle(action: EmergencyAction): string;
-    onPageClick(page: string): void;
-}
-
-
 
 export class StateAccessAllow {
     [key: string]: number;
@@ -4002,6 +3972,36 @@ export interface IAccessConfigProvider {
 }
 
 
+export class ActionPageParams {
+    title: string;
+    state: string;
+    id: string;
+}
+
+export class EmergencyPlanActionPageManager implements IEmergencyPlanActionPageManager {
+    private $state;
+    private $location;
+    private pipTranslate;
+    private iqsObjectConfigs;
+    private iqsSendSignalDialog;
+    private iqsSendSignals;
+    constructor($state: ng.ui.IStateService, $location: ng.ILocationService, pipTranslate: pip.services.ITranslateService, iqsObjectConfigs: IObjectConfigsService, iqsSendSignalDialog: ISendSignalDialogService, iqsSendSignals: ISendSignals);
+    private _actionPagesCollection;
+    readonly actionPagesCollection: ActionPageParams[];
+    getPageTitle(action: EmergencyAction): string;
+    onPageClick(page: string): void;
+}
+
+export const EmargencyPlanStateName: string;
+
+
+export interface IEmergencyPlanActionPageManager {
+    actionPagesCollection: ActionPageParams[];
+    getPageTitle(action: EmergencyAction): string;
+    onPageClick(page: string): void;
+}
+
+
 export class GlobalHelpConfigSection {
     title: string;
     src: any;
@@ -4018,6 +4018,31 @@ export const GLOBAL_HELP: GlobalHelpConfig;
 
 
 
+
+
+export enum IncidentsUpdateType {
+    Counter = "counter",
+    Full = "full"
+}
+export interface IIncidentsConfigService {
+    updateType: IncidentsUpdateType;
+}
+
+export const IncidentsStateName = "incidents";
+
+export {};
+
+export {};
+
+export {};
+
+export {};
+
+
+export class IncidentsPanelState {
+    static List: string;
+    static Details: string;
+}
 
 
 
@@ -4056,31 +4081,6 @@ export class SearchResult {
     item?: any;
     type?: string;
 }
-
-export enum IncidentsUpdateType {
-    Counter = "counter",
-    Full = "full"
-}
-export interface IIncidentsConfigService {
-    updateType: IncidentsUpdateType;
-}
-
-export const IncidentsStateName = "incidents";
-
-export {};
-
-export {};
-
-export {};
-
-export {};
-
-
-export class IncidentsPanelState {
-    static List: string;
-    static Details: string;
-}
-
 
 export interface ILoadingService {
     isLoading: boolean;
@@ -4151,6 +4151,44 @@ export interface IMapService {
 
 export let GET_SITE_MAP_CONFIGS: string;
 
+
+export interface IObjectConfigsService {
+    id: string;
+    type: string;
+    section: number;
+    get(): ObjectConfigs;
+    clean(): void;
+}
+
+export class ObjectConfigs {
+    id: string;
+    type: string;
+    section: number;
+}
+
+export {};
+
+
+export let OrganizationRootVar: string;
+export let OrganizationChangedEvent: string;
+export let regestryOrgIdKey: string;
+export interface IOrganizationService {
+    organization: Organization;
+    orgId: string;
+    role: UserRole;
+    canAddOrganization: boolean;
+    canRemoveOrganization: boolean;
+    isDemo: boolean;
+    updateOrganization(value: Organization): void;
+    isConnectToDemo(organizations: Organization[]): boolean;
+}
+export interface IOrganizationProvider {
+    setRootVar: boolean;
+    orgIdKey: string;
+}
+
+export {};
+
 export class formattedMapIcon {
     url: string;
     scaledSize: any;
@@ -4195,44 +4233,6 @@ export class MapIcons {
     static readonly equipment: MapIcon[];
     static readonly asset: MapIcon[];
     static readonly undefined: MapIcon[];
-}
-
-export {};
-
-
-export interface IObjectConfigsService {
-    id: string;
-    type: string;
-    section: number;
-    get(): ObjectConfigs;
-    clean(): void;
-}
-
-export class ObjectConfigs {
-    id: string;
-    type: string;
-    section: number;
-}
-
-export {};
-
-
-export let OrganizationRootVar: string;
-export let OrganizationChangedEvent: string;
-export let regestryOrgIdKey: string;
-export interface IOrganizationService {
-    organization: Organization;
-    orgId: string;
-    role: UserRole;
-    canAddOrganization: boolean;
-    canRemoveOrganization: boolean;
-    isDemo: boolean;
-    updateOrganization(value: Organization): void;
-    isConnectToDemo(organizations: Organization[]): boolean;
-}
-export interface IOrganizationProvider {
-    setRootVar: boolean;
-    orgIdKey: string;
 }
 
 export {};

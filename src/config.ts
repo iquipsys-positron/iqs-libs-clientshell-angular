@@ -151,36 +151,34 @@ export const defaultShellModuleConfig = {
     const requires = ['pipCommonRest', 'pipErrors', 'pipErrors.Unauthorized'];
 
     try {
-        cfgm = angular.module('iqsConfig');
+        cfgm = angular.module('iqsShellRuntimeConfig');
         requires.forEach(r => {
             if (!cfgm.requires.includes(r)) { cfgm.requires.push(r); }
         });
     } catch (err) {
-        cfgm = angular.module('iqsConfig', requires).constant('SHELL_RUNTIME_CONFIG', defaultShellModuleConfig);
+        cfgm = angular.module('iqsShellRuntimeConfig', requires).constant('SHELL_RUNTIME_CONFIG', defaultShellModuleConfig);
     }
 
-    cfgm.config(
-        function (
-            $injector: ng.auto.IInjectorService,
-            pipErrorPageConfigServiceProvider: pip.errors.IErrorPageConfigProvider,
-            pipAuthStateProvider: pip.rest.IAuthStateProvider,
-            pipRestProvider: pip.rest.IRestProvider
-        ) {
-            const SHELL_RUNTIME_CONFIG = $injector.has('SHELL_RUNTIME_CONFIG') ? $injector.get('SHELL_RUNTIME_CONFIG') : defaultShellModuleConfig;
-            const config: ShellModuleConfig = _.defaultsDeep(SHELL_RUNTIME_CONFIG, defaultShellModuleConfig);
-            pipRestProvider.serverUrl = config.session.serverUrl;
-            pipAuthStateProvider.unauthorizedState = config.session.unautorizedState;
-            pipAuthStateProvider.authorizedState = config.session.authorizedState;
-            pipErrorPageConfigServiceProvider.configs.NoConnection.RedirectSateDefault = pipAuthStateProvider.authorizedState;
-        }
-    );
+    cfgm.config(function (
+        $injector: ng.auto.IInjectorService,
+        pipErrorPageConfigServiceProvider: pip.errors.IErrorPageConfigProvider,
+        pipAuthStateProvider: pip.rest.IAuthStateProvider,
+        pipRestProvider: pip.rest.IRestProvider
+    ) {
+        const SHELL_RUNTIME_CONFIG = $injector.has('SHELL_RUNTIME_CONFIG') ? $injector.get('SHELL_RUNTIME_CONFIG') : defaultShellModuleConfig;
+        const config: ShellModuleConfig = _.defaultsDeep(SHELL_RUNTIME_CONFIG, defaultShellModuleConfig);
+        pipRestProvider.serverUrl = config.session.serverUrl;
+        pipAuthStateProvider.unauthorizedState = config.session.unautorizedState;
+        pipAuthStateProvider.authorizedState = config.session.authorizedState;
+        pipErrorPageConfigServiceProvider.configs.NoConnection.RedirectSateDefault = pipAuthStateProvider.authorizedState;
+    });
 
     angular
         .module('iqsShell.Config', [
             // lib
             'ngCookies',
             // main config
-            'iqsConfig',
+            'iqsShellRuntimeConfig',
 
             // suite
             'pipEntry', 'pipCommonRest', 'pipPictures', 'pipDocuments', 'pipMaps',
