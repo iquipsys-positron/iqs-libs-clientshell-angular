@@ -455,7 +455,7 @@ export class EventRulesModel {
         if (!zoneId) return [];
 
         return _.filter(this.rules, (rule: EventRule) => {
-            return rule.include_zone_ids.indexOf(zoneId) > -1 || rule.all_zones && rule.exclude_zone_ids.indexOf(zoneId) == -1;
+            return rule.include_zone_ids.indexOf(zoneId) > -1 || rule.all_zones && rule.exclude_zone_ids && rule.exclude_zone_ids.indexOf(zoneId) == -1;
         }) || [];
     }
 
@@ -463,7 +463,7 @@ export class EventRulesModel {
         if (!zoneId) return [];
 
         return _.filter(this.rules, (rule: EventRule) => {
-            return rule.exclude_zone_ids.indexOf(zoneId) > -1;
+            return rule && rule.exclude_zone_ids && rule.exclude_zone_ids.indexOf(zoneId) > -1;
         }) || [];
     }
 

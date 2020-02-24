@@ -33,25 +33,6 @@ export const defaultShellModuleConfig: {
 
 
 
-export class DataPage<T> {
-    constructor(data?: T[], total?: number);
-    total: number;
-    data: T[];
-}
-
-export enum GridTypes {
-    Group = "group",
-    Formated = "formated",
-    Time = "time"
-}
-
-
-export const enum Severity {
-    Low = 0,
-    Medium = 50,
-    High = 100
-}
-
 class HttpResponseInterceptor implements ng.IHttpInterceptor {
     private $q;
     private $location;
@@ -80,6 +61,25 @@ export class States {
     static readonly Empty: string;
     static readonly Add: string;
     static readonly Edit: string;
+}
+
+export class DataPage<T> {
+    constructor(data?: T[], total?: number);
+    total: number;
+    data: T[];
+}
+
+export enum GridTypes {
+    Group = "group",
+    Formated = "formated",
+    Time = "time"
+}
+
+
+export const enum Severity {
+    Low = 0,
+    Medium = 50,
+    High = 100
 }
 
 
@@ -257,6 +257,42 @@ function UniqueValidator($parse: ng.IParseService): ng.IDirective;
 export {};
 
 
+export class SearchResultChecked extends SearchResult {
+    checked?: boolean;
+}
+
+
+
+
+
+export {};
+
+export interface IEventRuleFormatService {
+    formatObjectsList(item: EventRule): string;
+}
+
+
+export interface IObjectFormatService {
+    formatSubtitle(item: ControlObject): string;
+}
+
+
+
+
+
+
+
+
+
+
+
+export const UnauthorizedStateName: string;
+
+export {};
+
+function setUnauthorizedErrorPageResources($injector: angular.auto.IInjectorService): void;
+
+
 
 
 export class AccessRole {
@@ -320,37 +356,6 @@ export interface IActivitiesDataProvider {
 }
 
 
-export class Agreement {
-    id?: string;
-    number: string;
-    create_time?: Date;
-    active?: boolean;
-    start_time?: Date;
-    end_time?: Date;
-    company?: string;
-    content?: string;
-    inn?: string;
-}
-
-export const enum AgreementCategory {
-    Card = "card",
-    Agreement = "agreement"
-}
-
-export {};
-
-export interface IAgreementsDataService {
-    readAgreements(params: any, successCallback?: (data: DataPage<Agreement>) => void, errorCallback?: (error: any) => void): angular.IPromise<any>;
-    readAgreement(params: any, successCallback?: (data: DataPage<Agreement>) => void, errorCallback?: (error: any) => void): angular.IPromise<any>;
-    createAgreement(data: Agreement, successCallback?: (data: Agreement) => void, errorCallback?: (error: any) => void): any;
-    updateAgreement(id: string, data: Agreement, successCallback?: (data: Agreement) => void, errorCallback?: (error: any) => void): void;
-    deleteAgreement(id: string, customer_id?: string, successCallback?: (data: any) => void, errorCallback?: (error: any) => void): any;
-    verifyAgreement(number: string, successCallback?: (data: DataPage<Agreement>) => void, errorCallback?: (error: any) => void): void;
-}
-export interface IAgreementsDataProvider {
-}
-
-
 export class Application {
     id: string;
     name: MultiString;
@@ -379,6 +384,37 @@ export interface IApplicationsDataService {
     deleteApplication(id: string, successCallback?: (data: any) => void, errorCallback?: (error: any) => void): any;
 }
 export interface IApplicationsDataProvider {
+}
+
+
+export class Agreement {
+    id?: string;
+    number: string;
+    create_time?: Date;
+    active?: boolean;
+    start_time?: Date;
+    end_time?: Date;
+    company?: string;
+    content?: string;
+    inn?: string;
+}
+
+export const enum AgreementCategory {
+    Card = "card",
+    Agreement = "agreement"
+}
+
+export {};
+
+export interface IAgreementsDataService {
+    readAgreements(params: any, successCallback?: (data: DataPage<Agreement>) => void, errorCallback?: (error: any) => void): angular.IPromise<any>;
+    readAgreement(params: any, successCallback?: (data: DataPage<Agreement>) => void, errorCallback?: (error: any) => void): angular.IPromise<any>;
+    createAgreement(data: Agreement, successCallback?: (data: Agreement) => void, errorCallback?: (error: any) => void): any;
+    updateAgreement(id: string, data: Agreement, successCallback?: (data: Agreement) => void, errorCallback?: (error: any) => void): void;
+    deleteAgreement(id: string, customer_id?: string, successCallback?: (data: any) => void, errorCallback?: (error: any) => void): any;
+    verifyAgreement(number: string, successCallback?: (data: DataPage<Agreement>) => void, errorCallback?: (error: any) => void): void;
+}
+export interface IAgreementsDataProvider {
 }
 
 
@@ -1416,68 +1452,6 @@ export class ObjectState {
 export {};
 
 
-export interface IOrganizationsDataService {
-    readOrganizations(params: any, successCallback?: (data: DataPage<Organization>) => void, errorCallback?: (error: any) => void): any;
-    readOrganization(id: string, successCallback?: (data: Organization) => void, errorCallback?: (error: any) => void): any;
-    updateOrganization(id: string, data: Organization, successCallback?: (data: Organization) => void, errorCallback?: (error: any) => void): any;
-    saveOrganization(data: Organization, successCallback?: (data: Organization) => void, errorCallback?: (error: any) => void): any;
-    deleteOrganization(id: string, successCallback?: (data: any) => void, errorCallback?: (error: any) => void): any;
-    generateCode(id: string, successCallback?: (data: any) => void, errorCallback?: (error: any) => void): any;
-    demoConnect(params: any, successCallback?: (data: any) => void, errorCallback?: (error: any) => void): void;
-    removeOrganization(id: string, successCallback?: (data: Organization) => void, errorCallback?: (error: any) => void): any;
-    findOrganizationByCode(code: string, successCallback?: (data: any) => void, errorCallback?: (error: any) => void): any;
-    validateCode(code: string, successCallback?: (data: any) => void, errorCallback?: (error: any) => void): any;
-    addToCluster(id: string, successCallback?: (data: any) => void, errorCallback?: (error: any) => void): any;
-}
-export interface IOrganizationsDataProvider {
-}
-
-export class OrganizationsIndustry {
-    static readonly Mining: string;
-    static readonly Quarries: string;
-    static readonly Oil: string;
-    static readonly Civil: string;
-    static readonly Road: string;
-    static readonly Tourism: string;
-    static readonly Other: string;
-}
-export class Organization {
-    id: string;
-    code?: string;
-    create_time: Date;
-    creator_id: string;
-    deleted?: boolean;
-    active: boolean;
-    version?: number;
-    name: string;
-    description?: string;
-    address?: string;
-    center?: any;
-    radius?: number;
-    geometry?: any;
-    boundaries?: any;
-    language?: string;
-    timezone?: string;
-    industry?: OrganizationsIndustry;
-    org_size?: number;
-    total_organizations?: number;
-    purpose?: string;
-    active_int?: number;
-    inactive_int?: number;
-    offorganization_int?: number;
-    offline_timeout?: number;
-    data_rate?: number;
-    params?: any;
-    map_id?: string;
-    map_north?: number;
-    map_south?: number;
-    map_west?: number;
-    map_east?: number;
-}
-
-export {};
-
-
 export interface IOperationalEventsDataService {
     readOperationalEvents(params: any, successCallback?: (data: DataPage<OperationalEvent>) => void, errorCallback?: (error: any) => void): angular.IPromise<any>;
     createOperationalEvent(data: OperationalEvent, successCallback?: (data: OperationalEvent) => void, errorCallback?: (error: any) => void): void;
@@ -1540,6 +1514,68 @@ export const enum OperationalEventType {
     Incident = "incident",
     Resolution = "resolution"
 }
+
+
+export interface IOrganizationsDataService {
+    readOrganizations(params: any, successCallback?: (data: DataPage<Organization>) => void, errorCallback?: (error: any) => void): any;
+    readOrganization(id: string, successCallback?: (data: Organization) => void, errorCallback?: (error: any) => void): any;
+    updateOrganization(id: string, data: Organization, successCallback?: (data: Organization) => void, errorCallback?: (error: any) => void): any;
+    saveOrganization(data: Organization, successCallback?: (data: Organization) => void, errorCallback?: (error: any) => void): any;
+    deleteOrganization(id: string, successCallback?: (data: any) => void, errorCallback?: (error: any) => void): any;
+    generateCode(id: string, successCallback?: (data: any) => void, errorCallback?: (error: any) => void): any;
+    demoConnect(params: any, successCallback?: (data: any) => void, errorCallback?: (error: any) => void): void;
+    removeOrganization(id: string, successCallback?: (data: Organization) => void, errorCallback?: (error: any) => void): any;
+    findOrganizationByCode(code: string, successCallback?: (data: any) => void, errorCallback?: (error: any) => void): any;
+    validateCode(code: string, successCallback?: (data: any) => void, errorCallback?: (error: any) => void): any;
+    addToCluster(id: string, successCallback?: (data: any) => void, errorCallback?: (error: any) => void): any;
+}
+export interface IOrganizationsDataProvider {
+}
+
+export class OrganizationsIndustry {
+    static readonly Mining: string;
+    static readonly Quarries: string;
+    static readonly Oil: string;
+    static readonly Civil: string;
+    static readonly Road: string;
+    static readonly Tourism: string;
+    static readonly Other: string;
+}
+export class Organization {
+    id: string;
+    code?: string;
+    create_time: Date;
+    creator_id: string;
+    deleted?: boolean;
+    active: boolean;
+    version?: number;
+    name: string;
+    description?: string;
+    address?: string;
+    center?: any;
+    radius?: number;
+    geometry?: any;
+    boundaries?: any;
+    language?: string;
+    timezone?: string;
+    industry?: OrganizationsIndustry;
+    org_size?: number;
+    total_organizations?: number;
+    purpose?: string;
+    active_int?: number;
+    inactive_int?: number;
+    offorganization_int?: number;
+    offline_timeout?: number;
+    data_rate?: number;
+    params?: any;
+    map_id?: string;
+    map_north?: number;
+    map_south?: number;
+    map_west?: number;
+    map_east?: number;
+}
+
+export {};
 
 
 export interface IResolutionsDataService {
@@ -1762,40 +1798,6 @@ export const enum SignalType {
 }
 
 
-export interface IStatisticsDataService {
-    readStatistics(params: any, successCallback?: (data: any[]) => void, errorCallback?: (error: any) => void): any;
-    updateStatistics(id: string, data: any, successCallback?: (data: any) => void, errorCallback?: (error: any) => void): any;
-    saveStatistics(data: any, successCallback?: (data: any) => void, errorCallback?: (error: any) => void): any;
-}
-export interface IStatisticsDataProvider {
-}
-
-export class StatisticsValue {
-    value: number;
-}
-export class Statistics {
-    group: string;
-    name: string;
-    type: number | string;
-    values: StatisticsValue[];
-}
-
-export {};
-
-export const enum StatisticsFilter {
-    Yearly = "Yearly",
-    Monthly = "Monthly",
-    Daily = "Daily",
-    Weekly = "Weekly"
-}
-
-export const enum StatisticsView {
-    Chart = "chart",
-    Grid = "grid",
-    List = "list"
-}
-
-
 export interface IZonesDataService {
     readZone(object_id: string, successCallback?: (data: Zone) => void, errorCallback?: (error: any) => void): any;
     readZones(params: any, successCallback?: (data: DataPage<Zone>) => void, errorCallback?: (error: any) => void): any;
@@ -1841,40 +1843,38 @@ export const enum ZoneType {
 }
 
 
-export class SearchResultChecked extends SearchResult {
-    checked?: boolean;
+export interface IStatisticsDataService {
+    readStatistics(params: any, successCallback?: (data: any[]) => void, errorCallback?: (error: any) => void): any;
+    updateStatistics(id: string, data: any, successCallback?: (data: any) => void, errorCallback?: (error: any) => void): any;
+    saveStatistics(data: any, successCallback?: (data: any) => void, errorCallback?: (error: any) => void): any;
+}
+export interface IStatisticsDataProvider {
 }
 
+export class StatisticsValue {
+    value: number;
+}
+export class Statistics {
+    group: string;
+    name: string;
+    type: number | string;
+    values: StatisticsValue[];
+}
 
 export {};
 
-export interface IEventRuleFormatService {
-    formatObjectsList(item: EventRule): string;
+export const enum StatisticsFilter {
+    Yearly = "Yearly",
+    Monthly = "Monthly",
+    Daily = "Daily",
+    Weekly = "Weekly"
 }
 
-
-export interface IObjectFormatService {
-    formatSubtitle(item: ControlObject): string;
+export const enum StatisticsView {
+    Chart = "chart",
+    Grid = "grid",
+    List = "list"
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-export const UnauthorizedStateName: string;
-
-export {};
-
-function setUnauthorizedErrorPageResources($injector: angular.auto.IInjectorService): void;
 
 export class AccountParams {
     skip: number;
@@ -2096,6 +2096,33 @@ export interface ICreditCardsViewModel {
 }
 
 
+export class DataProfilesModel {
+    private $location;
+    private pipTransaction;
+    private iqsDataProfilesData;
+    private iqsOrganization;
+    state: string;
+    dataProfile: DataProfile;
+    private transaction;
+    constructor($location: ng.ILocationService, pipTransaction: pip.services.ITransactionService, iqsDataProfilesData: IDataProfilesDataService, iqsOrganization: IOrganizationService);
+    private setState;
+    getDataProfiles(successCallback?: (data: DataProfile) => void, errorCallback?: (error: any) => void): void;
+    private getDataProfilesCallback;
+    getTransaction(): pip.services.Transaction;
+    clean(): void;
+}
+
+export {};
+
+export interface IDataProfilesViewModel {
+    initDataProfiles(successCallback?: (data: DataProfile) => void, errorCallback?: (error: any) => void): any;
+    clean(): void;
+    getTransaction(): pip.services.Transaction;
+    state: string;
+    dataProfile: DataProfile;
+}
+
+
 export class CurrentObjectStatesModel extends ObjectStatesAbstractModel {
     constructor($location: ng.ILocationService, iqsCurrentObjectStatesData: ICurrentObjectStatesDataService, iqsDevicesViewModel: IDevicesViewModel, iqsObjectsViewModel: IObjectsViewModel, iqsMapIcon: IMapIconService, iqsObjectConfigs: IObjectConfigsService, pipMapHelperSrv: any, $rootScope: ng.IRootScopeService, iqsObjectRoutesViewModel: IObjectRoutesViewModel, iqsIncidentsViewModel: IIncidentsViewModel, iqsSmartZoom: ISmartZoomService, pipTranslate: pip.services.ITranslateService, iqsObjectFormat: IObjectFormatService, iqsOrganization: IOrganizationService);
     getObjectStates(filter?: string, successCallback?: (data: ObjectState[]) => void, errorCallback?: (error: any) => void): void;
@@ -2136,6 +2163,70 @@ export interface ICurrentObjectStatesViewModel {
     selectedIndex: number;
     isSort: boolean;
     clean(): void;
+}
+
+
+export class DeviceParams {
+    skip: number;
+    total: boolean;
+    size: number;
+    type?: string;
+}
+export class DevicesModel {
+    private $location;
+    private pipTransaction;
+    private iqsDevicesData;
+    private iqsObjectsViewModel;
+    private iqsOrganization;
+    state: string;
+    allDevices: Device[];
+    devices: Device[];
+    selectedIndex: number;
+    private selectedItem;
+    private transaction;
+    constructor($location: ng.ILocationService, pipTransaction: pip.services.ITransactionService, iqsDevicesData: IDevicesDataService, iqsObjectsViewModel: IObjectsViewModel, iqsOrganization: IOrganizationService);
+    private setState;
+    private sortCollection;
+    getDevices(filter: string, successCallback?: (data: Device[]) => void, errorCallback?: (error: any) => void): void;
+    read(successCallback?: (data: Device[]) => void, errorCallback?: (error: any) => void): void;
+    readOne(data: Device, successCallback?: (data: Device) => void, errorCallback?: (error: any) => void): angular.IPromise<any>;
+    pingDevice(id: string, successCallback?: (data: any) => void, errorCallback?: (error: any) => void): void;
+    selectItem(index?: number): void;
+    filterDevices(filter?: string): void;
+    filterWithArrayObjects(objects: SearchResult[]): void;
+    getDeviceById(deviceId: string): Device;
+    private getDevicesCallback;
+    saveDevice(data: Device, callback?: (item: Device) => void, errorCallback?: (err: any) => void): void;
+    remove(id: string): void;
+    deleteDevice(id: string, callback?: () => void, errorCallback?: () => void): void;
+    private onUpdateDevice;
+    updateDevice(data: Device, callback?: (item: any) => void, errorCallback?: (err: any) => void): void;
+    verifyDeviceUdi(params: any, successCallback?: (data: any) => void, errorCallback?: (error: any) => void): void;
+    getTransaction(): pip.services.Transaction;
+    clean(): void;
+}
+
+export {};
+
+export interface IDevicesViewModel {
+    initDevices(filter?: string, successCallback?: (data: Device[]) => void, errorCallback?: (error: any) => void): any;
+    read(successCallback?: (data: Device[]) => void, errorCallback?: (error: any) => void): any;
+    filterDevices(filter: string): any;
+    selectItem(index?: number): any;
+    getDeviceById(deviceId: string): Device;
+    saveDevice(data: Device, callback: (item: Device) => void, error: (err: any) => void): any;
+    updateDevice(data: Device, callback: (item: Device) => void, error: (err: any) => void): any;
+    deleteDevice(id: any, callback: () => void, error: () => void): any;
+    filterWithArrayObjects(objects: SearchResult[]): any;
+    verifyDeviceUdi(params: any, successCallback?: (data: any) => void, errorCallback?: (error: any) => void): void;
+    clean(): void;
+    getTransaction(): pip.services.Transaction;
+    pingDevice(id: string, successCallback?: (data: any) => void, errorCallback?: (error: any) => void): void;
+    readOne(data: Device, successCallback?: (data: Device) => void, errorCallback?: (error: any) => void): any;
+    state: string;
+    selectedIndex: number;
+    devices: Device[];
+    allDevices: Device[];
 }
 
 
@@ -2210,97 +2301,6 @@ export interface IEmergencyPlansViewModel {
     updateEmergencyPlansById(id: string, gateway: EmergencyPlan, successCallback?: (data: EmergencyPlan) => void, errorCallback?: (error: any) => void): void;
     selectItemById(id: string): void;
     clean(): void;
-}
-
-
-export class DataProfilesModel {
-    private $location;
-    private pipTransaction;
-    private iqsDataProfilesData;
-    private iqsOrganization;
-    state: string;
-    dataProfile: DataProfile;
-    private transaction;
-    constructor($location: ng.ILocationService, pipTransaction: pip.services.ITransactionService, iqsDataProfilesData: IDataProfilesDataService, iqsOrganization: IOrganizationService);
-    private setState;
-    getDataProfiles(successCallback?: (data: DataProfile) => void, errorCallback?: (error: any) => void): void;
-    private getDataProfilesCallback;
-    getTransaction(): pip.services.Transaction;
-    clean(): void;
-}
-
-export {};
-
-export interface IDataProfilesViewModel {
-    initDataProfiles(successCallback?: (data: DataProfile) => void, errorCallback?: (error: any) => void): any;
-    clean(): void;
-    getTransaction(): pip.services.Transaction;
-    state: string;
-    dataProfile: DataProfile;
-}
-
-
-export class DeviceParams {
-    skip: number;
-    total: boolean;
-    size: number;
-    type?: string;
-}
-export class DevicesModel {
-    private $location;
-    private pipTransaction;
-    private iqsDevicesData;
-    private iqsObjectsViewModel;
-    private iqsOrganization;
-    state: string;
-    allDevices: Device[];
-    devices: Device[];
-    selectedIndex: number;
-    private selectedItem;
-    private transaction;
-    constructor($location: ng.ILocationService, pipTransaction: pip.services.ITransactionService, iqsDevicesData: IDevicesDataService, iqsObjectsViewModel: IObjectsViewModel, iqsOrganization: IOrganizationService);
-    private setState;
-    private sortCollection;
-    getDevices(filter: string, successCallback?: (data: Device[]) => void, errorCallback?: (error: any) => void): void;
-    read(successCallback?: (data: Device[]) => void, errorCallback?: (error: any) => void): void;
-    readOne(data: Device, successCallback?: (data: Device) => void, errorCallback?: (error: any) => void): angular.IPromise<any>;
-    pingDevice(id: string, successCallback?: (data: any) => void, errorCallback?: (error: any) => void): void;
-    selectItem(index?: number): void;
-    filterDevices(filter?: string): void;
-    filterWithArrayObjects(objects: SearchResult[]): void;
-    getDeviceById(deviceId: string): Device;
-    private getDevicesCallback;
-    saveDevice(data: Device, callback?: (item: Device) => void, errorCallback?: (err: any) => void): void;
-    remove(id: string): void;
-    deleteDevice(id: string, callback?: () => void, errorCallback?: () => void): void;
-    private onUpdateDevice;
-    updateDevice(data: Device, callback?: (item: any) => void, errorCallback?: (err: any) => void): void;
-    verifyDeviceUdi(params: any, successCallback?: (data: any) => void, errorCallback?: (error: any) => void): void;
-    getTransaction(): pip.services.Transaction;
-    clean(): void;
-}
-
-export {};
-
-export interface IDevicesViewModel {
-    initDevices(filter?: string, successCallback?: (data: Device[]) => void, errorCallback?: (error: any) => void): any;
-    read(successCallback?: (data: Device[]) => void, errorCallback?: (error: any) => void): any;
-    filterDevices(filter: string): any;
-    selectItem(index?: number): any;
-    getDeviceById(deviceId: string): Device;
-    saveDevice(data: Device, callback: (item: Device) => void, error: (err: any) => void): any;
-    updateDevice(data: Device, callback: (item: Device) => void, error: (err: any) => void): any;
-    deleteDevice(id: any, callback: () => void, error: () => void): any;
-    filterWithArrayObjects(objects: SearchResult[]): any;
-    verifyDeviceUdi(params: any, successCallback?: (data: any) => void, errorCallback?: (error: any) => void): void;
-    clean(): void;
-    getTransaction(): pip.services.Transaction;
-    pingDevice(id: string, successCallback?: (data: any) => void, errorCallback?: (error: any) => void): void;
-    readOne(data: Device, successCallback?: (data: Device) => void, errorCallback?: (error: any) => void): any;
-    state: string;
-    selectedIndex: number;
-    devices: Device[];
-    allDevices: Device[];
 }
 
 
@@ -2405,6 +2405,74 @@ export interface IEventRulesViewModel {
     clean(): void;
 }
 
+
+
+export interface IOperationalEventTemplatesViewModel {
+    state: string;
+    isSort: boolean;
+    filter: any;
+    selectedIndex: number;
+    searchedCollection: string[];
+    read(successCallback?: (data: EventTemplate[]) => void, errorCallback?: (error: any) => void): any;
+    reload(successCallback?: (data: EventTemplate[]) => void, errorCallback?: (error: any) => void): void;
+    getCollection(localSearch?: string): EventTemplate[];
+    getTransaction(): pip.services.Transaction;
+    selectItem(index?: number): void;
+    getSelectedItem(): EventTemplate;
+    removeItem(id: string): void;
+    create(eventTemplate: EventTemplate, successCallback?: (data: EventTemplate) => void, errorCallback?: (error: any) => void): void;
+    deleteEventTemplateById(id: string, successCallback?: () => void, errorCallback?: (error: any) => void): void;
+    updateEventTemplateById(id: string, eventTemplate: EventTemplate, successCallback?: (data: EventTemplate) => void, errorCallback?: (error: any) => void): void;
+    clean(): void;
+}
+
+export class OperationalEventTemplatesModel {
+    private $log;
+    private $location;
+    private $timeout;
+    private pipTransaction;
+    private iqsOrganization;
+    private iqsEventTemplatesData;
+    private _state;
+    private _isSort;
+    private _filter;
+    private eventTemplate;
+    private eventTemplateFiltered;
+    private searchedCollection;
+    private selectIndex;
+    private selectedItem;
+    private transaction;
+    private start;
+    private take;
+    private localSearch;
+    constructor($log: ng.ILogService, $location: ng.ILocationService, $timeout: ng.ITimeoutService, pipTransaction: pip.services.ITransactionService, iqsOrganization: IOrganizationService, iqsEventTemplatesData: IEventTemplatesDataService);
+    private updateItemInCollection;
+    private collectionChanged;
+    private setState;
+    private prepareSearchedCollection;
+    private sortCollection;
+    private onRead;
+    private getFiltered;
+    private getFilter;
+    read(successCallback?: (data: EventTemplate[]) => void, errorCallback?: (error: any) => void): angular.IPromise<any>;
+    create(eventTemplate: EventTemplate, successCallback?: (data: EventTemplate) => void, errorCallback?: (error: any) => void): void;
+    delete(id: string, successCallback?: () => void, errorCallback?: (error: any) => void): void;
+    update(id: string, eventTemplate: EventTemplate, successCallback?: (data: EventTemplate) => void, errorCallback?: (error: any) => void): void;
+    filter: any;
+    isSort: boolean;
+    state: string;
+    get(localSearch?: string): EventTemplate[];
+    getSearchedCollection(): string[];
+    getSelectedIndex(): number;
+    getSelectedItem(): EventTemplate;
+    getTransaction(): pip.services.Transaction;
+    remove(id: string): void;
+    reload(successCallback?: (data: EventTemplate[]) => void, errorCallback?: (error: any) => void): void;
+    selectItem(index?: number): void;
+    clean(): void;
+}
+
+export {};
 
 export class GuidesModel {
     private $location;
@@ -2718,6 +2786,133 @@ export class LocationsModel {
 
 export {};
 
+export interface IMapViewModel {
+    map: MapModel;
+    initMap(successCallback?: () => void, errorCallback?: (error: any) => void): void;
+    initObjects(): void;
+    initStates(): void;
+    highlightStatesByName(filter: string): void;
+    focusByDeviceId(id: string): void;
+    selectByDeviceIds(ids: string[]): void;
+    selectByObjectIds(ids: string[]): void;
+    unfocusAll(): void;
+    unselectAll(): void;
+    setCenter(center: any): void;
+    setZoom(zoom: any): void;
+    zoomOut(): void;
+    zoomIn(): void;
+    updateObjectsStates(): void;
+    getCurrentObjectStateByDeviceId(id: string): ObjectState;
+    objects: ControlObject[];
+    states: ObjectState[];
+    polygons: Zone[];
+    lines: Zone[];
+    circles: Zone[];
+    filteredStates: ObjectState[];
+    isFocused: string;
+    isSelected: boolean;
+    polylinesOptions: any;
+    organizationCenter: any;
+    getActive(type: string): number;
+    getInactive(type: string): number;
+    isActive(state: any): boolean;
+}
+
+
+export const UPDATE_MAP_MODEL_CENTER: string;
+export class MapModel {
+    private iqsMapConfig;
+    private _configs;
+    state: string;
+    private cf;
+    constructor(iqsMapConfig: IMapService, $rootScope: ng.IRootScopeService, $timeout: ng.ITimeoutService);
+    $onDestroy(): void;
+    init(successCallback?: () => void, errorCallback?: (error: any) => void): void;
+    private getMapConfigs;
+    zoomIn(): void;
+    zoomOut(): void;
+    setCenter(center: any): void;
+    setZoom(zoom: any): void;
+    configs: MapConfigs;
+    readonly organizationConfigs: MapConfigs;
+    readonly organizationCenter: any;
+}
+
+export {};
+
+
+export interface IObjectGroupsViewModel {
+    state: string;
+    isSort: boolean;
+    filter: any;
+    StatisticsDataCollectionItem(updateCallback?: () => void): ObjectGroup[];
+    read(successCallback?: (data: ObjectGroup[]) => void, errorCallback?: (error: any) => void): any;
+    reload(successCallback?: (data: ObjectGroup[]) => void, errorCallback?: (error: any) => void): void;
+    getCollection(updateCallback?: () => void): ObjectGroup[];
+    getTransaction(): pip.services.Transaction;
+    selectItem(index?: number): void;
+    getSelectedItem(): ObjectGroup;
+    getSelectedIndex(): number;
+    removeItem(id: string): void;
+    filterWithObjects(data: SearchResult[]): any;
+    getGroupById(groupId: string): ObjectGroup;
+    create(ObjectGroup: ObjectGroup, successCallback?: (data: ObjectGroup) => void, errorCallback?: (error: any) => void): void;
+    deleteObjectGroupById(id: string, successCallback?: () => void, errorCallback?: (error: any) => void): void;
+    updateObjectGroupById(id: string, ObjectGroup: ObjectGroup, successCallback?: (data: ObjectGroup) => void, errorCallback?: (error: any) => void): void;
+    clean(): void;
+}
+
+export class ObjectGroupsModel {
+    private $log;
+    private $location;
+    private $timeout;
+    private pipTransaction;
+    private iqsOrganization;
+    private iqsObjectGroupsData;
+    private iqsObjectsViewModel;
+    private _state;
+    private _isSort;
+    private _filter;
+    private objectGroups;
+    private filterGroups;
+    private selectIndex;
+    private selectedItem;
+    private transaction;
+    private start;
+    private take;
+    private selectedIndex;
+    private updatedTimeStamp;
+    private updatedInterval;
+    constructor($log: ng.ILogService, $location: ng.ILocationService, $timeout: ng.ITimeoutService, pipTransaction: pip.services.ITransactionService, iqsOrganization: IOrganizationService, iqsObjectGroupsData: IObjectGroupsDataService, iqsObjectsViewModel: IObjectsViewModel);
+    private updateItemInCollection;
+    private updateAllGroup;
+    private sortCollection;
+    private collectionChanged;
+    private setState;
+    private onRead;
+    private getFilter;
+    read(successCallback?: (data: ObjectGroup[]) => void, errorCallback?: (error: any) => void, stopTransaction?: boolean): angular.IPromise<any>;
+    create(ObjectGroup: ObjectGroup, successCallback?: (data: ObjectGroup) => void, errorCallback?: (error: any) => void): void;
+    delete(id: string, successCallback?: () => void, errorCallback?: (error: any) => void): void;
+    update(id: string, ObjectGroup: ObjectGroup, successCallback?: (data: ObjectGroup) => void, errorCallback?: (error: any) => void): void;
+    filter: any;
+    isSort: boolean;
+    state: string;
+    get(updateCallback?: () => void): ObjectGroup[];
+    getFilterGroups(updateCallback?: () => void): ObjectGroup[];
+    getSelectedIndex(): number;
+    getSelectedItem(): ObjectGroup;
+    getTransaction(): pip.services.Transaction;
+    remove(id: string): void;
+    getGroupById(groupId: string): ObjectGroup;
+    reload(successCallback?: (data: ObjectGroup[]) => void, errorCallback?: (error: any) => void): void;
+    selectItem(index?: number): void;
+    filterWithObjects(data: SearchResult[]): void;
+    clean(): void;
+}
+
+export {};
+
 
 export interface IObjectsViewModel {
     objects: ObjectsModel;
@@ -2790,60 +2985,6 @@ export class ObjectsModel {
     clean(): void;
 }
 
-
-export interface IMapViewModel {
-    map: MapModel;
-    initMap(successCallback?: () => void, errorCallback?: (error: any) => void): void;
-    initObjects(): void;
-    initStates(): void;
-    highlightStatesByName(filter: string): void;
-    focusByDeviceId(id: string): void;
-    selectByDeviceIds(ids: string[]): void;
-    selectByObjectIds(ids: string[]): void;
-    unfocusAll(): void;
-    unselectAll(): void;
-    setCenter(center: any): void;
-    setZoom(zoom: any): void;
-    zoomOut(): void;
-    zoomIn(): void;
-    updateObjectsStates(): void;
-    getCurrentObjectStateByDeviceId(id: string): ObjectState;
-    objects: ControlObject[];
-    states: ObjectState[];
-    polygons: Zone[];
-    lines: Zone[];
-    circles: Zone[];
-    filteredStates: ObjectState[];
-    isFocused: string;
-    isSelected: boolean;
-    polylinesOptions: any;
-    organizationCenter: any;
-    getActive(type: string): number;
-    getInactive(type: string): number;
-    isActive(state: any): boolean;
-}
-
-
-export const UPDATE_MAP_MODEL_CENTER: string;
-export class MapModel {
-    private iqsMapConfig;
-    private _configs;
-    state: string;
-    private cf;
-    constructor(iqsMapConfig: IMapService, $rootScope: ng.IRootScopeService, $timeout: ng.ITimeoutService);
-    $onDestroy(): void;
-    init(successCallback?: () => void, errorCallback?: (error: any) => void): void;
-    private getMapConfigs;
-    zoomIn(): void;
-    zoomOut(): void;
-    setCenter(center: any): void;
-    setZoom(zoom: any): void;
-    configs: MapConfigs;
-    readonly organizationConfigs: MapConfigs;
-    readonly organizationCenter: any;
-}
-
-export {};
 
 
 export interface IObjectRoutesViewModel {
@@ -3039,74 +3180,6 @@ export class RouteVisualization {
     static selectPath(objectPositions: RoutePoints[], objectId?: string): RoutePoints[];
     static getHighlightCenter(objectPoints: MapPoint[], objectId?: string): PositionShort;
 }
-
-
-export interface IOperationalEventTemplatesViewModel {
-    state: string;
-    isSort: boolean;
-    filter: any;
-    selectedIndex: number;
-    searchedCollection: string[];
-    read(successCallback?: (data: EventTemplate[]) => void, errorCallback?: (error: any) => void): any;
-    reload(successCallback?: (data: EventTemplate[]) => void, errorCallback?: (error: any) => void): void;
-    getCollection(localSearch?: string): EventTemplate[];
-    getTransaction(): pip.services.Transaction;
-    selectItem(index?: number): void;
-    getSelectedItem(): EventTemplate;
-    removeItem(id: string): void;
-    create(eventTemplate: EventTemplate, successCallback?: (data: EventTemplate) => void, errorCallback?: (error: any) => void): void;
-    deleteEventTemplateById(id: string, successCallback?: () => void, errorCallback?: (error: any) => void): void;
-    updateEventTemplateById(id: string, eventTemplate: EventTemplate, successCallback?: (data: EventTemplate) => void, errorCallback?: (error: any) => void): void;
-    clean(): void;
-}
-
-export class OperationalEventTemplatesModel {
-    private $log;
-    private $location;
-    private $timeout;
-    private pipTransaction;
-    private iqsOrganization;
-    private iqsEventTemplatesData;
-    private _state;
-    private _isSort;
-    private _filter;
-    private eventTemplate;
-    private eventTemplateFiltered;
-    private searchedCollection;
-    private selectIndex;
-    private selectedItem;
-    private transaction;
-    private start;
-    private take;
-    private localSearch;
-    constructor($log: ng.ILogService, $location: ng.ILocationService, $timeout: ng.ITimeoutService, pipTransaction: pip.services.ITransactionService, iqsOrganization: IOrganizationService, iqsEventTemplatesData: IEventTemplatesDataService);
-    private updateItemInCollection;
-    private collectionChanged;
-    private setState;
-    private prepareSearchedCollection;
-    private sortCollection;
-    private onRead;
-    private getFiltered;
-    private getFilter;
-    read(successCallback?: (data: EventTemplate[]) => void, errorCallback?: (error: any) => void): angular.IPromise<any>;
-    create(eventTemplate: EventTemplate, successCallback?: (data: EventTemplate) => void, errorCallback?: (error: any) => void): void;
-    delete(id: string, successCallback?: () => void, errorCallback?: (error: any) => void): void;
-    update(id: string, eventTemplate: EventTemplate, successCallback?: (data: EventTemplate) => void, errorCallback?: (error: any) => void): void;
-    filter: any;
-    isSort: boolean;
-    state: string;
-    get(localSearch?: string): EventTemplate[];
-    getSearchedCollection(): string[];
-    getSelectedIndex(): number;
-    getSelectedItem(): EventTemplate;
-    getTransaction(): pip.services.Transaction;
-    remove(id: string): void;
-    reload(successCallback?: (data: EventTemplate[]) => void, errorCallback?: (error: any) => void): void;
-    selectItem(index?: number): void;
-    clean(): void;
-}
-
-export {};
 
 
 export interface IObjectStatesViewModel {
@@ -3870,79 +3943,6 @@ export class ZonesModel {
 
 
 
-export interface IObjectGroupsViewModel {
-    state: string;
-    isSort: boolean;
-    filter: any;
-    StatisticsDataCollectionItem(updateCallback?: () => void): ObjectGroup[];
-    read(successCallback?: (data: ObjectGroup[]) => void, errorCallback?: (error: any) => void): any;
-    reload(successCallback?: (data: ObjectGroup[]) => void, errorCallback?: (error: any) => void): void;
-    getCollection(updateCallback?: () => void): ObjectGroup[];
-    getTransaction(): pip.services.Transaction;
-    selectItem(index?: number): void;
-    getSelectedItem(): ObjectGroup;
-    getSelectedIndex(): number;
-    removeItem(id: string): void;
-    filterWithObjects(data: SearchResult[]): any;
-    getGroupById(groupId: string): ObjectGroup;
-    create(ObjectGroup: ObjectGroup, successCallback?: (data: ObjectGroup) => void, errorCallback?: (error: any) => void): void;
-    deleteObjectGroupById(id: string, successCallback?: () => void, errorCallback?: (error: any) => void): void;
-    updateObjectGroupById(id: string, ObjectGroup: ObjectGroup, successCallback?: (data: ObjectGroup) => void, errorCallback?: (error: any) => void): void;
-    clean(): void;
-}
-
-export class ObjectGroupsModel {
-    private $log;
-    private $location;
-    private $timeout;
-    private pipTransaction;
-    private iqsOrganization;
-    private iqsObjectGroupsData;
-    private iqsObjectsViewModel;
-    private _state;
-    private _isSort;
-    private _filter;
-    private objectGroups;
-    private filterGroups;
-    private selectIndex;
-    private selectedItem;
-    private transaction;
-    private start;
-    private take;
-    private selectedIndex;
-    private updatedTimeStamp;
-    private updatedInterval;
-    constructor($log: ng.ILogService, $location: ng.ILocationService, $timeout: ng.ITimeoutService, pipTransaction: pip.services.ITransactionService, iqsOrganization: IOrganizationService, iqsObjectGroupsData: IObjectGroupsDataService, iqsObjectsViewModel: IObjectsViewModel);
-    private updateItemInCollection;
-    private updateAllGroup;
-    private sortCollection;
-    private collectionChanged;
-    private setState;
-    private onRead;
-    private getFilter;
-    read(successCallback?: (data: ObjectGroup[]) => void, errorCallback?: (error: any) => void, stopTransaction?: boolean): angular.IPromise<any>;
-    create(ObjectGroup: ObjectGroup, successCallback?: (data: ObjectGroup) => void, errorCallback?: (error: any) => void): void;
-    delete(id: string, successCallback?: () => void, errorCallback?: (error: any) => void): void;
-    update(id: string, ObjectGroup: ObjectGroup, successCallback?: (data: ObjectGroup) => void, errorCallback?: (error: any) => void): void;
-    filter: any;
-    isSort: boolean;
-    state: string;
-    get(updateCallback?: () => void): ObjectGroup[];
-    getFilterGroups(updateCallback?: () => void): ObjectGroup[];
-    getSelectedIndex(): number;
-    getSelectedItem(): ObjectGroup;
-    getTransaction(): pip.services.Transaction;
-    remove(id: string): void;
-    getGroupById(groupId: string): ObjectGroup;
-    reload(successCallback?: (data: ObjectGroup[]) => void, errorCallback?: (error: any) => void): void;
-    selectItem(index?: number): void;
-    filterWithObjects(data: SearchResult[]): void;
-    clean(): void;
-}
-
-export {};
-
-
 export class StateAccessAllow {
     [key: string]: number;
 }
@@ -4200,27 +4200,6 @@ export class MapIcons {
 export {};
 
 
-export let OrganizationRootVar: string;
-export let OrganizationChangedEvent: string;
-export let regestryOrgIdKey: string;
-export interface IOrganizationService {
-    organization: Organization;
-    orgId: string;
-    role: UserRole;
-    canAddOrganization: boolean;
-    canRemoveOrganization: boolean;
-    isDemo: boolean;
-    updateOrganization(value: Organization): void;
-    isConnectToDemo(organizations: Organization[]): boolean;
-}
-export interface IOrganizationProvider {
-    setRootVar: boolean;
-    orgIdKey: string;
-}
-
-export {};
-
-
 export interface IObjectConfigsService {
     id: string;
     type: string;
@@ -4246,6 +4225,27 @@ export interface ISendSignals {
     getDeviceIdsByGroups(group_ids: string[]): string[];
     getDeviceIdsByZones(zone_ids: string[]): string[];
     sendSignals(data: SendSignalData): void;
+}
+
+export {};
+
+
+export let OrganizationRootVar: string;
+export let OrganizationChangedEvent: string;
+export let regestryOrgIdKey: string;
+export interface IOrganizationService {
+    organization: Organization;
+    orgId: string;
+    role: UserRole;
+    canAddOrganization: boolean;
+    canRemoveOrganization: boolean;
+    isDemo: boolean;
+    updateOrganization(value: Organization): void;
+    isConnectToDemo(organizations: Organization[]): boolean;
+}
+export interface IOrganizationProvider {
+    setRootVar: boolean;
+    orgIdKey: string;
 }
 
 export {};
@@ -4402,12 +4402,6 @@ export interface IDemoService {
 
 
 export const LandingStateName: string;
-
-
-
-
-export {};
-
 
 
 
@@ -4634,6 +4628,12 @@ export class StatisticsParams {
     static all: string[];
 }
 
+export {};
+
+
+
+
+
 export class EmergencyPlanPanelState {
     static List: string;
     static Details: string;
@@ -4667,10 +4667,10 @@ export const OrganizationsHomeStateName: string;
 export const OrganizationInvitationStateName: string;
 
 
-export const OrganizationQuickStartStateName: string;
-
-
 export const OrganizationWelcomeStateName: string;
+
+
+export const OrganizationQuickStartStateName: string;
 
 
 export class FilterDialogController extends FilterDialogParams implements ng.IController {

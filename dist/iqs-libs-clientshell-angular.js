@@ -10793,14 +10793,14 @@ var EventRulesModel = (function () {
         if (!zoneId)
             return [];
         return _.filter(this.rules, function (rule) {
-            return rule.include_zone_ids.indexOf(zoneId) > -1 || rule.all_zones && rule.exclude_zone_ids.indexOf(zoneId) == -1;
+            return rule.include_zone_ids.indexOf(zoneId) > -1 || rule.all_zones && rule.exclude_zone_ids && rule.exclude_zone_ids.indexOf(zoneId) == -1;
         }) || [];
     };
     EventRulesModel.prototype.getEventRulesWithExcludeZone = function (zoneId) {
         if (!zoneId)
             return [];
         return _.filter(this.rules, function (rule) {
-            return rule.exclude_zone_ids.indexOf(zoneId) > -1;
+            return rule && rule.exclude_zone_ids && rule.exclude_zone_ids.indexOf(zoneId) > -1;
         }) || [];
     };
     EventRulesModel.prototype.clean = function () {
