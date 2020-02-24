@@ -11,8 +11,8 @@ export class InvitationParams {
 
 export class InvitationsModel {
     public state: string;
-    public allInvitations: Invitation[];
-    public invitations: Invitation[];
+    public allInvitations: Invitation[] = [];
+    public invitations: Invitation[] = [];
     public selectedIndex: number;
     private selectedItem: Invitation;
     private readonly THRESHOLD: number = 15 * 60 * 1000; // 15 min

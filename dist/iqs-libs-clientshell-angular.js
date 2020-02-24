@@ -12762,6 +12762,8 @@ var InvitationsModel = (function () {
         this.$location = $location;
         this.iqsInvitationsData = iqsInvitationsData;
         this.pipTransaction = pipTransaction;
+        this.allInvitations = [];
+        this.invitations = [];
         this.THRESHOLD = 15 * 60 * 1000;
         this.transaction = pipTransaction.create('Invintation');
     }
